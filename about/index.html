@@ -9,7 +9,7 @@
   <meta name="author" content="Tarashish Mishra">
 
   
-  <meta name="description" content="About Aug 5th, 2012 Aug 5th, 2012 Tweet Recent Posts Sample Post : A Sample Post for Octropress GitHub Repos Status updating... @sunu on GitHub $. &hellip;">
+  <meta name="description" content="About Aug 5th, 2012 They are not terribly different looking, it&#8217;s true, but we also want them to be recognizable as a family of sites. We&# &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -82,7 +82,22 @@
 <time datetime="2012-08-05T13:14:00+05:30" pubdate data-updated="true">Aug 5<span>th</span>, 2012</time></p>
   </header>
   
-  
+  <p>They are not terribly different looking, it&#8217;s true, but we also want them to be recognizable as a family of sites.</p>
+
+<p>We&#8217;re working with two amazing designers, Jin Yang and Nathan Bowers, who are helping us whip the CSS and HTML into shape so they can produce a set of about 10 different Zen Garden designs. As new sites in our network get democracied into being, these designs will be used as a palette for the community to choose from. (And, later, the community will decide on a domain name and logo as well.)</p>
+
+<p>Anyway, I bring this up not because my pokemans, let me show you them, but because I have to personally maintain four different CSS files. And that number is only going to get larger. Much larger. That scares me a little.</p>
+
+<p>Most of all, what I&#8217;ve learned from this exercise in site theming is that CSS is kind of painful. I fully support CSS as a (mostly) functional user interface Model-View-Controller. But even if you have extreme HTML hygiene and Austrian levels of discipline, CSS has some serious limitations in practice.</p>
+
+<p>Things in particular that bite us a lot:</p>
+
+<p>Vertical alignment is a giant, hacky PITA. (Tables work great for this though!)
+Lack of variables so we have to repeat colors all over the place.
+Lack of nesting so we have to repeat huge blocks of CSS all over the place.
+In short, CSS violates the living crap out of the DRY principle. You are constantly and unavoidably repeating yourself.</p>
+
+<p>That&#8217;s why I&#8217;m so intrigued by two Ruby gems that attempt to directly address the deficiencies of CSS.</p>
 
   
     <footer>
