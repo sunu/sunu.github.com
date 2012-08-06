@@ -98,30 +98,46 @@
 
 <p>For example, let&#8217;s say we have to pass a function as argument to another function. We don&#8217;t have to pass the function&#8217;s name as a parameter or anything. Because everything including functions are objects in python, we can directly pass the function as the argument. Take a look at the following example.</p>
 
-<pre><code>
->>> def blue():
-...     return 'blue'
-... 
->>> def sky():
-...     return 'sky'
-... 
->>> def add_strings(a,b):
-...     return a() + b()
-... 
->>> add_strings(blue,sky)
-'bluesky'
->>> 
-</code></pre>
+<figure class='code'><figcaption><span>[]</span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="o">&gt;&gt;&gt;</span> <span class="k">def</span> <span class="nf">blue</span><span class="p">():</span>
+</span><span class='line'><span class="o">...</span>     <span class="k">return</span> <span class="s">&#39;blue&#39;</span>
+</span><span class='line'><span class="o">...</span>
+</span><span class='line'><span class="o">&gt;&gt;&gt;</span> <span class="k">def</span> <span class="nf">sky</span><span class="p">():</span>
+</span><span class='line'><span class="o">...</span>     <span class="k">return</span> <span class="s">&#39;sky&#39;</span>
+</span><span class='line'><span class="o">...</span>
+</span><span class='line'><span class="o">&gt;&gt;&gt;</span> <span class="k">def</span> <span class="nf">add_strings</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">):</span>
+</span><span class='line'><span class="o">...</span>     <span class="k">return</span> <span class="n">a</span><span class="p">()</span> <span class="o">+</span> <span class="n">b</span><span class="p">()</span>
+</span><span class='line'><span class="o">...</span>
+</span><span class='line'><span class="o">&gt;&gt;&gt;</span> <span class="n">add_strings</span><span class="p">(</span><span class="n">blue</span><span class="p">,</span><span class="n">sky</span><span class="p">)</span>
+</span><span class='line'><span class="s">&#39;bluesky&#39;</span>
+</span><span class='line'><span class="o">&gt;&gt;&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
 <p>Here we passed the functions <code>blue</code> and <code>sky</code> directly into the function <code>add_strings</code> as arguments. Thing to be noted is <code>blue</code> represents the function object , but <code>blue()</code> calls the function.</p>
 
-<pre><code>
->>> blue
-<function blue at 0x8c55064>
->>> blue()
-'blue'
-</code></pre>
+<figure class='code'><figcaption><span>[]</span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="o">&gt;&gt;&gt;</span> <span class="n">blue</span>
+</span><span class='line'><span class="o">&lt;</span><span class="n">function</span> <span class="n">blue</span> <span class="n">at</span> <span class="mh">0x8c55064</span><span class="o">&gt;</span>
+</span><span class='line'><span class="o">&gt;&gt;&gt;</span> <span class="n">blue</span><span class="p">()</span>
+</span><span class='line'><span class="s">&#39;blue&#39;</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
 <p>Now similarly function objects can also be assigned to variables.</p>
@@ -144,13 +160,18 @@
 
 <p>But if we try the same thing with <code>print</code> in python 2.x</p>
 
-<pre><code>
->>> a = print
-  File "<stdin>", line 1
-    a = print
-            ^
-SyntaxError: invalid syntax
-</code></pre>
+<figure class='code'><figcaption><span>[]</span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="k">print</span>
+</span><span class='line'>  <span class="n">File</span> <span class="s">&quot;&lt;stdin&gt;&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span>
+</span><span class='line'>    <span class="n">a</span> <span class="o">=</span> <span class="k">print</span>
+</span><span class='line'>            <span class="o">^</span>
+</span><span class='line'><span class="ne">SyntaxError</span><span class="p">:</span> <span class="n">invalid</span> <span class="n">syntax</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
 <p>We get a SynaxError. This is simply because <code>print</code> is not a function in python 2.x , it is a statement. The systax of <code>print</code> makes it clear too. Notice that we don&#8217;t use parentheses in the print statement which are normally used in functions. But in python 3.x <code>print</code> is made a function according to <a href="http://www.python.org/dev/peps/pep-3105/">this PEP proposal</a> and the use of parenthesis in <code>print</code> in python 3.x also support the fact that print is a function in python 3.x. So the above assignment will work in python 3.x.</p>
