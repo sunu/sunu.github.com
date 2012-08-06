@@ -4,7 +4,7 @@
   <title><![CDATA[tarashish dot com]]></title>
   <link href="http://sunu.github.com/atom.xml" rel="self"/>
   <link href="http://sunu.github.com/"/>
-  <updated>2012-08-06T16:54:24+05:30</updated>
+  <updated>2012-08-06T16:57:42+05:30</updated>
   <id>http://sunu.github.com/</id>
   <author>
     <name><![CDATA[Tarashish Mishra]]></name>
@@ -25,7 +25,7 @@
 
 <p>For example, let&#8217;s say we have to pass a function as argument to another function. We don&#8217;t have to pass the function&#8217;s name as a parameter or anything. Because everything including functions are objects in python, we can directly pass the function as the argument. Take a look at the following example.</p>
 
-<figure class='code'><figcaption><span>[]</span></figcaption>
+<figure class='code'><figcaption><span>[Functions as argument][]</span></figcaption>
  <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -55,7 +55,7 @@
 
 <p>Here we passed the functions <code>blue</code> and <code>sky</code> directly into the function <code>add_strings</code> as arguments. Thing to be noted is <code>blue</code> represents the function object , but <code>blue()</code> calls the function.</p>
 
-<figure class='code'><figcaption><span>[]</span></figcaption>
+<figure class='code'><figcaption><span>[function object and function call][]</span></figcaption>
  <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -69,7 +69,7 @@
 
 <p>Now similarly function objects can also be assigned to variables.</p>
 
-<figure class='code'><figcaption><span>[]</span></figcaption>
+<figure class='code'><figcaption><span>[Assignment of function object][]</span></figcaption>
  <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -87,7 +87,7 @@
 
 <p>But if we try the same thing with <code>print</code> in python 2.x</p>
 
-<figure class='code'><figcaption><span>[]</span></figcaption>
+<figure class='code'><figcaption><span>[failure of assignment using print][]</span></figcaption>
  <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
