@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Python | tarashish dot com]]></title>
+  <link href="http://sunu.github.com/blog/categories/python/atom.xml" rel="self"/>
+  <link href="http://sunu.github.com/"/>
+  <updated>2012-08-06T16:31:46+05:30</updated>
+  <id>http://sunu.github.com/</id>
+  <author>
+    <name><![CDATA[Tarashish Mishra]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Print is Not a Function in Python 2.x]]></title>
+    <link href="http://sunu.github.com/blog/2012/08/06/print-is-not-a-function-in-python-2-dot-x/"/>
+    <updated>2012-08-06T15:58:00+05:30</updated>
+    <id>http://sunu.github.com/blog/2012/08/06/print-is-not-a-function-in-python-2-dot-x</id>
+    <content type="html"><![CDATA[<p>{% blockqoute %}
+Everything in Python is an object.
+{%endblockqoute %}</p>
+
+<p>This is perhaps the most common line in all the python books I have read. And indeed almost everything in python are objects. And this gives great powers to python.</p>
+
+<p>For example, let's say we have to pass a function as argument to another function. We don't have to pass the function's name as a parameter or anything. Because everything including functions are objects in python, we can directly pass the function as the argument. Take a look at the following example.</p>
+
+<p>{%codeblock %}</p>
+
+<blockquote><blockquote><blockquote><p>def blue():
+...     return 'blue'
+...
+def sky():
+...     return 'sky'
+...
+def add_strings(a,b):
+...     return a() + b()
+...
+add_strings(blue,sky)
+'bluesky'</p>
+
+<p>{%endcodeblock %}</p></blockquote></blockquote></blockquote>
+
+<p>Here we passed the functions <code>blue</code> and <code>sky</code> directly into the function <code>add_strings</code> as arguments. Thing to be noted is <code>blue</code> represents the function object , but <code>blue()</code> calls the function.</p>
+
+<p>{%codeblock%}</p>
+
+<blockquote><blockquote><blockquote><p>blue
+<function blue at 0x8c55064>
+blue()
+'blue'
+{%endcodeblock %}</p></blockquote></blockquote></blockquote>
+
+<p>Now similarly function objects can also be assigned to variables.</p>
+
+<p>{%codeblock %}</p>
+
+<blockquote><blockquote><blockquote><p>def a():
+...     print "a"
+...
+b = a
+b()
+a
+{%endcodeblock %}</p></blockquote></blockquote></blockquote>
+
+<p>But if we try the same thing with <code>print</code> in python 2.x
+{%codeblock%}</p>
+
+<blockquote><blockquote><blockquote><p>a = print
+  File "<stdin>", line 1</p>
+
+<pre><code>a = print
+        ^
+</code></pre>
+
+<p>SyntaxError: invalid syntax
+{%endcodeblock%}</p></blockquote></blockquote></blockquote>
+
+<p>We get a SynaxError. This is simply because <code>print</code> is not a function in python 2.x , it is a statement. The systax of <code>print</code> makes it clear too. Notice that we don't use parentheses in the print statement which are normally used in functions. But in python 3.x <code>print</code> is made a function according to <a href="http://www.python.org/dev/peps/pep-3105/">this PEP proposal</a> and the use of parenthesis in <code>print</code> in python 3.x also support the fact that print is a function in python 3.x. So the above assignment will work in python 3.x.</p>
+]]></content>
+  </entry>
+  
+</feed>

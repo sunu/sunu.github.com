@@ -5,11 +5,13 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Sample Post : A Sample Post for Octropress - tarashish dot com</title>
+  <title>Print is Not a Function in Python 2.x - tarashish dot com</title>
   <meta name="author" content="Tarashish Mishra">
 
   
-  <meta name="description" content="They are not terribly different looking, it&#8217;s true, but we also want them to be recognizable as a family of sites. We&#8217;re working with two &hellip;">
+  <meta name="description" content="{% blockqoute %}
+Everything in Python is an object.
+{%endblockqoute %} This is perhaps the most common line in all the python books I have read. And &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +20,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://sunu.github.com/blog/2012/08/05/sample-post-a-sample-post-for-octropress/">
+  <link rel="canonical" href="http://sunu.github.com/blog/2012/08/06/print-is-not-a-function-in-python-2-dot-x/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -65,7 +67,7 @@
   
   <header>
     
-      <h1 class="entry-title">Sample Post : A Sample Post for Octropress</h1>
+      <h1 class="entry-title">Print Is Not a Function in Python 2.x</h1>
     
     
       <p class="meta">
@@ -81,29 +83,73 @@
   
 
 
-<time datetime="2012-08-05T13:07:00+05:30" pubdate data-updated="true">Aug 5<span>th</span>, 2012</time>
+<time datetime="2012-08-06T15:58:00+05:30" pubdate data-updated="true">Aug 6<span>th</span>, 2012</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>They are not terribly different looking, it&#8217;s true, but we also want them to be recognizable as a family of sites.</p>
+<div class="entry-content"><p>{% blockqoute %}
+Everything in Python is an object.
+{%endblockqoute %}</p>
 
-<p>We&#8217;re working with two amazing designers, Jin Yang and Nathan Bowers, who are helping us whip the CSS and HTML into shape so they can produce a set of about 10 different Zen Garden designs. As new sites in our network get democracied into being, these designs will be used as a palette for the community to choose from. (And, later, the community will decide on a domain name and logo as well.)</p>
+<p>This is perhaps the most common line in all the python books I have read. And indeed almost everything in python are objects. And this gives great powers to python.</p>
 
-<p>Anyway, I bring this up not because my pokemans, let me show you them, but because I have to personally maintain four different CSS files. And that number is only going to get larger. Much larger. That scares me a little.</p>
+<p>For example, let&#8217;s say we have to pass a function as argument to another function. We don&#8217;t have to pass the function&#8217;s name as a parameter or anything. Because everything including functions are objects in python, we can directly pass the function as the argument. Take a look at the following example.</p>
 
-<p>Most of all, what I&#8217;ve learned from this exercise in site theming is that CSS is kind of painful. I fully support CSS as a (mostly) functional user interface Model-View-Controller. But even if you have extreme HTML hygiene and Austrian levels of discipline, CSS has some serious limitations in practice.<!-- more --></p>
+<p>{%codeblock %}</p>
 
-<p>Things in particular that bite us a lot:</p>
+<blockquote><blockquote><blockquote><p>def blue():
+&#8230;     return &#8216;blue&#8217;
+&#8230;
+def sky():
+&#8230;     return &#8216;sky&#8217;
+&#8230;
+def add_strings(a,b):
+&#8230;     return a() + b()
+&#8230;
+add_strings(blue,sky)
+&#8216;bluesky&#8217;</p>
 
-<p>Vertical alignment is a giant, hacky PITA. (Tables work great for this though!)
-Lack of variables so we have to repeat colors all over the place.
-Lack of nesting so we have to repeat huge blocks of CSS all over the place.
-In short, CSS violates the living crap out of the DRY principle. You are constantly and unavoidably repeating yourself.</p>
+<p>{%endcodeblock %}</p></blockquote></blockquote></blockquote>
 
-<p>That&#8217;s why I&#8217;m so intrigued by two Ruby gems that attempt to directly address the deficiencies of CSS.</p>
+<p>Here we passed the functions <code>blue</code> and <code>sky</code> directly into the function <code>add_strings</code> as arguments. Thing to be noted is <code>blue</code> represents the function object , but <code>blue()</code> calls the function.</p>
+
+<p>{%codeblock%}</p>
+
+<blockquote><blockquote><blockquote><p>blue
+<function blue at 0x8c55064>
+blue()
+&#8216;blue&#8217;
+{%endcodeblock %}</p></blockquote></blockquote></blockquote>
+
+<p>Now similarly function objects can also be assigned to variables.</p>
+
+<p>{%codeblock %}</p>
+
+<blockquote><blockquote><blockquote><p>def a():
+&#8230;     print &#8220;a&#8221;
+&#8230;
+b = a
+b()
+a
+{%endcodeblock %}</p></blockquote></blockquote></blockquote>
+
+<p>But if we try the same thing with <code>print</code> in python 2.x
+{%codeblock%}</p>
+
+<blockquote><blockquote><blockquote><p>a = print
+  File &#8221;<stdin>&#8221;, line 1</p>
+
+<pre><code>a = print
+        ^
+</code></pre>
+
+<p>SyntaxError: invalid syntax
+{%endcodeblock%}</p></blockquote></blockquote></blockquote>
+
+<p>We get a SynaxError. This is simply because <code>print</code> is not a function in python 2.x , it is a statement. The systax of <code>print</code> makes it clear too. Notice that we don&#8217;t use parentheses in the print statement which are normally used in functions. But in python 3.x <code>print</code> is made a function according to <a href="http://www.python.org/dev/peps/pep-3105/">this PEP proposal</a> and the use of parenthesis in <code>print</code> in python 3.x also support the fact that print is a function in python 3.x. So the above assignment will work in python 3.x.</p>
 </div>
 
 
@@ -126,12 +172,12 @@ In short, CSS violates the living crap out of the DRY principle. You are constan
   
 
 
-<time datetime="2012-08-05T13:07:00+05:30" pubdate data-updated="true">Aug 5<span>th</span>, 2012</time>
+<time datetime="2012-08-06T15:58:00+05:30" pubdate data-updated="true">Aug 6<span>th</span>, 2012</time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/css3/'>CSS3</a>, <a class='category' href='/blog/categories/javascript/'>Javascript</a>
+    <a class='category' href='/blog/categories/python/'>Python</a>
   
 </span>
 
@@ -140,7 +186,7 @@ In short, CSS violates the living crap out of the DRY principle. You are constan
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://sunu.github.com/blog/2012/08/05/sample-post-a-sample-post-for-octropress/" data-via="tarashish" data-counturl="http://sunu.github.com/blog/2012/08/05/sample-post-a-sample-post-for-octropress/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://sunu.github.com/blog/2012/08/06/print-is-not-a-function-in-python-2-dot-x/" data-via="tarashish" data-counturl="http://sunu.github.com/blog/2012/08/06/print-is-not-a-function-in-python-2-dot-x/" >Tweet</a>
   
   
   
@@ -151,8 +197,8 @@ In short, CSS violates the living crap out of the DRY principle. You are constan
     
     <p class="meta">
       
+        <a class="basic-alignment left" href="/blog/2012/08/05/sample-post-a-sample-post-for-octropress/" title="Previous Post: Sample Post : A Sample Post for Octropress">&laquo; Sample Post : A Sample Post for Octropress</a>
       
-        <a class="basic-alignment right" href="/blog/2012/08/06/print-is-not-a-function-in-python-2-dot-x/" title="Next Post: Print is Not a Function in Python 2.x">Print is Not a Function in Python 2.x &raquo;</a>
       
     </p>
   </footer>
