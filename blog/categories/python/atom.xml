@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Python | tarashish dot com]]></title>
+  <title><![CDATA[Category: python | tarashish dot com]]></title>
   <link href="http://sunu.github.com/blog/categories/python/atom.xml" rel="self"/>
   <link href="http://sunu.github.com/"/>
-  <updated>2012-08-06T16:57:42+05:30</updated>
+  <updated>2012-08-07T22:04:02+05:30</updated>
   <id>http://sunu.github.com/</id>
   <author>
     <name><![CDATA[Tarashish Mishra]]></name>
@@ -12,6 +12,70 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Tweeting From Python.]]></title>
+    <link href="http://sunu.github.com/blog/2012/08/07/tweeting-from-python/"/>
+    <updated>2012-08-07T21:12:00+05:30</updated>
+    <id>http://sunu.github.com/blog/2012/08/07/tweeting-from-python</id>
+    <content type="html"><![CDATA[<p>Many times I have the urge to check twitter while at the terminal doing stuff I love (mostly python ). But I am too lazy to open up the browser and go to twitter.com . So I decided to see how can do all the tweeting stuff from the terminal itself using python. And it turned out to be fairly simple.</p>
+
+<p>So first I needed a twitter library in python to keep things simple. So I googled around a bit and <a href="https://github.com/tweepy/tweepy">tweepy</a> seemed to be a very good choice. So I read the docs and fired up <a href="http://www.geany.org">Geany</a> to write some scripts.</p>
+
+<p>First thing I learned reading all the docs is that Twitter uses something called OAuth to authenticate an application before it can access any user's account. It is safer than the older simple authentication methods. Say some application X wants to tweet for you. The X has to log into your account to do so. In older authentication system the user used to provide his password to the application while authorizing it. But now the OAuth authentication system provides the application a access token through which it can access the user's account after authentication. So it's more secure.</p>
+
+<p>Next I headed to <a href="http://dev.twitter.com/apps/new">http://dev.twitter.com/apps/new</a> , created a new app and generated the access tokens . After noting down the consumer key , consumer secret key , access token and access token secret and all it was time to begin coding.</p>
+
+<p>First I installed Tweepy by
+<div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>[Installing Tweepy][]</span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="n">sudo</span> <span class="n">easy_install</span> <span class="n">tweepy</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>Then you need to authenticate your application first using OAuth which is extremely easy in tweepy. All I needed to do was
+<div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>[Authenticating Your Application][]</span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="kn">import</span> <span class="nn">tweepy</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">consumer_key</span><span class="o">=</span> <span class="s">&quot;&quot;</span> <span class="c">#your consumer key</span>
+</span><span class='line'><span class="n">consumer_secret</span><span class="o">=</span> <span class="s">&quot;&quot;</span> <span class="c">#your consumer secret</span>
+</span><span class='line'><span class="n">access_token</span><span class="o">=</span>   <span class="s">&quot;&quot;</span> <span class="c">#your acces token</span>
+</span><span class='line'><span class="n">access_token_secret</span><span class="o">=</span> <span class="s">&quot;&quot;</span> <span class="c">#your access token secret&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">auth</span> <span class="o">=</span> <span class="n">tweepy</span><span class="o">.</span><span class="n">OAuthHandler</span><span class="p">(</span><span class="n">consumer_key</span><span class="p">,</span> <span class="n">consumer_secret</span><span class="p">)</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">auth</span><span class="o">.</span><span class="n">set_access_token</span><span class="p">(</span><span class="n">access_token</span><span class="p">,</span> <span class="n">access_token_secret</span><span class="p">)</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">api</span> <span class="o">=</span> <span class="n">tweepy</span><span class="o">.</span><span class="n">API</span><span class="p">(</span><span class="n">auth</span><span class="p">)</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>Now that I had an authorized instance of the API object of tweepy I could use almost all the functionalities of the twitter api through this and that includes tweeting  , checking timeline , trends and mentions :)</p>
+
+<p>To make a tweet you simply do
+<div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>[Updating Status][]</span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="n">api</span><span class="o">.</span><span class="n">update_status</span><span class="p">(</span><span class="s">&quot;My awesome tweet which is more awesome than yours. ;)&quot;</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+That will do it. Check if you don't believe me. By the way while we are here let me tell you that 'awesome' is one of the most overused English words. Some guy just told me that 2 or 3 days ago. :)</p>
+
+<p>Next you may want to check all tweets in your timeline or DM a friend or search some stuff on twitter. You can do all that stuff and more using the api that tweepy provides. For the documentation check out the <a href="https://github.com/tweepy/tweepy/">Github Repo</a> and the <a href="http://code.google.com/p/tweepy/wiki/APIReference">API Reference</a>. And you'll doing all the tweeting stuff from your terminal in minutes. Heck you can even update your profile picture from the terminal. Cool, No ?</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Print is Not a Function in Python 2.x]]></title>

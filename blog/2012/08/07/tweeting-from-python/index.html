@@ -5,7 +5,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>tarashish dot com</title>
+  <title>Tweeting From Python. - tarashish dot com</title>
   <meta name="author" content="Tarashish Mishra">
 
   
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://sunu.github.com/">
+  <link rel="canonical" href="http://sunu.github.com/blog/2012/08/07/tweeting-from-python/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -60,15 +60,12 @@
 </nav>
   <div id="main">
     <div id="content">
-      <div class="blog-index">
+      <div>
+<article class="hentry" role="article">
   
-  
-  
-    <article>
-      
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2012/08/07/tweeting-from-python/">Tweeting From Python.</a></h1>
+      <h1 class="entry-title">Tweeting From Python.</h1>
     
     
       <p class="meta">
@@ -91,7 +88,7 @@
   </header>
 
 
-  <div class="entry-content"><p>Many times I have the urge to check twitter while at the terminal doing stuff I love (mostly python ). But I am too lazy to open up the browser and go to twitter.com . So I decided to see how can do all the tweeting stuff from the terminal itself using python. And it turned out to be fairly simple.</p>
+<div class="entry-content"><p>Many times I have the urge to check twitter while at the terminal doing stuff I love (mostly python ). But I am too lazy to open up the browser and go to twitter.com . So I decided to see how can do all the tweeting stuff from the terminal itself using python. And it turned out to be fairly simple.</p>
 
 <p>So first I needed a twitter library in python to keep things simple. So I googled around a bit and <a href="https://github.com/tweepy/tweepy">tweepy</a> seemed to be a very good choice. So I read the docs and fired up <a href="http://www.geany.org">Geany</a> to write some scripts.</p>
 
@@ -153,22 +150,16 @@
 
 <p>Next you may want to check all tweets in your timeline or DM a friend or search some stuff on twitter. You can do all that stuff and more using the api that tweepy provides. For the documentation check out the <a href="https://github.com/tweepy/tweepy/">Github Repo</a> and the <a href="http://code.google.com/p/tweepy/wiki/APIReference">API Reference</a>. And you&#8217;ll doing all the tweeting stuff from your terminal in minutes. Heck you can even update your profile picture from the terminal. Cool, No ?</p>
 </div>
-  
-  
 
 
-    </article>
-  
-  
-    <article>
+  <footer>
+    <p class="meta">
       
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/08/06/print-is-not-a-function-in-python-2-dot-x/">Print Is Not a Function in Python 2.x</a></h1>
-    
-    
-      <p class="meta">
-        
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Tarashish Mishra</span></span>
+
+      
 
 
 
@@ -180,110 +171,40 @@
   
 
 
-<time datetime="2012-08-06T15:58:00+05:30" pubdate data-updated="true">Aug 6<span>th</span>, 2012</time>
-        
-      </p>
+<time datetime="2012-08-07T21:12:00+05:30" pubdate data-updated="true">Aug 7<span>th</span>, 2012</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/python/'>python</a>
+  
+</span>
+
+
+    </p>
     
-  </header>
-
-
-  <div class="entry-content"><blockquote><p>Everything in Python is an Object.</p></blockquote>
-
-
-<p>This is perhaps the most common line in all the python books I have read. And indeed almost everything in python are objects. And this gives great powers to python.</p>
-
-<p>For example, let&#8217;s say we have to pass a function as argument to another function. We don&#8217;t have to pass the function&#8217;s name as a parameter or anything. Because everything including functions are objects in python, we can directly pass the function as the argument. Take a look at the following example.</p>
-
-<figure class='code'><figcaption><span>[Functions as argument][]</span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="o">&gt;&gt;&gt;</span> <span class="k">def</span> <span class="nf">blue</span><span class="p">():</span>
-</span><span class='line'><span class="o">...</span>     <span class="k">return</span> <span class="s">&#39;blue&#39;</span>
-</span><span class='line'><span class="o">...</span>
-</span><span class='line'><span class="o">&gt;&gt;&gt;</span> <span class="k">def</span> <span class="nf">sky</span><span class="p">():</span>
-</span><span class='line'><span class="o">...</span>     <span class="k">return</span> <span class="s">&#39;sky&#39;</span>
-</span><span class='line'><span class="o">...</span>
-</span><span class='line'><span class="o">&gt;&gt;&gt;</span> <span class="k">def</span> <span class="nf">add_strings</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">):</span>
-</span><span class='line'><span class="o">...</span>     <span class="k">return</span> <span class="n">a</span><span class="p">()</span> <span class="o">+</span> <span class="n">b</span><span class="p">()</span>
-</span><span class='line'><span class="o">...</span>
-</span><span class='line'><span class="o">&gt;&gt;&gt;</span> <span class="n">add_strings</span><span class="p">(</span><span class="n">blue</span><span class="p">,</span><span class="n">sky</span><span class="p">)</span>
-</span><span class='line'><span class="s">&#39;bluesky&#39;</span>
-</span><span class='line'><span class="o">&gt;&gt;&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Here we passed the functions <code>blue</code> and <code>sky</code> directly into the function <code>add_strings</code> as arguments. Thing to be noted is <code>blue</code> represents the function object , but <code>blue()</code> calls the function.</p>
-
-<figure class='code'><figcaption><span>[function object and function call][]</span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="o">&gt;&gt;&gt;</span> <span class="n">blue</span>
-</span><span class='line'><span class="o">&lt;</span><span class="n">function</span> <span class="n">blue</span> <span class="n">at</span> <span class="mh">0x8c55064</span><span class="o">&gt;</span>
-</span><span class='line'><span class="o">&gt;&gt;&gt;</span> <span class="n">blue</span><span class="p">()</span>
-</span><span class='line'><span class="s">&#39;blue&#39;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Now similarly function objects can also be assigned to variables.</p>
-
-<figure class='code'><figcaption><span>[Assignment of function object][]</span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="o">&gt;&gt;&gt;</span> <span class="k">def</span> <span class="nf">a</span><span class="p">():</span>
-</span><span class='line'><span class="o">...</span>     <span class="k">print</span> <span class="s">&quot;a&quot;</span>
-</span><span class='line'><span class="o">...</span>
-</span><span class='line'><span class="o">&gt;&gt;&gt;</span> <span class="n">b</span> <span class="o">=</span> <span class="n">a</span>
-</span><span class='line'><span class="o">&gt;&gt;&gt;</span> <span class="n">b</span><span class="p">()</span>
-</span><span class='line'><span class="n">a</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>But if we try the same thing with <code>print</code> in python 2.x</p>
-
-<figure class='code'><figcaption><span>[failure of assignment using print][]</span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="k">print</span>
-</span><span class='line'>  <span class="n">File</span> <span class="s">&quot;&lt;stdin&gt;&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span>
-</span><span class='line'>    <span class="n">a</span> <span class="o">=</span> <span class="k">print</span>
-</span><span class='line'>            <span class="o">^</span>
-</span><span class='line'><span class="ne">SyntaxError</span><span class="p">:</span> <span class="n">invalid</span> <span class="n">syntax</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>We get a SynaxError. This is simply because <code>print</code> is not a function in python 2.x , it is a statement. The systax of <code>print</code> makes it clear too. Notice that we don&#8217;t use parentheses in the print statement which are normally used in functions. But in python 3.x <code>print</code> is made a function according to <a href="http://www.python.org/dev/peps/pep-3105/">this PEP proposal</a> and the use of parenthesis in <code>print</code> in python 3.x also support the fact that print is a function in python 3.x. So the above assignment will work in python 3.x.</p>
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://sunu.github.com/blog/2012/08/07/tweeting-from-python/" data-via="tarashish" data-counturl="http://sunu.github.com/blog/2012/08/07/tweeting-from-python/" >Tweet</a>
+  
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
 </div>
-  
-  
 
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2012/08/06/print-is-not-a-function-in-python-2-dot-x/" title="Previous Post: Print is Not a Function in Python 2.x">&laquo; Print is Not a Function in Python 2.x</a>
+      
+      
+    </p>
+  </footer>
+</article>
 
-    </article>
-  
-  <div class="pagination">
-    
-    <a href="/blog/archives">Blog Archives</a>
-    
-  </div>
 </div>
+
 <aside class="sidebar">
   
     <section>
@@ -305,7 +226,7 @@
 <section>
   <h1>Latest Tweets</h1>
   <ul id="tweets">
-    <li class="loading">Status updating&#8230;</li>
+    <li class="loading">Status updating...</li>
   </ul>
   <script type="text/javascript">
     $.domReady(function(){
@@ -324,6 +245,7 @@
 
   
 </aside>
+
 
     </div>
   </div>
