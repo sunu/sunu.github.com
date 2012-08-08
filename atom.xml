@@ -4,7 +4,7 @@
   <title><![CDATA[tarashish dot com]]></title>
   <link href="http://sunu.github.com/atom.xml" rel="self"/>
   <link href="http://sunu.github.com/"/>
-  <updated>2012-08-07T22:04:02+05:30</updated>
+  <updated>2012-08-08T05:17:41+05:30</updated>
   <id>http://sunu.github.com/</id>
   <author>
     <name><![CDATA[Tarashish Mishra]]></name>
@@ -12,6 +12,68 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Making Text Inputs Look Awesome Using CSS3]]></title>
+    <link href="http://sunu.github.com/blog/2012/08/08/making-text-inputs-look-awesome-using-css3/"/>
+    <updated>2012-08-08T04:54:00+05:30</updated>
+    <id>http://sunu.github.com/blog/2012/08/08/making-text-inputs-look-awesome-using-css3</id>
+    <content type="html"><![CDATA[<p>I often use this snippet of CSS to style text inputs and even search inputs. I just love the look of it. So this blog post is just to keep it within reach.</p>
+
+<figure class='code'><figcaption><span>[]</span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class='css'><span class='line'><span class="nt">input</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">border</span><span class="o">:</span> <span class="m">5px</span> <span class="k">solid</span> <span class="nb">white</span><span class="p">;</span>
+</span><span class='line'>    <span class="o">-</span><span class="n">webkit</span><span class="o">-</span><span class="n">box</span><span class="o">-</span><span class="n">shadow</span><span class="o">:</span>
+</span><span class='line'>      <span class="k">inset</span> <span class="m">0</span> <span class="m">0</span> <span class="m">8px</span>  <span class="n">rgba</span><span class="p">(</span><span class="m">0</span><span class="o">,</span><span class="m">0</span><span class="o">,</span><span class="m">0</span><span class="o">,</span><span class="m">0</span><span class="o">.</span><span class="m">1</span><span class="p">)</span><span class="o">,</span>
+</span><span class='line'>            <span class="m">0</span> <span class="m">0</span> <span class="m">16px</span> <span class="n">rgba</span><span class="p">(</span><span class="m">0</span><span class="o">,</span><span class="m">0</span><span class="o">,</span><span class="m">0</span><span class="o">,</span><span class="m">0</span><span class="o">.</span><span class="m">1</span><span class="p">);</span>
+</span><span class='line'>    <span class="o">-</span><span class="n">moz</span><span class="o">-</span><span class="n">box</span><span class="o">-</span><span class="n">shadow</span><span class="o">:</span>
+</span><span class='line'>      <span class="k">inset</span> <span class="m">0</span> <span class="m">0</span> <span class="m">8px</span>  <span class="n">rgba</span><span class="p">(</span><span class="m">0</span><span class="o">,</span><span class="m">0</span><span class="o">,</span><span class="m">0</span><span class="o">,</span><span class="m">0</span><span class="o">.</span><span class="m">1</span><span class="p">)</span><span class="o">,</span>
+</span><span class='line'>            <span class="m">0</span> <span class="m">0</span> <span class="m">16px</span> <span class="n">rgba</span><span class="p">(</span><span class="m">0</span><span class="o">,</span><span class="m">0</span><span class="o">,</span><span class="m">0</span><span class="o">,</span><span class="m">0</span><span class="o">.</span><span class="m">1</span><span class="p">);</span>
+</span><span class='line'>    <span class="n">box</span><span class="o">-</span><span class="n">shadow</span><span class="o">:</span>
+</span><span class='line'>      <span class="k">inset</span> <span class="m">0</span> <span class="m">0</span> <span class="m">8px</span>  <span class="n">rgba</span><span class="p">(</span><span class="m">0</span><span class="o">,</span><span class="m">0</span><span class="o">,</span><span class="m">0</span><span class="o">,</span><span class="m">0</span><span class="o">.</span><span class="m">1</span><span class="p">)</span><span class="o">,</span>
+</span><span class='line'>            <span class="m">0</span> <span class="m">0</span> <span class="m">16px</span> <span class="n">rgba</span><span class="p">(</span><span class="m">0</span><span class="o">,</span><span class="m">0</span><span class="o">,</span><span class="m">0</span><span class="o">,</span><span class="m">0</span><span class="o">.</span><span class="m">1</span><span class="p">);</span>
+</span><span class='line'>    <span class="k">padding</span><span class="o">:</span> <span class="m">15px</span><span class="p">;</span>
+</span><span class='line'>    <span class="k">background</span><span class="o">:</span> <span class="n">rgba</span><span class="p">(</span><span class="m">255</span><span class="o">,</span><span class="m">255</span><span class="o">,</span><span class="m">255</span><span class="o">,</span><span class="m">0</span><span class="o">.</span><span class="m">5</span><span class="p">);</span>
+</span><span class='line'>    <span class="k">margin</span><span class="o">:</span> <span class="m">0</span> <span class="m">0</span> <span class="m">10px</span> <span class="m">0</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<!--more-->
+
+
+<p>Note that if you use the above snippet the styling will be applied to all the inputs. To apply these styling to texty inputs only, we can do</p>
+
+<figure class='code'><figcaption><span>[]</span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='css'><span class='line'><span class="nt">input</span><span class="nd">:not</span><span class="o">([</span><span class="nt">type</span><span class="o">=</span><span class="nt">submit</span><span class="o">])</span><span class="nd">:not</span><span class="o">([</span><span class="nt">type</span><span class="o">=</span><span class="nt">file</span><span class="o">])</span> <span class="p">{</span>
+</span><span class='line'>   <span class="c">/* all the awesome css here */</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The code snippet is from <a href="http://css-tricks.com/styling-texty-inputs-only/">CSS-TRICKS</a>. If you need to learn cool stuff in CSS do visit that site. <a href="http://twitter.com/chriscoyier">Chris Coyier</a> is fabulous.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Tweeting From Python.]]></title>
@@ -23,6 +85,9 @@
 <p>So first I needed a twitter library in python to keep things simple. So I googled around a bit and <a href="https://github.com/tweepy/tweepy">tweepy</a> seemed to be a very good choice. So I read the docs and fired up <a href="http://www.geany.org">Geany</a> to write some scripts.</p>
 
 <p>First thing I learned reading all the docs is that Twitter uses something called OAuth to authenticate an application before it can access any user&#8217;s account. It is safer than the older simple authentication methods. Say some application X wants to tweet for you. The X has to log into your account to do so. In older authentication system the user used to provide his password to the application while authorizing it. But now the OAuth authentication system provides the application a access token through which it can access the user&#8217;s account after authentication. So it&#8217;s more secure.</p>
+
+<!--more-->
+
 
 <p>Next I headed to <a href="http://dev.twitter.com/apps/new">http://dev.twitter.com/apps/new</a> , created a new app and generated the access tokens . After noting down the consumer key , consumer secret key , access token and access token secret and all it was time to begin coding.</p>
 
@@ -120,6 +185,11 @@
 </span><span class='line'><span class="s">&#39;bluesky&#39;</span>
 </span><span class='line'><span class="o">&gt;&gt;&gt;</span>
 </span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<!--more-->
 
 
 <p>Here we passed the functions <code>blue</code> and <code>sky</code> directly into the function <code>add_strings</code> as arguments. Thing to be noted is <code>blue</code> represents the function object , but <code>blue()</code> calls the function.</p>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: CSS3 | tarashish dot com]]></title>
+  <link href="http://sunu.github.com/blog/categories/css3/atom.xml" rel="self"/>
+  <link href="http://sunu.github.com/"/>
+  <updated>2012-08-08T05:17:41+05:30</updated>
+  <id>http://sunu.github.com/</id>
+  <author>
+    <name><![CDATA[Tarashish Mishra]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Making Text Inputs Look Awesome Using CSS3]]></title>
+    <link href="http://sunu.github.com/blog/2012/08/08/making-text-inputs-look-awesome-using-css3/"/>
+    <updated>2012-08-08T04:54:00+05:30</updated>
+    <id>http://sunu.github.com/blog/2012/08/08/making-text-inputs-look-awesome-using-css3</id>
+    <content type="html"><![CDATA[<p>I often use this snippet of CSS to style text inputs and even search inputs. I just love the look of it. So this blog post is just to keep it within reach.</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>[]</span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+</pre></td><td class='code'><pre><code class='css'><span class='line'><span class="nt">input</span> <span class="p">{</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">pre</span><span class="o">&gt;&lt;</span><span class="n">code</span><span class="o">&gt;</span><span class="k">border</span><span class="o">:</span> <span class="m">5px</span> <span class="k">solid</span> <span class="nb">white</span><span class="p">;</span>
+</span><span class='line'><span class="o">-</span><span class="n">webkit</span><span class="o">-</span><span class="n">box</span><span class="o">-</span><span class="n">shadow</span><span class="o">:</span>
+</span><span class='line'>  <span class="k">inset</span> <span class="m">0</span> <span class="m">0</span> <span class="m">8px</span>  <span class="n">rgba</span><span class="p">(</span><span class="m">0</span><span class="o">,</span><span class="m">0</span><span class="o">,</span><span class="m">0</span><span class="o">,</span><span class="m">0</span><span class="o">.</span><span class="m">1</span><span class="p">)</span><span class="o">,</span>
+</span><span class='line'>        <span class="m">0</span> <span class="m">0</span> <span class="m">16px</span> <span class="n">rgba</span><span class="p">(</span><span class="m">0</span><span class="o">,</span><span class="m">0</span><span class="o">,</span><span class="m">0</span><span class="o">,</span><span class="m">0</span><span class="o">.</span><span class="m">1</span><span class="p">);</span>
+</span><span class='line'><span class="o">-</span><span class="n">moz</span><span class="o">-</span><span class="n">box</span><span class="o">-</span><span class="n">shadow</span><span class="o">:</span>
+</span><span class='line'>  <span class="k">inset</span> <span class="m">0</span> <span class="m">0</span> <span class="m">8px</span>  <span class="n">rgba</span><span class="p">(</span><span class="m">0</span><span class="o">,</span><span class="m">0</span><span class="o">,</span><span class="m">0</span><span class="o">,</span><span class="m">0</span><span class="o">.</span><span class="m">1</span><span class="p">)</span><span class="o">,</span>
+</span><span class='line'>        <span class="m">0</span> <span class="m">0</span> <span class="m">16px</span> <span class="n">rgba</span><span class="p">(</span><span class="m">0</span><span class="o">,</span><span class="m">0</span><span class="o">,</span><span class="m">0</span><span class="o">,</span><span class="m">0</span><span class="o">.</span><span class="m">1</span><span class="p">);</span>
+</span><span class='line'><span class="n">box</span><span class="o">-</span><span class="n">shadow</span><span class="o">:</span>
+</span><span class='line'>  <span class="k">inset</span> <span class="m">0</span> <span class="m">0</span> <span class="m">8px</span>  <span class="n">rgba</span><span class="p">(</span><span class="m">0</span><span class="o">,</span><span class="m">0</span><span class="o">,</span><span class="m">0</span><span class="o">,</span><span class="m">0</span><span class="o">.</span><span class="m">1</span><span class="p">)</span><span class="o">,</span>
+</span><span class='line'>        <span class="m">0</span> <span class="m">0</span> <span class="m">16px</span> <span class="n">rgba</span><span class="p">(</span><span class="m">0</span><span class="o">,</span><span class="m">0</span><span class="o">,</span><span class="m">0</span><span class="o">,</span><span class="m">0</span><span class="o">.</span><span class="m">1</span><span class="p">);</span>
+</span><span class='line'><span class="k">padding</span><span class="o">:</span> <span class="m">15px</span><span class="p">;</span>
+</span><span class='line'><span class="k">background</span><span class="o">:</span> <span class="n">rgba</span><span class="p">(</span><span class="m">255</span><span class="o">,</span><span class="m">255</span><span class="o">,</span><span class="m">255</span><span class="o">,</span><span class="m">0</span><span class="o">.</span><span class="m">5</span><span class="p">);</span>
+</span><span class='line'><span class="k">margin</span><span class="o">:</span> <span class="m">0</span> <span class="m">0</span> <span class="m">10px</span> <span class="m">0</span><span class="p">;</span>
+</span><span class='line'><span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;&lt;/</span><span class="n">pre</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="p">}</span><span class="o">&lt;/</span><span class="nt">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nt">p</span><span class="o">&gt;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<!--more-->
+
+
+<p>Note that if you use the above snippet the styling will be applied to all the inputs. To apply these styling to texty inputs only, we can do</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>[]</span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='css'><span class='line'><span class="nt">input</span><span class="nd">:not</span><span class="o">([</span><span class="nt">type</span><span class="o">=</span><span class="nt">submit</span><span class="o">])</span><span class="nd">:not</span><span class="o">([</span><span class="nt">type</span><span class="o">=</span><span class="nt">file</span><span class="o">])</span> <span class="p">{</span>
+</span><span class='line'>   <span class="o">/&lt;</span><span class="n">em</span><span class="o">&gt;</span> <span class="n">all</span> <span class="n">the</span> <span class="n">awesome</span> <span class="n">css</span> <span class="n">here</span> <span class="o">&lt;/</span><span class="n">em</span><span class="o">&gt;/</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>The code snippet is from <a href="http://css-tricks.com/styling-texty-inputs-only/">CSS-TRICKS</a>. If you need to learn cool stuff in CSS do visit that site. <a href="http://twitter.com/chriscoyier">Chris Coyier</a> is fabulous.</p>
+]]></content>
+  </entry>
+  
+</feed>
