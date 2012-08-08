@@ -4,7 +4,7 @@
   <title><![CDATA[tarashish dot com]]></title>
   <link href="http://sunu.github.com/atom.xml" rel="self"/>
   <link href="http://sunu.github.com/"/>
-  <updated>2012-08-08T05:17:41+05:30</updated>
+  <updated>2012-08-08T09:21:20+05:30</updated>
   <id>http://sunu.github.com/</id>
   <author>
     <name><![CDATA[Tarashish Mishra]]></name>
@@ -20,8 +20,7 @@
     <id>http://sunu.github.com/blog/2012/08/08/making-text-inputs-look-awesome-using-css3</id>
     <content type="html"><![CDATA[<p>I often use this snippet of CSS to style text inputs and even search inputs. I just love the look of it. So this blog post is just to keep it within reach.</p>
 
-<figure class='code'><figcaption><span>[]</span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -61,8 +60,7 @@
 
 <p>Note that if you use the above snippet the styling will be applied to all the inputs. To apply these styling to texty inputs only, we can do</p>
 
-<figure class='code'><figcaption><span>[]</span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 </pre></td><td class='code'><pre><code class='css'><span class='line'><span class="nt">input</span><span class="nd">:not</span><span class="o">([</span><span class="nt">type</span><span class="o">=</span><span class="nt">submit</span><span class="o">])</span><span class="nd">:not</span><span class="o">([</span><span class="nt">type</span><span class="o">=</span><span class="nt">file</span><span class="o">])</span> <span class="p">{</span>
@@ -93,16 +91,14 @@
 
 <p>First I installed Tweepy by</p>
 
-<figure class='code'><figcaption><span>[Installing Tweepy][]</span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='python'><span class='line'><span class="n">sudo</span> <span class="n">easy_install</span> <span class="n">tweepy</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
 <p>Then you need to authenticate your application first using OAuth which is extremely easy in tweepy. All I needed to do was</p>
 
-<figure class='code'><figcaption><span>[Authenticating Your Application][]</span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -135,8 +131,7 @@
 
 <p>To make a tweet you simply do</p>
 
-<figure class='code'><figcaption><span>[Updating Status][]</span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='python'><span class='line'><span class="n">api</span><span class="o">.</span><span class="n">update_status</span><span class="p">(</span><span class="s">&quot;My awesome tweet which is more awesome than yours. ;)&quot;</span><span class="p">)</span>
 </span></code></pre></td></tr></table></div></figure>
 
@@ -159,8 +154,7 @@
 
 <p>For example, let&#8217;s say we have to pass a function as argument to another function. We don&#8217;t have to pass the function&#8217;s name as a parameter or anything. Because everything including functions are objects in python, we can directly pass the function as the argument. Take a look at the following example.</p>
 
-<figure class='code'><figcaption><span>[Functions as argument][]</span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -194,8 +188,7 @@
 
 <p>Here we passed the functions <code>blue</code> and <code>sky</code> directly into the function <code>add_strings</code> as arguments. Thing to be noted is <code>blue</code> represents the function object , but <code>blue()</code> calls the function.</p>
 
-<figure class='code'><figcaption><span>[function object and function call][]</span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -208,8 +201,7 @@
 
 <p>Now similarly function objects can also be assigned to variables.</p>
 
-<figure class='code'><figcaption><span>[Assignment of function object][]</span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -226,8 +218,7 @@
 
 <p>But if we try the same thing with <code>print</code> in python 2.x</p>
 
-<figure class='code'><figcaption><span>[failure of assignment using print][]</span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>

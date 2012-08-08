@@ -4,7 +4,7 @@
   <title><![CDATA[Category: python | tarashish dot com]]></title>
   <link href="http://sunu.github.com/blog/categories/python/atom.xml" rel="self"/>
   <link href="http://sunu.github.com/"/>
-  <updated>2012-08-08T05:17:41+05:30</updated>
+  <updated>2012-08-08T09:21:20+05:30</updated>
   <id>http://sunu.github.com/</id>
   <author>
     <name><![CDATA[Tarashish Mishra]]></name>
@@ -30,14 +30,12 @@
 <p>Next I headed to <a href="http://dev.twitter.com/apps/new">http://dev.twitter.com/apps/new</a> , created a new app and generated the access tokens . After noting down the consumer key , consumer secret key , access token and access token secret and all it was time to begin coding.</p>
 
 <p>First I installed Tweepy by
-<div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>[Installing Tweepy][]</span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='python'><span class='line'><span class="n">sudo</span> <span class="n">easy_install</span> <span class="n">tweepy</span>
 </span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <p>Then you need to authenticate your application first using OAuth which is extremely easy in tweepy. All I needed to do was
-<div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>[Authenticating Your Application][]</span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -70,8 +68,7 @@
 <p>Now that I had an authorized instance of the API object of tweepy I could use almost all the functionalities of the twitter api through this and that includes tweeting  , checking timeline , trends and mentions :)</p>
 
 <p>To make a tweet you simply do
-<div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>[Updating Status][]</span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='python'><span class='line'><span class="n">api</span><span class="o">.</span><span class="n">update_status</span><span class="p">(</span><span class="s">&quot;My awesome tweet which is more awesome than yours. ;)&quot;</span><span class="p">)</span>
 </span></code></pre></td></tr></table></div></figure></notextile></div>
 That will do it. Check if you don't believe me. By the way while we are here let me tell you that 'awesome' is one of the most overused English words. Some guy just told me that 2 or 3 days ago. :)</p>
@@ -91,8 +88,7 @@ That will do it. Check if you don't believe me. By the way while we are here let
 
 <p>For example, let's say we have to pass a function as argument to another function. We don't have to pass the function's name as a parameter or anything. Because everything including functions are objects in python, we can directly pass the function as the argument. Take a look at the following example.</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>[Functions as argument][]</span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -129,8 +125,7 @@ That will do it. Check if you don't believe me. By the way while we are here let
 
 <p>Here we passed the functions <code>blue</code> and <code>sky</code> directly into the function <code>add_strings</code> as arguments. Thing to be noted is <code>blue</code> represents the function object , but <code>blue()</code> calls the function.</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>[function object and function call][]</span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -146,8 +141,7 @@ That will do it. Check if you don't believe me. By the way while we are here let
 
 <p>Now similarly function objects can also be assigned to variables.</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>[Assignment of function object][]</span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -166,8 +160,7 @@ That will do it. Check if you don't believe me. By the way while we are here let
 </span></code></pre></td></tr></table></div></figure></notextile></div></p></blockquote></blockquote></blockquote>
 
 <p>But if we try the same thing with <code>print</code> in python 2.x
-<div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>[failure of assignment using print][]</span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>

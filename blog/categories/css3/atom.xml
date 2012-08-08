@@ -4,7 +4,7 @@
   <title><![CDATA[Category: CSS3 | tarashish dot com]]></title>
   <link href="http://sunu.github.com/blog/categories/css3/atom.xml" rel="self"/>
   <link href="http://sunu.github.com/"/>
-  <updated>2012-08-08T05:17:41+05:30</updated>
+  <updated>2012-08-08T09:21:20+05:30</updated>
   <id>http://sunu.github.com/</id>
   <author>
     <name><![CDATA[Tarashish Mishra]]></name>
@@ -20,8 +20,7 @@
     <id>http://sunu.github.com/blog/2012/08/08/making-text-inputs-look-awesome-using-css3</id>
     <content type="html"><![CDATA[<p>I often use this snippet of CSS to style text inputs and even search inputs. I just love the look of it. So this blog post is just to keep it within reach.</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>[]</span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -68,8 +67,7 @@
 
 <p>Note that if you use the above snippet the styling will be applied to all the inputs. To apply these styling to texty inputs only, we can do</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>[]</span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 </pre></td><td class='code'><pre><code class='css'><span class='line'><span class="nt">input</span><span class="nd">:not</span><span class="o">([</span><span class="nt">type</span><span class="o">=</span><span class="nt">submit</span><span class="o">])</span><span class="nd">:not</span><span class="o">([</span><span class="nt">type</span><span class="o">=</span><span class="nt">file</span><span class="o">])</span> <span class="p">{</span>
