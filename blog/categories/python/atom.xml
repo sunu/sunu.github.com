@@ -4,7 +4,7 @@
   <title><![CDATA[Category: python | tarashish dot com]]></title>
   <link href="http://sunu.github.com/blog/categories/python/atom.xml" rel="self"/>
   <link href="http://sunu.github.com/"/>
-  <updated>2012-08-08T09:21:20+05:30</updated>
+  <updated>2012-08-10T15:44:48+05:30</updated>
   <id>http://sunu.github.com/</id>
   <author>
     <name><![CDATA[Tarashish Mishra]]></name>
@@ -12,6 +12,76 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Web Scraping with Python]]></title>
+    <link href="http://sunu.github.com/blog/2012/08/10/web-scraping-with-python/"/>
+    <updated>2012-08-10T14:10:00+05:30</updated>
+    <id>http://sunu.github.com/blog/2012/08/10/web-scraping-with-python</id>
+    <content type="html"><![CDATA[<p>For those who have no idea what web scraping is
+<blockquote><p>Web scraping (also called web harvesting or web data extraction) is a computer software technique of extracting information from websites.</p><footer><strong>Wikipedia</strong> <cite><a href='http://en.wikipedia.org/wiki/Web_scraping'>en.wikipedia.org/wiki/&hellip;</a></cite></footer></blockquote></p>
+
+<p>The web is full of information. Generally we are happy enough to browse these information with our favorite web-browser. There are times, however, when we need to collect information from some site and manually browsing the site is not an option. Web scraping comes in handy in those situations. You build a program which access the information you need without opening the page in a web browser.<!--more--></p>
+
+<p>Recently I got into such a situation. Results of first semester of my university were out. But there was no list of result of all the students of my college. You have to enter the registration no. of each student to get the result. So I decided to write a script to collect the result of all the students into a single list and dump it into a file.</p>
+
+<p>The first step was to search for a good web scraping library for python. That was pretty easy. Google and StackOverflow gave me the answer in seconds. <a href="http://www.crummy.com/software/BeautifulSoup/">BeautifulSoup</a> was the way to go. I loved their tag line too. It was
+<blockquote><p>You didn't write that awful page. You're just trying to get some data out of it. Beautiful Soup is here to help.</p><footer><strong>BeautifulSoup</strong> <cite><a href='http://www.crummy.com/software/BeautifulSoup/'>www.crummy.com/software/&hellip;</a></cite></footer></blockquote></p>
+
+<p>Installing BeautifulSoup was a breeze. All I had to do was
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>sudo easy_install beautifulsoup4</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>You could also install via <code>pip</code> by
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>sudo pip install beautifulsoup4</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>or using aptitude package manager if you are using ubuntu or any other debian based distro.
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>sudo apt-get install python-beautifulsoup4</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>Then using urllib2 in combination with the wonderful BeautifulSoup library I could easily extract information from web pages.</p>
+
+<p>To use BeautifulSoup for web scraping you first have to import urllib2 and BeautifulSoup itself.</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="kn">import</span> <span class="nn">urllib2</span>
+</span><span class='line'><span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="k">for</span> <span class="n">BeautifulSoup</span> <span class="mi">3</span> <span class="n">it</span> <span class="n">would</span> <span class="n">be</span><span class="p">:</span><span class="o">&lt;/</span><span class="n">h1</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="kn">from</span> <span class="nn">BeautifulSoup</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span><span class="o">&lt;/</span><span class="n">h1</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>Then you just have to make the soup :D . Pass an html document into the BeautifulSoup constructor and you are ready to all sorts of things to it, extract whatever information list. To do that</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">urllib2</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="s">&#39;url_of_the_page_you_want_to_parse.html&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">())</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="n">then</span> <span class="n">do</span> <span class="nb">all</span> <span class="n">sorts</span> <span class="n">of</span> <span class="n">things</span> <span class="k">with</span> <span class="n">soup</span> <span class="n">here</span><span class="o">.&lt;/</span><span class="n">h1</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>That's all. For more information on what you can do with the soup object read the <a href="http://www.crummy.com/software/BeautifulSoup/bs4/doc/">documentation</a> of BeautifulSoup library .There is also a great video on web scraping from PyCon US 2012. I'm embedding it here</p>
+
+<iframe width="420" height="315" src="http://www.youtube.com/embed/52wxGESwQSA" frameborder="0" allowfullscreen></iframe>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Tweeting From Python.]]></title>

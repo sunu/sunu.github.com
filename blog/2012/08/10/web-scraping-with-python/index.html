@@ -1,0 +1,299 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Web Scraping with Python - tarashish dot com</title>
+  <meta name="author" content="Tarashish Mishra">
+
+  
+  <meta name="description" content="For those who have no idea what web scraping is Web scraping (also called web harvesting or web data extraction) is a computer software technique of &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://sunu.github.com/blog/2012/08/10/web-scraping-with-python/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="tarashish dot com" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">tarashish dot com</a></h1>
+  
+    <h2>Still in Hunt of a Tag Line</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation">
+  <form action="http://google.com/search" method="get">
+    <fieldset role="search">
+      <input type="hidden" name="q" value="site:sunu.github.com" />
+      <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+    </fieldset>
+  </form>
+
+
+<ul class="main-navigation">
+  <li><a href="/">Home</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Web Scraping With Python</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-08-10T14:10:00+05:30" pubdate data-updated="true">Aug 10<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>For those who have no idea what web scraping is</p>
+
+<blockquote><p>Web scraping (also called web harvesting or web data extraction) is a computer software technique of extracting information from websites.</p><footer><strong>Wikipedia</strong> <cite><a href='http://en.wikipedia.org/wiki/Web_scraping'>en.wikipedia.org/wiki/&hellip;</a></cite></footer></blockquote>
+
+
+<p>The web is full of information. Generally we are happy enough to browse these information with our favorite web-browser. There are times, however, when we need to collect information from some site and manually browsing the site is not an option. Web scraping comes in handy in those situations. You build a program which access the information you need without opening the page in a web browser.<!--more--></p>
+
+<p>Recently I got into such a situation. Results of first semester of my university were out. But there was no list of result of all the students of my college. You have to enter the registration no. of each student to get the result. So I decided to write a script to collect the result of all the students into a single list and dump it into a file.</p>
+
+<p>The first step was to search for a good web scraping library for python. That was pretty easy. Google and StackOverflow gave me the answer in seconds. <a href="http://www.crummy.com/software/BeautifulSoup/">BeautifulSoup</a> was the way to go. I loved their tag line too. It was</p>
+
+<blockquote><p>You didn&#8217;t write that awful page. You&#8217;re just trying to get some data out of it. Beautiful Soup is here to help.</p><footer><strong>BeautifulSoup</strong> <cite><a href='http://www.crummy.com/software/BeautifulSoup/'>www.crummy.com/software/&hellip;</a></cite></footer></blockquote>
+
+
+<p>Installing BeautifulSoup was a breeze. All I had to do was</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>sudo easy_install beautifulsoup4</span></code></pre></td></tr></table></div></figure>
+
+
+<p>You could also install via <code>pip</code> by</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>sudo pip install beautifulsoup4</span></code></pre></td></tr></table></div></figure>
+
+
+<p>or using aptitude package manager if you are using ubuntu or any other debian based distro.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>sudo apt-get install python-beautifulsoup4</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Then using urllib2 in combination with the wonderful BeautifulSoup library I could easily extract information from web pages.</p>
+
+<p>To use BeautifulSoup for web scraping you first have to import urllib2 and BeautifulSoup itself.</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="kn">import</span> <span class="nn">urllib2</span>
+</span><span class='line'><span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
+</span><span class='line'><span class="c"># for BeautifulSoup 3 it would be:</span>
+</span><span class='line'><span class="c"># from BeautifulSoup import BeautifulSoup</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Then you just have to make the soup :D . Pass an html document into the BeautifulSoup constructor and you are ready to all sorts of things to it, extract whatever information list. To do that</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">urllib2</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="s">&#39;url_of_the_page_you_want_to_parse.html&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># then do all sorts of things with soup here.</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>That&#8217;s all. For more information on what you can do with the soup object read the <a href="http://www.crummy.com/software/BeautifulSoup/bs4/doc/">documentation</a> of BeautifulSoup library .There is also a great video on web scraping from PyCon US 2012. I&#8217;m embedding it here</p>
+
+<iframe width="420" height="315" src="http://www.youtube.com/embed/52wxGESwQSA" frameborder="0" allowfullscreen></iframe>
+
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Tarashish Mishra</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-08-10T14:10:00+05:30" pubdate data-updated="true">Aug 10<span>th</span>, 2012</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/python/'>python</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://sunu.github.com/blog/2012/08/10/web-scraping-with-python/" data-via="tarashish" data-counturl="http://sunu.github.com/blog/2012/08/10/web-scraping-with-python/" >Tweet</a>
+  
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2012/08/08/making-text-inputs-look-awesome-using-css3/" title="Previous Post: Making Text Inputs Look Awesome Using CSS3">&laquo; Making Text Inputs Look Awesome Using CSS3</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/08/10/web-scraping-with-python/">Web Scraping with Python</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/08/08/making-text-inputs-look-awesome-using-css3/">Making Text Inputs Look Awesome Using CSS3</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/08/07/tweeting-from-python/">Tweeting From Python.</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/08/06/print-is-not-a-function-in-python-2-dot-x/">Print is Not a Function in Python 2.x</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("tarashish", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/tarashish" class="twitter-follow-button" data-show-count="false">Follow @tarashish</a>
+  
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Tarashish Mishra -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
