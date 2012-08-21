@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: linux | tarashish dot com]]></title>
+  <link href="http://sunu.github.com/blog/categories/linux/atom.xml" rel="self"/>
+  <link href="http://sunu.github.com/"/>
+  <updated>2012-08-21T23:59:38+05:30</updated>
+  <id>http://sunu.github.com/</id>
+  <author>
+    <name><![CDATA[Tarashish Mishra]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Installing Sublime Text 2 on Ubuntu 12.04]]></title>
+    <link href="http://sunu.github.com/blog/2012/08/21/installing-sublime-text-2-on-ubuntu-12-dot-04/"/>
+    <updated>2012-08-21T23:32:00+05:30</updated>
+    <id>http://sunu.github.com/blog/2012/08/21/installing-sublime-text-2-on-ubuntu-12-dot-04</id>
+    <content type="html"><![CDATA[<p><a href="http://www.sublimetext.com/">Sublime Text 2</a> is the most awesome text editor I have used so far (even better than Textmate I think). If you have never heard of it you should surely check it out .</p>
+
+<p>This post is to guide people (that include myself) how to install and integrate sublime text 2 with unity user interface of ubuntu 12.04. While there are installers of sublime text available for windows and OS X , ubuntu does not have one. So some tweaks are needed to integrate sublime text into unity.</p>
+
+<p><strong><strong>Step 1 - </strong></strong>
+Download the tar archive from sublime text's <a href="http://www.sublimetext.com/2">download section</a>. Extract the file using the GUI archive manager or the command</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>tar xf Sublime\ Text\ 2\ Build\ 2181\ x64.tar.bz2</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p><strong><strong>Step 2 - </strong></strong>
+After extraction you'll get a "Sublime Text 2" folder. This folder contains all the stuff sublime text needs to run plus the sublime_text executable itself. So let's move this folder to <code>/usr/lib</code>.</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>sudo mv Sublime\ Text\ 2 /usr/lib/</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p><strong><strong>Step 3 - </strong></strong>
+We need to call sublime text from the terminal. So let's create a symbolic link in <code>/usr/bin</code>.</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>sudo ln -s /usr/lib/Sublime\ Text\ 2/sublime_text /usr/bin/sublime</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p><strong><strong>Step 4 - </strong></strong>
+Now let's create a launcher to integrate sublime text into unity. First we create a <code>sublime.desktop</code> file in <code>/usr/share/applications</code> and open it in sublime text by</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>sudo sublime /usr/share/applications/sublime.desktop</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>Now paste the following chunk of code</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>[Desktop Entry]
+</span><span class='line'>Version=1.0
+</span><span class='line'>Name=Sublime Text 2&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;h1>Only KDE 4 seems to use GenericName, so we reuse the KDE strings.&lt;/h1>
+</span><span class='line'>
+</span><span class='line'>&lt;h1>From Ubuntu's language-pack-kde-XX-base packages, version 9.04-20090413.&lt;/h1>
+</span><span class='line'>
+</span><span class='line'>&lt;p>GenericName=Text Editor&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;p>Exec=sublime
+</span><span class='line'>Terminal=false
+</span><span class='line'>Icon=/usr/lib/Sublime Text 2/Icon/48x48/sublime_text.png
+</span><span class='line'>Type=Application
+</span><span class='line'>Categories=TextEditor;IDE;Development
+</span><span class='line'>X-Ayatana-Desktop-Shortcuts=NewWindow&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;p>[NewWindow Shortcut Group]
+</span><span class='line'>Name=New Window
+</span><span class='line'>Exec=sublime -n
+</span><span class='line'>TargetEnvironment=Unity</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>Now it's all ready. Lock the sublime text icon onto the launcher if you like and code like a boss :D</p>
+]]></content>
+  </entry>
+  
+</feed>
