@@ -4,7 +4,7 @@
   <title><![CDATA[Category: linux | tarashish dot com]]></title>
   <link href="http://sunu.github.com/blog/categories/linux/atom.xml" rel="self"/>
   <link href="http://sunu.github.com/"/>
-  <updated>2012-08-28T21:56:03+05:30</updated>
+  <updated>2012-09-03T15:15:05+05:30</updated>
   <id>http://sunu.github.com/</id>
   <author>
     <name><![CDATA[Tarashish Mishra]]></name>
@@ -27,6 +27,9 @@ Download the tar archive from sublime text's <a href="http://www.sublimetext.com
 
 <p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class=''><span class='line'>tar xf Sublime\ Text\ 2\ Build\ 2181\ x64.tar.bz2</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<!--more-->
+
 
 <p><strong><strong>Step 2 - </strong></strong>
 After extraction you'll get a "Sublime Text 2" folder. This folder contains all the stuff sublime text needs to run plus the sublime_text executable itself. So let's move this folder to <code>/usr/lib</code>.</p>
