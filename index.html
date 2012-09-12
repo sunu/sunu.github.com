@@ -9,7 +9,7 @@
   <meta name="author" content="Tarashish Mishra">
 
   
-  <meta name="description" content="Sublime Text 2 is the most awesome text editor I have used so far (even better than Textmate I think). If you have never heard of it you should &hellip;">
+  <meta name="description" content="Yesterday while making a small cute sticky note chrome extension, I faced an antialiasing bug in chrome. The bug nearly drove me out of my mind :) So &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -74,6 +74,62 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/09/12/solving-antialiasing-bug-in-chrome/">Solving Antialiasing Bug in Chrome</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-09-12T18:27:00+05:30" pubdate data-updated="true">Sep 12<span>th</span>, 2012</time>
+        
+         | <a href="/blog/2012/09/12/solving-antialiasing-bug-in-chrome/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Yesterday while making a small cute sticky note chrome extension, I faced an antialiasing bug in chrome. The bug nearly drove me out of my mind :)</p>
+
+<p>So to save some headaches in future, I am writing down the possible solution here, so that me or anyone else who faces this issue in future will hopefully find this post and the solution will hopefully work. Another thing I&#8217;m hopeful about is that the future release, chrome will kick this issue out for good. :D</p>
+
+<p>So first up, here&#8217;s a snapshot of the issue.
+<img src="/images/bug.png" alt="chrome bug" /></p>
+
+<p>As you can see there are weird horizontal traces all over the place while I try to drag a draggable div which uses jquery UI.</p>
+
+<p>Now the solution that worked for me. Drum roll please.</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='css'><span class='line'><span class="nt">outline</span><span class="o">:</span> <span class="nt">1px</span> <span class="nt">solid</span> <span class="nt">transparent</span><span class="o">;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>That&#8217;s it.</p>
+
+<p>If it does not solve your issue, then your issue may be different than mine. So good luck for your solution hunt. A hint: google and stackoverflow.com are your best bait for a solution. They helped me with my solution too :)</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -349,9 +405,84 @@ Download the tar archive from sublime text&#8217;s <a href="http://www.sublimete
 
     </article>
   
-  <div class="pagination">
+  
+    <article>
+      
+  <header>
     
-      <a class="prev" href="/blog/page/2/">&larr; Older</a>
+      <h1 class="entry-title"><a href="/blog/2012/08/06/print-is-not-a-function-in-python-2-dot-x/">Print Is Not a Function in Python 2.x</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-08-06T15:58:00+05:30" pubdate data-updated="true">Aug 6<span>th</span>, 2012</time>
+        
+         | <a href="/blog/2012/08/06/print-is-not-a-function-in-python-2-dot-x/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><blockquote><p>Everything in Python is an Object.</p></blockquote>
+
+
+<p>This is perhaps the most common line in all the python books I have read. And indeed almost everything in python are objects. And this gives great powers to python.</p>
+
+<p>For example, let&#8217;s say we have to pass a function as argument to another function. We don&#8217;t have to pass the function&#8217;s name as a parameter or anything. Because everything including functions are objects in python, we can directly pass the function as the argument. Take a look at the following example.</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="o">&gt;&gt;&gt;</span> <span class="k">def</span> <span class="nf">blue</span><span class="p">():</span>
+</span><span class='line'><span class="o">...</span>     <span class="k">return</span> <span class="s">&#39;blue&#39;</span>
+</span><span class='line'><span class="o">...</span>
+</span><span class='line'><span class="o">&gt;&gt;&gt;</span> <span class="k">def</span> <span class="nf">sky</span><span class="p">():</span>
+</span><span class='line'><span class="o">...</span>     <span class="k">return</span> <span class="s">&#39;sky&#39;</span>
+</span><span class='line'><span class="o">...</span>
+</span><span class='line'><span class="o">&gt;&gt;&gt;</span> <span class="k">def</span> <span class="nf">add_strings</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">):</span>
+</span><span class='line'><span class="o">...</span>     <span class="k">return</span> <span class="n">a</span><span class="p">()</span> <span class="o">+</span> <span class="n">b</span><span class="p">()</span>
+</span><span class='line'><span class="o">...</span>
+</span><span class='line'><span class="o">&gt;&gt;&gt;</span> <span class="n">add_strings</span><span class="p">(</span><span class="n">blue</span><span class="p">,</span><span class="n">sky</span><span class="p">)</span>
+</span><span class='line'><span class="s">&#39;bluesky&#39;</span>
+</span><span class='line'><span class="o">&gt;&gt;&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2012/08/06/print-is-not-a-function-in-python-2-dot-x/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  <div class="pagination">
     
     <a href="/blog/archives">Blog Archives</a>
     
@@ -362,6 +493,10 @@ Download the tar archive from sublime text&#8217;s <a href="http://www.sublimete
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/09/12/solving-antialiasing-bug-in-chrome/">Solving Antialiasing Bug in Chrome</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2012/08/21/installing-sublime-text-2-on-ubuntu-12-dot-04/">Installing Sublime Text 2 on Ubuntu 12.04</a>
@@ -377,10 +512,6 @@ Download the tar archive from sublime text&#8217;s <a href="http://www.sublimete
     
       <li class="post">
         <a href="/blog/2012/08/08/making-text-inputs-look-awesome-using-css3/">Making Text Inputs Look Awesome Using CSS3</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/08/07/tweeting-from-python/">Tweeting From Python.</a>
       </li>
     
   </ul>

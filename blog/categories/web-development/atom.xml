@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: web development | tarashish dot com]]></title>
+  <link href="http://sunu.github.com/blog/categories/web-development/atom.xml" rel="self"/>
+  <link href="http://sunu.github.com/"/>
+  <updated>2012-09-12T18:54:54+05:30</updated>
+  <id>http://sunu.github.com/</id>
+  <author>
+    <name><![CDATA[Tarashish Mishra]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Solving Antialiasing Bug in Chrome]]></title>
+    <link href="http://sunu.github.com/blog/2012/09/12/solving-antialiasing-bug-in-chrome/"/>
+    <updated>2012-09-12T18:27:00+05:30</updated>
+    <id>http://sunu.github.com/blog/2012/09/12/solving-antialiasing-bug-in-chrome</id>
+    <content type="html"><![CDATA[<p>Yesterday while making a small cute sticky note chrome extension, I faced an antialiasing bug in chrome. The bug nearly drove me out of my mind :)</p>
+
+<p>So to save some headaches in future, I am writing down the possible solution here, so that me or anyone else who faces this issue in future will hopefully find this post and the solution will hopefully work. Another thing I'm hopeful about is that the future release, chrome will kick this issue out for good. :D</p>
+
+<p>So first up, here's a snapshot of the issue.
+<img src="/images/bug.png" alt="chrome bug" /></p>
+
+<p>As you can see there are weird horizontal traces all over the place while I try to drag a draggable div which uses jquery UI.</p>
+
+<p>Now the solution that worked for me. Drum roll please.
+<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='css'><span class='line'><span class="nt">outline</span><span class="o">:</span> <span class="nt">1px</span> <span class="nt">solid</span> <span class="nt">transparent</span><span class="o">;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+That's it.</p>
+
+<p>If it does not solve your issue, then your issue may be different than mine. So good luck for your solution hunt. A hint: google and stackoverflow.com are your best bait for a solution. They helped me with my solution too :)</p>
+]]></content>
+  </entry>
+  
+</feed>
