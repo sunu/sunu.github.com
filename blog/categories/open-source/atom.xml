@@ -4,7 +4,7 @@
   <title><![CDATA[Category: open source | tarashish dot com]]></title>
   <link href="http://sunu.github.com/blog/categories/open-source/atom.xml" rel="self"/>
   <link href="http://sunu.github.com/"/>
-  <updated>2012-09-30T16:17:52+05:30</updated>
+  <updated>2013-02-21T21:21:38+05:30</updated>
   <id>http://sunu.github.com/</id>
   <author>
     <name><![CDATA[Tarashish Mishra]]></name>
@@ -21,7 +21,7 @@
     <content type="html"><![CDATA[<p>I have been wanting to contribute open source projects for quite some time. Contributing to existing open source projects is quite different from working on small projects of your own. I think the main problem I faced was the size of the repositories. The amount of code already there was always overwhelming. So I never went too far.</p>
 
 <p>But now I have some good news to share. I have finally become a part (however small that is) of the open source movement. I have started contributing to <a href="http://moinmo.in/">MoinMoin</a>. As mentioned in their bitbucket <a href="https://bitbucket.org/thomaswaldmann/moin-2.0">repository</a>
-<blockquote><p>MoinMoin is an easy to use, full-featured and extensible wiki software package written in Python. It can fulfill a wide range of roles, such as a personal notes organizer deployed on a laptop or home web server, a company knowledge base deployed on an intranet, or an Internet server open to individuals sharing the same interests, goals or projects.</p></blockquote></p>
+<blockquote><p></p></p><p><!--more--></p><p><br/><p>MoinMoin is an easy to use, full-featured and extensible wiki software package written in Python. It can fulfill a wide range of roles, such as a personal notes organizer deployed on a laptop or home web server, a company knowledge base deployed on an intranet, or an Internet server open to individuals sharing the same interests, goals or projects.</p></blockquote></p>
 
 <p>At the time of writing this I have  got 3 pull requests accepted and resolved an <a href="https://bitbucket.org/thomaswaldmann/moin-2.0/issue/263/create-a-setup-less-moin-using-stuff-from">issue</a>. I mainly worked on creating a setup-less moin for both the standalone server and Google App Engine.</p>
 
