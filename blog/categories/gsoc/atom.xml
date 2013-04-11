@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: GSOC | tarashish dot com]]></title>
+  <link href="http://sunu.github.com/blog/categories/gsoc/atom.xml" rel="self"/>
+  <link href="http://sunu.github.com/"/>
+  <updated>2013-04-11T23:25:16+05:30</updated>
+  <id>http://sunu.github.com/</id>
+  <author>
+    <name><![CDATA[Tarashish Mishra]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[GSOC 2013 is On]]></title>
+    <link href="http://sunu.github.com/blog/2013/04/11/gsoc-2013-is-on/"/>
+    <updated>2013-04-11T23:13:00+05:30</updated>
+    <id>http://sunu.github.com/blog/2013/04/11/gsoc-2013-is-on</id>
+    <content type="html"><![CDATA[<p>Google Summer of Code is happening this year too, thanks to Google. For those who don't know what Google Summer of Code (GSOC) is:
+<blockquote><p>Google Summer of Code is a global program that offers students stipends to write code for open source projects. We have worked with the open source community to identify and fund exciting projects for the upcoming summer.</p></blockquote></p>
+
+<p>Google has already announced the list of accepted organizations. You can find the list <a href="http://www.google-melange.com/gsoc/accepted_orgs/google/gsoc2013">here</a>. There are a total of 177 organizations participating this year including the biggies like Mozilla, Apache, KDE, GNOME, PSF, Fedora etc.</p>
+
+<p>I'm applying as a student to be part of GSOC this summer. Wish me luck :)</p>
+]]></content>
+  </entry>
+  
+</feed>
