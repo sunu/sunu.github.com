@@ -4,7 +4,7 @@
   <title><![CDATA[tarashish dot com]]></title>
   <link href="http://sunu.github.com/atom.xml" rel="self"/>
   <link href="http://sunu.github.com/"/>
-  <updated>2013-04-11T23:25:16+05:30</updated>
+  <updated>2013-04-28T01:09:14+05:30</updated>
   <id>http://sunu.github.com/</id>
   <author>
     <name><![CDATA[Tarashish Mishra]]></name>
@@ -12,6 +12,27 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Porting Oppia to django]]></title>
+    <link href="http://sunu.github.com/blog/2013/04/27/porting-oppia-to-django/"/>
+    <updated>2013-04-27T23:48:00+05:30</updated>
+    <id>http://sunu.github.com/blog/2013/04/27/porting-oppia-to-django</id>
+    <content type="html"><![CDATA[<p>For those who are wondering what oppia is,</p>
+
+<blockquote><p>Oppia is a web-based tool for creating interactive online activities that enable students to learn by doing. Oppia aims to capture and generalize the one-on-one &#8220;conversations&#8221; that a student has with a teacher, so that other students can benefit from them.</p></blockquote>
+
+
+<p>Currently, oppia is written using webapp2 and runs on Google App Engine only. The goal is to port it to django, so that it can run on more number of platforms and hopefully be used for training missions at <a href="http://openhatch.org">openhatch</a></p>
+
+<!--more-->
+
+
+<p>I first heard of oppia on <a href="http://openhatch.org">openhatch</a>. People behind openhatch were (and still are) interested in having the training missions ported to oppia. And I was very much interested in contributing to openhatch. After all openhatch is fantastic. It provides a great platform for opensource newbies (people like me) to learn new skills and solve their first bug and conducts workshops on various campuses, which is pretty amazing. And people behind openhatch are just super friendly and awesome. (tip: if you&#8217;re planning to make your first opensource contribution <a href="http://openhatch.org">openhatch</a> and #openhatch on freenode is probably the best place to start).</p>
+
+<p>So, I showed my interest in porting oppia on #openhatch and <a href="https://twitter.com/asheeshlaroia">Asheesh</a> put me in contact with Sean, the author of oppia. I talked to Sean on Google+ and we are now working on porting oppia to django. We have started by doing some experiments to test the feasibility of the porting. For now, everything looks good. Hopefully, we&#8217;ll be able to port oppia entirely to django-nonrel soon :-)</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[GSOC 2013 is On]]></title>

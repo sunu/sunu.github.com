@@ -9,7 +9,7 @@
   <meta name="author" content="Tarashish Mishra">
 
   
-  <meta name="description" content="Google Summer of Code is happening this year too, thanks to Google. For those who don&#8217;t know what Google Summer of Code (GSOC) is: Google &hellip;">
+  <meta name="description" content="For those who are wondering what oppia is, Oppia is a web-based tool for creating interactive online activities that enable students to learn by &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -74,6 +74,54 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/04/27/porting-oppia-to-django/">Porting Oppia to Django</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-04-27T23:48:00+05:30" pubdate data-updated="true">Apr 27<span>th</span>, 2013</time>
+        
+         | <a href="/blog/2013/04/27/porting-oppia-to-django/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>For those who are wondering what oppia is,</p>
+
+<blockquote><p>Oppia is a web-based tool for creating interactive online activities that enable students to learn by doing. Oppia aims to capture and generalize the one-on-one &#8220;conversations&#8221; that a student has with a teacher, so that other students can benefit from them.</p></blockquote>
+
+
+<p>Currently, oppia is written using webapp2 and runs on Google App Engine only. The goal is to port it to django, so that it can run on more number of platforms and hopefully be used for training missions at <a href="http://openhatch.org">openhatch</a></p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2013/04/27/porting-oppia-to-django/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -569,84 +617,9 @@ Download the tar archive from sublime text&#8217;s <a href="http://www.sublimete
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/08/06/print-is-not-a-function-in-python-2-dot-x/">Print Is Not a Function in Python 2.x</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-08-06T15:58:00+05:30" pubdate data-updated="true">Aug 6<span>th</span>, 2012</time>
-        
-         | <a href="/blog/2012/08/06/print-is-not-a-function-in-python-2-dot-x/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><blockquote><p>Everything in Python is an Object.</p></blockquote>
-
-
-<p>This is perhaps the most common line in all the python books I have read. And indeed almost everything in python are objects. And this gives great powers to python.</p>
-
-<p>For example, let&#8217;s say we have to pass a function as argument to another function. We don&#8217;t have to pass the function&#8217;s name as a parameter or anything. Because everything including functions are objects in python, we can directly pass the function as the argument. Take a look at the following example.</p>
-
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="o">&gt;&gt;&gt;</span> <span class="k">def</span> <span class="nf">blue</span><span class="p">():</span>
-</span><span class='line'><span class="o">...</span>     <span class="k">return</span> <span class="s">&#39;blue&#39;</span>
-</span><span class='line'><span class="o">...</span>
-</span><span class='line'><span class="o">&gt;&gt;&gt;</span> <span class="k">def</span> <span class="nf">sky</span><span class="p">():</span>
-</span><span class='line'><span class="o">...</span>     <span class="k">return</span> <span class="s">&#39;sky&#39;</span>
-</span><span class='line'><span class="o">...</span>
-</span><span class='line'><span class="o">&gt;&gt;&gt;</span> <span class="k">def</span> <span class="nf">add_strings</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">):</span>
-</span><span class='line'><span class="o">...</span>     <span class="k">return</span> <span class="n">a</span><span class="p">()</span> <span class="o">+</span> <span class="n">b</span><span class="p">()</span>
-</span><span class='line'><span class="o">...</span>
-</span><span class='line'><span class="o">&gt;&gt;&gt;</span> <span class="n">add_strings</span><span class="p">(</span><span class="n">blue</span><span class="p">,</span><span class="n">sky</span><span class="p">)</span>
-</span><span class='line'><span class="s">&#39;bluesky&#39;</span>
-</span><span class='line'><span class="o">&gt;&gt;&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2012/08/06/print-is-not-a-function-in-python-2-dot-x/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <div class="pagination">
+    
+      <a class="prev" href="/blog/page/2/">&larr; Older</a>
     
     <a href="/blog/archives">Blog Archives</a>
     
@@ -657,6 +630,10 @@ Download the tar archive from sublime text&#8217;s <a href="http://www.sublimete
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/04/27/porting-oppia-to-django/">Porting Oppia to django</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2013/04/11/gsoc-2013-is-on/">GSOC 2013 is On</a>
@@ -672,10 +649,6 @@ Download the tar archive from sublime text&#8217;s <a href="http://www.sublimete
     
       <li class="post">
         <a href="/blog/2012/09/12/solving-antialiasing-bug-in-chrome/">Solving Antialiasing Bug in Chrome</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/08/21/installing-sublime-text-2-on-ubuntu-12-dot-04/">Installing Sublime Text 2 on Ubuntu 12.04</a>
       </li>
     
   </ul>
