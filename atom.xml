@@ -4,7 +4,7 @@
   <title><![CDATA[tarashish dot com]]></title>
   <link href="http://sunu.github.com/atom.xml" rel="self"/>
   <link href="http://sunu.github.com/"/>
-  <updated>2013-04-28T01:09:14+05:30</updated>
+  <updated>2013-06-01T20:40:23+05:30</updated>
   <id>http://sunu.github.com/</id>
   <author>
     <name><![CDATA[Tarashish Mishra]]></name>
@@ -12,6 +12,21 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Yay! I am in]]></title>
+    <link href="http://sunu.github.com/blog/2013/06/01/yay-i-am-in/"/>
+    <updated>2013-06-01T20:28:00+05:30</updated>
+    <id>http://sunu.github.com/blog/2013/06/01/yay-i-am-in</id>
+    <content type="html"><![CDATA[<p>Bit of a late news, but yes, I&#8217;m accepted as a student for Google Summer of Code(GSoC) 2013. I&#8217;ll be working with OpenHatch this summer under Python Software Foundation(PSF)&#8217;s umbrella. More details on my accepted project proposal can be found on <a href="http://www.google-melange.com/gsoc/project/google/gsoc2013/sunu/19001">melange</a>.</p>
+
+<p>I also applied for and got accepted by MoinMoin, but we all discussed about it and decided that it will be better if I do GSoC with OpenHatch. I haven&#8217;t started working on the project yet as semesters are still going on. But I&#8217;m pretty excited and I&#8217;ll start with the project as soon as exams are over.</p>
+
+<p>I plan to blog about things I do during GSoC here, so that I can document my progress and difficulties. And also it&#8217;ll be a great read someday in the future.</p>
+
+<p>Cheers.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Porting Oppia to django]]></title>
@@ -35,11 +50,11 @@
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[GSOC 2013 is On]]></title>
+    <title type="html"><![CDATA[GSoC 2013 is On]]></title>
     <link href="http://sunu.github.com/blog/2013/04/11/gsoc-2013-is-on/"/>
     <updated>2013-04-11T23:13:00+05:30</updated>
     <id>http://sunu.github.com/blog/2013/04/11/gsoc-2013-is-on</id>
-    <content type="html"><![CDATA[<p>Google Summer of Code is happening this year too, thanks to Google. For those who don&#8217;t know what Google Summer of Code (GSOC) is:</p>
+    <content type="html"><![CDATA[<p>Google Summer of Code is happening this year too, thanks to Google. For those who don&#8217;t know what Google Summer of Code (GSoC) is:</p>
 
 <blockquote><p>Google Summer of Code is a global program that offers students stipends to write code for open source projects. We have worked with the open source community to identify and fund exciting projects for the upcoming summer.</p></blockquote>
 
