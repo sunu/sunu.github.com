@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: GSoC | tarashish dot com]]></title>
+  <title><![CDATA[Category: gsoc | tarashish dot com]]></title>
   <link href="http://sunu.github.com/blog/categories/gsoc/atom.xml" rel="self"/>
   <link href="http://sunu.github.com/"/>
-  <updated>2013-06-01T21:22:17+05:30</updated>
+  <updated>2013-06-16T09:52:42+05:30</updated>
   <id>http://sunu.github.com/</id>
   <author>
     <name><![CDATA[Tarashish Mishra]]></name>
@@ -14,31 +14,19 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Yay! I am in]]></title>
-    <link href="http://sunu.github.com/blog/2013/06/01/yay-i-am-in/"/>
-    <updated>2013-06-01T20:28:00+05:30</updated>
-    <id>http://sunu.github.com/blog/2013/06/01/yay-i-am-in</id>
-    <content type="html"><![CDATA[<p>Bit of a late news, but yes, I'm accepted as a student for Google Summer of Code(GSoC) 2013. I'll be working with OpenHatch this summer under Python Software Foundation(PSF)'s umbrella. More details on my accepted project proposal can be found on <a href="http://www.google-melange.com/gsoc/project/google/gsoc2013/sunu/19001">melange</a>.</p>
+    <title type="html"><![CDATA[GSoC Update: June 16 2013]]></title>
+    <link href="http://sunu.github.com/blog/2013/06/15/gsoc-update-june-14-2013/"/>
+    <updated>2013-06-15T00:32:00+05:30</updated>
+    <id>http://sunu.github.com/blog/2013/06/15/gsoc-update-june-14-2013</id>
+    <content type="html"><![CDATA[<p>It's 3rd week of GSoC already. So time for an short update.</p>
 
-<p>I also applied for and got accepted by MoinMoin, but we all discussed about it and decided that it will be better if I do GSoC with OpenHatch. I haven't started working on the project yet as semesters are still going on. But I'm pretty excited and I'll start with the project as soon as exams are over.</p>
+<p>I have worked on a detailed plan of the summer with Sean. The plan is on an etherpad <a href="https://etherpad.mozilla.org/iegTQD1NMS">here</a>. And now I have started to work on the plan. The coding period begins on 17st June, but I have started early. Hopefully it will be helpful and will get me some more time to finish the project in time.</p>
 
-<p>I plan to blog about things I do during GSoC here, so that I can document my progress and difficulties. And also it'll be a great read someday in the future.</p>
+<p>The plan for now only contains the first part of the project i.e. porting Oppia to Django. After we finish this part, we'll have a clear idea how to implement the missions for OpenHatch.</p>
+
+<p>That's it for now.</p>
 
 <p>Cheers.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[GSoC 2013 is On]]></title>
-    <link href="http://sunu.github.com/blog/2013/04/11/gsoc-2013-is-on/"/>
-    <updated>2013-04-11T23:13:00+05:30</updated>
-    <id>http://sunu.github.com/blog/2013/04/11/gsoc-2013-is-on</id>
-    <content type="html"><![CDATA[<p>Google Summer of Code is happening this year too, thanks to Google. For those who don't know what Google Summer of Code (GSoC) is:
-<blockquote><p>Google Summer of Code is a global program that offers students stipends to write code for open source projects. We have worked with the open source community to identify and fund exciting projects for the upcoming summer.</p></blockquote></p>
-
-<p>Google has already announced the list of accepted organizations. You can find the list <a href="http://www.google-melange.com/gsoc/accepted_orgs/google/gsoc2013">here</a>. There are a total of 177 organizations participating this year including the biggies like Mozilla, Apache, KDE, GNOME, PSF, Fedora etc.</p>
-
-<p>I'm applying as a student to be part of GSOC this summer. Wish me luck :)</p>
 ]]></content>
   </entry>
   

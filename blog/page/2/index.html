@@ -9,7 +9,7 @@
   <meta name="author" content="Tarashish Mishra">
 
   
-  <meta name="description" content="Many times I have the urge to check twitter while at the terminal doing stuff I love (mostly python ). But I am too lazy to open up the browser and &hellip;">
+  <meta name="description" content="I often use this snippet of CSS to style text inputs and even search inputs. I just love the look of it. So this blog post is just to keep it within &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -74,6 +74,84 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/08/08/making-text-inputs-look-awesome-using-css3/">Making Text Inputs Look Awesome Using CSS3</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-08-08T04:54:00+05:30" pubdate data-updated="true">Aug 8<span>th</span>, 2012</time>
+        
+         | <a href="/blog/2012/08/08/making-text-inputs-look-awesome-using-css3/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I often use this snippet of CSS to style text inputs and even search inputs. I just love the look of it. So this blog post is just to keep it within reach.</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class='css'><span class='line'><span class="nt">input</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">border</span><span class="o">:</span> <span class="m">5px</span> <span class="k">solid</span> <span class="nb">white</span><span class="p">;</span>
+</span><span class='line'>    <span class="o">-</span><span class="n">webkit</span><span class="o">-</span><span class="n">box</span><span class="o">-</span><span class="n">shadow</span><span class="o">:</span>
+</span><span class='line'>      <span class="k">inset</span> <span class="m">0</span> <span class="m">0</span> <span class="m">8px</span>  <span class="n">rgba</span><span class="p">(</span><span class="m">0</span><span class="o">,</span><span class="m">0</span><span class="o">,</span><span class="m">0</span><span class="o">,</span><span class="m">0</span><span class="o">.</span><span class="m">1</span><span class="p">)</span><span class="o">,</span>
+</span><span class='line'>            <span class="m">0</span> <span class="m">0</span> <span class="m">16px</span> <span class="n">rgba</span><span class="p">(</span><span class="m">0</span><span class="o">,</span><span class="m">0</span><span class="o">,</span><span class="m">0</span><span class="o">,</span><span class="m">0</span><span class="o">.</span><span class="m">1</span><span class="p">);</span>
+</span><span class='line'>    <span class="o">-</span><span class="n">moz</span><span class="o">-</span><span class="n">box</span><span class="o">-</span><span class="n">shadow</span><span class="o">:</span>
+</span><span class='line'>      <span class="k">inset</span> <span class="m">0</span> <span class="m">0</span> <span class="m">8px</span>  <span class="n">rgba</span><span class="p">(</span><span class="m">0</span><span class="o">,</span><span class="m">0</span><span class="o">,</span><span class="m">0</span><span class="o">,</span><span class="m">0</span><span class="o">.</span><span class="m">1</span><span class="p">)</span><span class="o">,</span>
+</span><span class='line'>            <span class="m">0</span> <span class="m">0</span> <span class="m">16px</span> <span class="n">rgba</span><span class="p">(</span><span class="m">0</span><span class="o">,</span><span class="m">0</span><span class="o">,</span><span class="m">0</span><span class="o">,</span><span class="m">0</span><span class="o">.</span><span class="m">1</span><span class="p">);</span>
+</span><span class='line'>    <span class="n">box</span><span class="o">-</span><span class="n">shadow</span><span class="o">:</span>
+</span><span class='line'>      <span class="k">inset</span> <span class="m">0</span> <span class="m">0</span> <span class="m">8px</span>  <span class="n">rgba</span><span class="p">(</span><span class="m">0</span><span class="o">,</span><span class="m">0</span><span class="o">,</span><span class="m">0</span><span class="o">,</span><span class="m">0</span><span class="o">.</span><span class="m">1</span><span class="p">)</span><span class="o">,</span>
+</span><span class='line'>            <span class="m">0</span> <span class="m">0</span> <span class="m">16px</span> <span class="n">rgba</span><span class="p">(</span><span class="m">0</span><span class="o">,</span><span class="m">0</span><span class="o">,</span><span class="m">0</span><span class="o">,</span><span class="m">0</span><span class="o">.</span><span class="m">1</span><span class="p">);</span>
+</span><span class='line'>    <span class="k">padding</span><span class="o">:</span> <span class="m">15px</span><span class="p">;</span>
+</span><span class='line'>    <span class="k">background</span><span class="o">:</span> <span class="n">rgba</span><span class="p">(</span><span class="m">255</span><span class="o">,</span><span class="m">255</span><span class="o">,</span><span class="m">255</span><span class="o">,</span><span class="m">0</span><span class="o">.</span><span class="m">5</span><span class="p">);</span>
+</span><span class='line'>    <span class="k">margin</span><span class="o">:</span> <span class="m">0</span> <span class="m">0</span> <span class="m">10px</span> <span class="m">0</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2012/08/08/making-text-inputs-look-awesome-using-css3/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -214,6 +292,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2013/06/15/gsoc-update-june-14-2013/">GSoC Update: June 16 2013</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2013/06/01/yay-i-am-in/">Yay! I am in</a>
       </li>
     
@@ -227,10 +309,6 @@
     
       <li class="post">
         <a href="/blog/2013/02/02/fixing-mkmf-load-error-ubuntu/">Fixing &#8216;mkmf&#8217; load error in Ubuntu</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/09/30/first-step-into-the-open-source-world/">First step into the Open Source world</a>
       </li>
     
   </ul>
