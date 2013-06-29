@@ -9,7 +9,7 @@
   <meta name="author" content="Tarashish Mishra">
 
   
-  <meta name="description" content="It&#8217;s 3rd week of GSoC already. So time for an short update. I have worked on a detailed plan of the summer with Sean. The plan is on an &hellip;">
+  <meta name="description" content="Last week I mostly worked on porting the models. Oppia uses LocalStructuredProperty available by GAE datastore a lot to store model instances locally &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -74,6 +74,50 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/06/29/gsoc-update-june-29-2013/">GSoC Update: June 29 2013</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-06-29T22:39:00+05:30" pubdate data-updated="true">Jun 29<span>th</span>, 2013</time>
+        
+         | <a href="/blog/2013/06/29/gsoc-update-june-29-2013/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Last week I mostly worked on porting the models. Oppia uses LocalStructuredProperty available by GAE datastore a lot to store model instances locally inside other models. We are using a customized version of <a href="https://github.com/derek-schaefer/django-json-field/">django-json-field</a> to implement that in Django by overriding the methods which sets and gets the values from from the database inside JSONField. Basically we are converting the objects to a JSON string before storing in the database and then retrieving the object from that JSON string while fetching it again from the database.</p>
+
+<p>Next week, I&#8217;ll merge the upstream changes. Some changes in exploration and state model has been done to simplify things. Ancestor Queries have been removed. So I&#8217;ll try to implement those changes in the Django models. Also I will add some serialization code which is needed to represent models as nested dictionaries.</p>
+
+<p>That&#8217;s it for now.</p>
+
+<p>Cheers.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -536,52 +580,6 @@ Download the tar archive from sublime text&#8217;s <a href="http://www.sublimete
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/08/10/web-scraping-with-python/">Web Scraping With Python</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-08-10T14:10:00+05:30" pubdate data-updated="true">Aug 10<span>th</span>, 2012</time>
-        
-         | <a href="/blog/2012/08/10/web-scraping-with-python/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>For those who have no idea what web scraping is</p>
-
-<blockquote><p>Web scraping (also called web harvesting or web data extraction) is a computer software technique of extracting information from websites.</p><footer><strong>Wikipedia</strong> <cite><a href='http://en.wikipedia.org/wiki/Web_scraping'>en.wikipedia.org/wiki/&hellip;</a></cite></footer></blockquote>
-
-
-<p>The web is full of information. Generally we are happy enough to browse these information with our favorite web-browser. There are times, however, when we need to collect information from some site and manually browsing the site is not an option. Web scraping comes in handy in those situations. You build a program which access the information you need without opening the page in a web browser.</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2012/08/10/web-scraping-with-python/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -597,6 +595,10 @@ Download the tar archive from sublime text&#8217;s <a href="http://www.sublimete
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2013/06/29/gsoc-update-june-29-2013/">GSoC Update: June 29 2013</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2013/06/15/gsoc-update-june-14-2013/">GSoC Update: June 16 2013</a>
       </li>
     
@@ -610,10 +612,6 @@ Download the tar archive from sublime text&#8217;s <a href="http://www.sublimete
     
       <li class="post">
         <a href="/blog/2013/04/11/gsoc-2013-is-on/">GSoC 2013 is On</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/02/02/fixing-mkmf-load-error-ubuntu/">Fixing &#8216;mkmf&#8217; load error in Ubuntu</a>
       </li>
     
   </ul>

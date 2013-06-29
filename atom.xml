@@ -4,7 +4,7 @@
   <title><![CDATA[tarashish dot com]]></title>
   <link href="http://sunu.github.com/atom.xml" rel="self"/>
   <link href="http://sunu.github.com/"/>
-  <updated>2013-06-29T20:13:05+05:30</updated>
+  <updated>2013-06-29T23:05:59+05:30</updated>
   <id>http://sunu.github.com/</id>
   <author>
     <name><![CDATA[Tarashish Mishra]]></name>
@@ -12,6 +12,21 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[GSoC Update: June 29 2013]]></title>
+    <link href="http://sunu.github.com/blog/2013/06/29/gsoc-update-june-29-2013/"/>
+    <updated>2013-06-29T22:39:00+05:30</updated>
+    <id>http://sunu.github.com/blog/2013/06/29/gsoc-update-june-29-2013</id>
+    <content type="html"><![CDATA[<p>Last week I mostly worked on porting the models. Oppia uses LocalStructuredProperty available by GAE datastore a lot to store model instances locally inside other models. We are using a customized version of <a href="https://github.com/derek-schaefer/django-json-field/">django-json-field</a> to implement that in Django by overriding the methods which sets and gets the values from from the database inside JSONField. Basically we are converting the objects to a JSON string before storing in the database and then retrieving the object from that JSON string while fetching it again from the database.</p>
+
+<p>Next week, I&#8217;ll merge the upstream changes. Some changes in exploration and state model has been done to simplify things. Ancestor Queries have been removed. So I&#8217;ll try to implement those changes in the Django models. Also I will add some serialization code which is needed to represent models as nested dictionaries.</p>
+
+<p>That&#8217;s it for now.</p>
+
+<p>Cheers.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[GSoC Update: June 16 2013]]></title>
