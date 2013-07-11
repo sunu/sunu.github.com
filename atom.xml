@@ -4,7 +4,7 @@
   <title><![CDATA[tarashish dot com]]></title>
   <link href="http://sunu.github.com/atom.xml" rel="self"/>
   <link href="http://sunu.github.com/"/>
-  <updated>2013-06-29T23:05:59+05:30</updated>
+  <updated>2013-07-11T10:20:15+05:30</updated>
   <id>http://sunu.github.com/</id>
   <author>
     <name><![CDATA[Tarashish Mishra]]></name>
@@ -12,6 +12,21 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[GSoC update: July 11 2013]]></title>
+    <link href="http://sunu.github.com/blog/2013/07/11/gsoc-update-july-11-2013/"/>
+    <updated>2013-07-11T10:11:00+05:30</updated>
+    <id>http://sunu.github.com/blog/2013/07/11/gsoc-update-july-11-2013</id>
+    <content type="html"><![CDATA[<p>Last week we made some significant changes to the way models are structured in Oppia. They are now divided into 3 files named models.py, services.py, domain.py. While models.py holds the platform dependent model code, the other 2 are completely independent of the platform. Hence we are now in a position to use GAE datastore models directly without using django-nonrel.</p>
+
+<p>Other than that, I mostly worked on merging changes from upstream and fixing the merged code. I have also implemented a to_dict method which represents a model as a dictionary. Statistics model is somewhat ported for now. It still has some failing tests.</p>
+
+<p>That&#8217;s it for now.</p>
+
+<p>Cheers.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[GSoC Update: June 29 2013]]></title>
