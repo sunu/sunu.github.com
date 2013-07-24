@@ -4,7 +4,7 @@
   <title><![CDATA[Category: GSoC | tarashish dot com]]></title>
   <link href="http://sunu.github.com/blog/categories/gsoc/atom.xml" rel="self"/>
   <link href="http://sunu.github.com/"/>
-  <updated>2013-07-11T10:20:15+05:30</updated>
+  <updated>2013-07-24T19:40:29+05:30</updated>
   <id>http://sunu.github.com/</id>
   <author>
     <name><![CDATA[Tarashish Mishra]]></name>
@@ -12,6 +12,19 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[GSoC Update: July 24 2013]]></title>
+    <link href="http://sunu.github.com/blog/2013/07/24/gsoc-update-july-24-2013/"/>
+    <updated>2013-07-24T19:27:00+05:30</updated>
+    <id>http://sunu.github.com/blog/2013/07/24/gsoc-update-july-24-2013</id>
+    <content type="html"><![CDATA[<p>After working on the django models for Oppia we finally have a running heroku app at <a href="oh-oppia.herokuapp.com">oh-oppia.herokuapp.com</a>. I have also worked on a way to combine the oppia WSGI app and Openhatch WSGI app using Werzeug's <a href="http://werkzeug.pocoo.org/docs/middlewares/#werkzeug.wsgi.DispatcherMiddleware">DispatcherMiddleware</a>. I have also worked on the auth system, so that I can pull out the session from webapp2 request object and passing into django middlewares to get the authenticated user out of it.</p>
+
+<p>The next thing I will be working on is the routing, which is currently broken after combining both WSGI apps. Also I'll be trying to push all my changes to Oppia mainline.</p>
+
+<p>That's all for now.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[GSoC update: July 11 2013]]></title>
@@ -72,20 +85,6 @@
 <p>I plan to blog about things I do during GSoC here, so that I can document my progress and difficulties. And also it'll be a great read someday in the future.</p>
 
 <p>Cheers.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[GSoC 2013 is On]]></title>
-    <link href="http://sunu.github.com/blog/2013/04/11/gsoc-2013-is-on/"/>
-    <updated>2013-04-11T23:13:00+05:30</updated>
-    <id>http://sunu.github.com/blog/2013/04/11/gsoc-2013-is-on</id>
-    <content type="html"><![CDATA[<p>Google Summer of Code is happening this year too, thanks to Google. For those who don't know what Google Summer of Code (GSoC) is:
-<blockquote><p>Google Summer of Code is a global program that offers students stipends to write code for open source projects. We have worked with the open source community to identify and fund exciting projects for the upcoming summer.</p></blockquote></p>
-
-<p>Google has already announced the list of accepted organizations. You can find the list <a href="http://www.google-melange.com/gsoc/accepted_orgs/google/gsoc2013">here</a>. There are a total of 177 organizations participating this year including the biggies like Mozilla, Apache, KDE, GNOME, PSF, Fedora etc.</p>
-
-<p>I'm applying as a student to be part of GSOC this summer. Wish me luck :)</p>
 ]]></content>
   </entry>
   
