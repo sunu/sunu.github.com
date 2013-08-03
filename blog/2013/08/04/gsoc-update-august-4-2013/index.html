@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>GSoC Update: July 24 2013 - tarashish dot com</title>
+  <title>GSoC Update: August 4 2013 - tarashish dot com</title>
   <meta name="author" content="Tarashish Mishra">
 
   
-  <meta name="description" content="After working on the django models for Oppia we finally have a running heroku app at oh-oppia.herokuapp.com. I have also worked on a way to combine &hellip;">
+  <meta name="description" content="Welcome to another GSoC update. This is the first after midterm. So I am officially in the second half of GSoC now. And the results of mid-term &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://sunu.github.com/blog/2013/07/24/gsoc-update-july-24-2013/">
+  <link rel="canonical" href="http://sunu.github.com/blog/2013/08/04/gsoc-update-august-4-2013/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -77,7 +77,7 @@
   
   <header>
     
-      <h1 class="entry-title">GSoC Update: July 24 2013</h1>
+      <h1 class="entry-title">GSoC Update: August 4 2013</h1>
     
     
       <p class="meta">
@@ -93,7 +93,7 @@
   
 
 
-<time datetime="2013-07-24T19:27:00+05:30" pubdate data-updated="true">Jul 24<span>th</span>, 2013</time>
+<time datetime="2013-08-04T03:33:00+05:30" pubdate data-updated="true">Aug 4<span>th</span>, 2013</time>
         
          | <a href="#disqus_thread">Comments</a>
         
@@ -102,11 +102,13 @@
   </header>
 
 
-<div class="entry-content"><p>After working on the django models for Oppia we finally have a running heroku app at <a href="http://oh-oppia.herokuapp.com">oh-oppia.herokuapp.com</a>. I have also worked on a way to combine the oppia WSGI app and Openhatch WSGI app using Werzeug&#8217;s <a href="http://werkzeug.pocoo.org/docs/middlewares/#werkzeug.wsgi.DispatcherMiddleware">DispatcherMiddleware</a>. I have also worked on the auth system, so that I can pull out the session from webapp2 request object and passing into django middlewares to get the authenticated user out of it.</p>
+<div class="entry-content"><p>Welcome to another GSoC update. This is the first after midterm. So I am officially in the second half of GSoC now. And the results of mid-term evaluation are out already. I have passed. Many thanks to Asheesh, my mentor and all the nice people from Openhatch, PSF and Google.</p>
 
-<p>The next thing I will be working on is the routing, which is currently broken after combining both WSGI apps. Also I&#8217;ll be trying to push all my changes to Oppia mainline.</p>
+<p>So now let&#8217;s talk about what I have accomplished since the last update. I have mostly worked on getting my code into Oppia repository. So I have merged and changed the code structure for that. Also we have a new method to switch models on different platforms now. We decided to drop the previous approach as it was not very reliable. Also we have devised a plan to solve the routing problem. I work one that in the next couple of days.</p>
 
-<p>That&#8217;s all for now.</p>
+<p>That&#8217;s it for now.</p>
+
+<p>Ciao.</p>
 </div>
 
 
@@ -129,7 +131,7 @@
   
 
 
-<time datetime="2013-07-24T19:27:00+05:30" pubdate data-updated="true">Jul 24<span>th</span>, 2013</time>
+<time datetime="2013-08-04T03:33:00+05:30" pubdate data-updated="true">Aug 4<span>th</span>, 2013</time>
       
 
 <span class="categories">
@@ -143,7 +145,7 @@
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://sunu.github.com/blog/2013/07/24/gsoc-update-july-24-2013/" data-via="tarashish" data-counturl="http://sunu.github.com/blog/2013/07/24/gsoc-update-july-24-2013/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://sunu.github.com/blog/2013/08/04/gsoc-update-august-4-2013/" data-via="tarashish" data-counturl="http://sunu.github.com/blog/2013/08/04/gsoc-update-august-4-2013/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -156,10 +158,8 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2013/07/11/gsoc-update-july-11-2013/" title="Previous Post: GSoC update: July 11 2013">&laquo; GSoC update: July 11 2013</a>
+        <a class="basic-alignment left" href="/blog/2013/07/24/gsoc-update-july-24-2013/" title="Previous Post: GSoC Update: July 24 2013">&laquo; GSoC Update: July 24 2013</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2013/08/04/gsoc-update-august-4-2013/" title="Next Post: GSoC Update: August 4 2013">GSoC Update: August 4 2013 &raquo;</a>
       
     </p>
   </footer>
@@ -280,8 +280,8 @@
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://sunu.github.com/blog/2013/07/24/gsoc-update-july-24-2013/';
-        var disqus_url = 'http://sunu.github.com/blog/2013/07/24/gsoc-update-july-24-2013/';
+        var disqus_identifier = 'http://sunu.github.com/blog/2013/08/04/gsoc-update-august-4-2013/';
+        var disqus_url = 'http://sunu.github.com/blog/2013/08/04/gsoc-update-august-4-2013/';
         var disqus_script = 'embed.js';
       
     (function () {

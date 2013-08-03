@@ -4,7 +4,7 @@
   <title><![CDATA[Category: GSoC | tarashish dot com]]></title>
   <link href="http://sunu.github.com/blog/categories/gsoc/atom.xml" rel="self"/>
   <link href="http://sunu.github.com/"/>
-  <updated>2013-07-24T19:41:35+05:30</updated>
+  <updated>2013-08-04T04:03:15+05:30</updated>
   <id>http://sunu.github.com/</id>
   <author>
     <name><![CDATA[Tarashish Mishra]]></name>
@@ -12,6 +12,21 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[GSoC Update: August 4 2013]]></title>
+    <link href="http://sunu.github.com/blog/2013/08/04/gsoc-update-august-4-2013/"/>
+    <updated>2013-08-04T03:33:00+05:30</updated>
+    <id>http://sunu.github.com/blog/2013/08/04/gsoc-update-august-4-2013</id>
+    <content type="html"><![CDATA[<p>Welcome to another GSoC update. This is the first after midterm. So I am officially in the second half of GSoC now. And the results of mid-term evaluation are out already. I have passed. Many thanks to Asheesh, my mentor and all the nice people from Openhatch, PSF and Google.</p>
+
+<p>So now let's talk about what I have accomplished since the last update. I have mostly worked on getting my code into Oppia repository. So I have merged and changed the code structure for that. Also we have a new method to switch models on different platforms now. We decided to drop the previous approach as it was not very reliable. Also we have devised a plan to solve the routing problem. I work one that in the next couple of days.</p>
+
+<p>That's it for now.</p>
+
+<p>Ciao.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[GSoC Update: July 24 2013]]></title>
@@ -68,21 +83,6 @@
 <p>The plan for now only contains the first part of the project i.e. porting Oppia to Django. After we finish this part, we'll have a clear idea how to implement the missions for OpenHatch.</p>
 
 <p>That's it for now.</p>
-
-<p>Cheers.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Yay! I am in]]></title>
-    <link href="http://sunu.github.com/blog/2013/06/01/yay-i-am-in/"/>
-    <updated>2013-06-01T20:28:00+05:30</updated>
-    <id>http://sunu.github.com/blog/2013/06/01/yay-i-am-in</id>
-    <content type="html"><![CDATA[<p>Bit of a late news, but yes, I'm accepted as a student for Google Summer of Code(GSoC) 2013. I'll be working with OpenHatch this summer under Python Software Foundation(PSF)'s umbrella. More details on my accepted project proposal can be found on <a href="http://www.google-melange.com/gsoc/project/google/gsoc2013/sunu/19001">melange</a>.</p>
-
-<p>I also applied for and got accepted by MoinMoin, but we all discussed about it and decided that it will be better if I do GSoC with OpenHatch. I haven't started working on the project yet as semesters are still going on. But I'm pretty excited and I'll start with the project as soon as exams are over.</p>
-
-<p>I plan to blog about things I do during GSoC here, so that I can document my progress and difficulties. And also it'll be a great read someday in the future.</p>
 
 <p>Cheers.</p>
 ]]></content>
