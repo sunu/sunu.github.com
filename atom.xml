@@ -4,7 +4,7 @@
   <title><![CDATA[tarashish dot com]]></title>
   <link href="http://sunu.github.com/atom.xml" rel="self"/>
   <link href="http://sunu.github.com/"/>
-  <updated>2013-08-04T04:03:15+05:30</updated>
+  <updated>2013-08-14T00:08:30+05:30</updated>
   <id>http://sunu.github.com/</id>
   <author>
     <name><![CDATA[Tarashish Mishra]]></name>
@@ -12,6 +12,19 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[GSoC Update: August 14 2013]]></title>
+    <link href="http://sunu.github.com/blog/2013/08/13/gsoc-update-august-14-2013/"/>
+    <updated>2013-08-13T23:58:00+05:30</updated>
+    <id>http://sunu.github.com/blog/2013/08/13/gsoc-update-august-14-2013</id>
+    <content type="html"><![CDATA[<p>Last week we decided to use Oppia&#8217;s existing skin for now in the Openhatch missions. Also each step of a mission will be a separate exploration. So we need a wrapper around Oppia which will allow us to manage the prerequisites and codependency of steps in a mission.</p>
+
+<p>I have pushed the code I worked on to Oppia&#8217;s main repository. Last week I worked on routing configurations which will allow us to use uri_for in place of raw addresses in the templates. Other than that I am mostly done with adding an automated test suite for non-GAE platforms.</p>
+
+<p>I plan to replace all the raw addresses in the templates with uri_for next week. After that I have to work on the wrapper that will manage the codependency of steps in a mission.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[GSoC Update: August 4 2013]]></title>
