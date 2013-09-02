@@ -4,7 +4,7 @@
   <title><![CDATA[Category: GSoC | tarashish dot com]]></title>
   <link href="http://sunu.github.com/blog/categories/gsoc/atom.xml" rel="self"/>
   <link href="http://sunu.github.com/"/>
-  <updated>2013-08-14T00:08:30+05:30</updated>
+  <updated>2013-09-02T19:30:55+05:30</updated>
   <id>http://sunu.github.com/</id>
   <author>
     <name><![CDATA[Tarashish Mishra]]></name>
@@ -12,6 +12,17 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[GSoC Update: September 2 2013]]></title>
+    <link href="http://sunu.github.com/blog/2013/09/02/gsoc-update-september-2-2013/"/>
+    <updated>2013-09-02T19:19:00+05:30</updated>
+    <id>http://sunu.github.com/blog/2013/09/02/gsoc-update-september-2-2013</id>
+    <content type="html"><![CDATA[<p>There have been major changes in the plan in my project since the last update. We have decided to host the explorations on Google AppEngine for now. And we'll have a OpenHatch api for mission specific stuff that can't be done on GAE. Our Oppia will talk to that api to perform those special parts.</p>
+
+<p>I have implemented a minimal version of the tar mission on AppEngine. Oppia didn't have a widget for file upload, so I made one. But it's more of a fire reading widget because technically we are uploading the file but not storing it in the datastore. The current version of mission can be seen <a href="http://oh-oppia-test.appspot.com/">here</a>.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[GSoC Update: August 14 2013]]></title>
@@ -62,21 +73,6 @@
     <content type="html"><![CDATA[<p>Last week we made some significant changes to the way models are structured in Oppia. They are now divided into 3 files named models.py, services.py, domain.py. While models.py holds the platform dependent model code, the other 2 are completely independent of the platform. Hence we are now in a position to use GAE datastore models directly without using django-nonrel.</p>
 
 <p>Other than that, I mostly worked on merging changes from upstream and fixing the merged code. I have also implemented a to_dict method which represents a model as a dictionary. Statistics model is somewhat ported for now. It still has some failing tests.</p>
-
-<p>That's it for now.</p>
-
-<p>Cheers.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[GSoC Update: June 29 2013]]></title>
-    <link href="http://sunu.github.com/blog/2013/06/29/gsoc-update-june-29-2013/"/>
-    <updated>2013-06-29T22:39:00+05:30</updated>
-    <id>http://sunu.github.com/blog/2013/06/29/gsoc-update-june-29-2013</id>
-    <content type="html"><![CDATA[<p>Last week I mostly worked on porting the models. Oppia uses LocalStructuredProperty available by GAE datastore a lot to store model instances locally inside other models. We are using a customized version of <a href="https://github.com/derek-schaefer/django-json-field/">django-json-field</a> to implement that in Django by overriding the methods which sets and gets the values from from the database inside JSONField. Basically we are converting the objects to a JSON string before storing in the database and then retrieving the object from that JSON string while fetching it again from the database.</p>
-
-<p>Next week, I'll merge the upstream changes. Some changes in exploration and state model has been done to simplify things. Ancestor Queries have been removed. So I'll try to implement those changes in the Django models. Also I will add some serialization code which is needed to represent models as nested dictionaries.</p>
 
 <p>That's it for now.</p>
 

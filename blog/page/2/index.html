@@ -9,7 +9,7 @@
   <meta name="author" content="Tarashish Mishra">
 
   
-  <meta name="description" content="I have been wanting to contribute open source projects for quite some time. Contributing to existing open source projects is quite different from &hellip;">
+  <meta name="description" content="After a while I sat down to set up my Ruby environment on my new ubuntu laptop for octopress. I haven&#8217;t blogged for a few months. And I haven&# &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -74,6 +74,83 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/02/02/fixing-mkmf-load-error-ubuntu/">Fixing &#8216;Mkmf&#8217; Load Error in Ubuntu</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-02-02T20:58:00+05:30" pubdate data-updated="true">Feb 2<span>nd</span>, 2013</time>
+        
+         | <a href="/blog/2013/02/02/fixing-mkmf-load-error-ubuntu/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>After a while I sat down to set up my Ruby environment on my new ubuntu laptop for octopress. I haven&#8217;t blogged for a few months. And I haven&#8217;t really needed ruby in a few months either. So for octopress I had to set up rvm, rake and all the ruby gems. But while installing RedCloth gem (RedCloth gem is needed for markup processing in Octopress) I encountered this error.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>Fetching gem metadata from http://rubygems.org/.......
+</span><span class='line'>Fetching gem metadata from http://rubygems.org/..
+</span><span class='line'>Using rake (0.9.2.2) 
+</span><span class='line'>Installing RedCloth (4.2.9) with native extensions 
+</span><span class='line'>Gem::Installer::ExtensionBuildError: ERROR: Failed to build gem native extension.
+</span><span class='line'>
+</span><span class='line'>        /usr/bin/ruby1.9.1 extconf.rb 
+</span><span class='line'>/usr/lib/ruby/1.9.1/rubygems/custom_require.rb:36:in `require': cannot load such file -- mkmf (LoadError)
+</span><span class='line'>  from /usr/lib/ruby/1.9.1/rubygems/custom_require.rb:36:in `require'
+</span><span class='line'>  from extconf.rb:1:in `&lt;main>'
+</span><span class='line'>
+</span><span class='line'>Gem files will remain installed in /var/lib/gems/1.9.1/gems/RedCloth-4.2.9 for inspection.
+</span><span class='line'>Results logged to /var/lib/gems/1.9.1/gems/RedCloth-4.2.9/ext/redcloth_scan/gem_make.out
+</span><span class='line'>An error occurred while installing RedCloth (4.2.9), and Bundler cannot continue.
+</span><span class='line'>Make sure that `gem install RedCloth -v '4.2.9'` succeeds before bundling.</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2013/02/02/fixing-mkmf-load-error-ubuntu/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -539,6 +616,10 @@ Download the tar archive from sublime text&#8217;s <a href="http://www.sublimete
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2013/09/02/gsoc-update-september-2-2013/">GSoC Update: September 2 2013</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2013/08/13/gsoc-update-august-14-2013/">GSoC Update: August 14 2013</a>
       </li>
     
@@ -552,10 +633,6 @@ Download the tar archive from sublime text&#8217;s <a href="http://www.sublimete
     
       <li class="post">
         <a href="/blog/2013/07/11/gsoc-update-july-11-2013/">GSoC update: July 11 2013</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/06/29/gsoc-update-june-29-2013/">GSoC Update: June 29 2013</a>
       </li>
     
   </ul>

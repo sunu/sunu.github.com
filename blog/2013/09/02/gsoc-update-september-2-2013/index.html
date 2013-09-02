@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Porting Oppia to django - tarashish dot com</title>
+  <title>GSoC Update: September 2 2013 - tarashish dot com</title>
   <meta name="author" content="Tarashish Mishra">
 
   
-  <meta name="description" content="For those who are wondering what oppia is, Oppia is a web-based tool for creating interactive online activities that enable students to learn by &hellip;">
+  <meta name="description" content="There have been major changes in the plan in my project since the last update. We have decided to host the explorations on Google AppEngine for now. &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://sunu.github.com/blog/2013/04/27/porting-oppia-to-django/">
+  <link rel="canonical" href="http://sunu.github.com/blog/2013/09/02/gsoc-update-september-2-2013/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -77,7 +77,7 @@
   
   <header>
     
-      <h1 class="entry-title">Porting Oppia to Django</h1>
+      <h1 class="entry-title">GSoC Update: September 2 2013</h1>
     
     
       <p class="meta">
@@ -93,7 +93,7 @@
   
 
 
-<time datetime="2013-04-27T23:48:00+05:30" pubdate data-updated="true">Apr 27<span>th</span>, 2013</time>
+<time datetime="2013-09-02T19:19:00+05:30" pubdate data-updated="true">Sep 2<span>nd</span>, 2013</time>
         
          | <a href="#disqus_thread">Comments</a>
         
@@ -102,19 +102,9 @@
   </header>
 
 
-<div class="entry-content"><p>For those who are wondering what oppia is,</p>
+<div class="entry-content"><p>There have been major changes in the plan in my project since the last update. We have decided to host the explorations on Google AppEngine for now. And we&#8217;ll have a OpenHatch api for mission specific stuff that can&#8217;t be done on GAE. Our Oppia will talk to that api to perform those special parts.</p>
 
-<blockquote><p>Oppia is a web-based tool for creating interactive online activities that enable students to learn by doing. Oppia aims to capture and generalize the one-on-one &#8220;conversations&#8221; that a student has with a teacher, so that other students can benefit from them.</p></blockquote>
-
-
-<p>Currently, oppia is written using webapp2 and runs on Google App Engine only. The goal is to port it to django, so that it can run on more number of platforms and hopefully be used for training missions at <a href="http://openhatch.org">openhatch</a></p>
-
-<!--more-->
-
-
-<p>I first heard of oppia on <a href="http://openhatch.org">openhatch</a>. People behind openhatch were (and still are) interested in having the training missions ported to oppia. And I was very much interested in contributing to openhatch. After all openhatch is fantastic. It provides a great platform for opensource newbies (people like me) to learn new skills and solve their first bug and conducts workshops on various campuses, which is pretty amazing. And people behind openhatch are just super friendly and awesome. (tip: if you&#8217;re planning to make your first opensource contribution <a href="http://openhatch.org">openhatch</a> and #openhatch on freenode is probably the best place to start).</p>
-
-<p>So, I showed my interest in porting oppia on #openhatch and <a href="https://twitter.com/asheeshlaroia">Asheesh</a> put me in contact with Sean, the author of oppia. I talked to Sean on Google+ and we are now working on porting oppia to django. We have started by doing some experiments to test the feasibility of the porting. For now, everything looks good. Hopefully, we&#8217;ll be able to port oppia entirely to django-nonrel soon :-)</p>
+<p>I have implemented a minimal version of the tar mission on AppEngine. Oppia didn&#8217;t have a widget for file upload, so I made one. But it&#8217;s more of a fire reading widget because technically we are uploading the file but not storing it in the datastore. The current version of mission can be seen <a href="http://oh-oppia-test.appspot.com/">here</a>.</p>
 </div>
 
 
@@ -137,12 +127,12 @@
   
 
 
-<time datetime="2013-04-27T23:48:00+05:30" pubdate data-updated="true">Apr 27<span>th</span>, 2013</time>
+<time datetime="2013-09-02T19:19:00+05:30" pubdate data-updated="true">Sep 2<span>nd</span>, 2013</time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/django/'>django</a>, <a class='category' href='/blog/categories/opensource/'>opensource</a>, <a class='category' href='/blog/categories/python/'>python</a>
+    <a class='category' href='/blog/categories/gsoc/'>GSoC</a>
   
 </span>
 
@@ -151,7 +141,7 @@
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://sunu.github.com/blog/2013/04/27/porting-oppia-to-django/" data-via="tarashish" data-counturl="http://sunu.github.com/blog/2013/04/27/porting-oppia-to-django/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://sunu.github.com/blog/2013/09/02/gsoc-update-september-2-2013/" data-via="tarashish" data-counturl="http://sunu.github.com/blog/2013/09/02/gsoc-update-september-2-2013/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -164,10 +154,8 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2013/04/11/gsoc-2013-is-on/" title="Previous Post: GSoC 2013 is On">&laquo; GSoC 2013 is On</a>
+        <a class="basic-alignment left" href="/blog/2013/08/13/gsoc-update-august-14-2013/" title="Previous Post: GSoC Update: August 14 2013">&laquo; GSoC Update: August 14 2013</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2013/06/01/yay-i-am-in/" title="Next Post: Yay! I am in">Yay! I am in &raquo;</a>
       
     </p>
   </footer>
@@ -288,8 +276,8 @@
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://sunu.github.com/blog/2013/04/27/porting-oppia-to-django/';
-        var disqus_url = 'http://sunu.github.com/blog/2013/04/27/porting-oppia-to-django/';
+        var disqus_identifier = 'http://sunu.github.com/blog/2013/09/02/gsoc-update-september-2-2013/';
+        var disqus_url = 'http://sunu.github.com/blog/2013/09/02/gsoc-update-september-2-2013/';
         var disqus_script = 'embed.js';
       
     (function () {

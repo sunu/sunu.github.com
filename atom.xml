@@ -4,7 +4,7 @@
   <title><![CDATA[tarashish dot com]]></title>
   <link href="http://sunu.github.com/atom.xml" rel="self"/>
   <link href="http://sunu.github.com/"/>
-  <updated>2013-08-14T00:08:30+05:30</updated>
+  <updated>2013-09-02T19:30:55+05:30</updated>
   <id>http://sunu.github.com/</id>
   <author>
     <name><![CDATA[Tarashish Mishra]]></name>
@@ -12,6 +12,17 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[GSoC Update: September 2 2013]]></title>
+    <link href="http://sunu.github.com/blog/2013/09/02/gsoc-update-september-2-2013/"/>
+    <updated>2013-09-02T19:19:00+05:30</updated>
+    <id>http://sunu.github.com/blog/2013/09/02/gsoc-update-september-2-2013</id>
+    <content type="html"><![CDATA[<p>There have been major changes in the plan in my project since the last update. We have decided to host the explorations on Google AppEngine for now. And we&#8217;ll have a OpenHatch api for mission specific stuff that can&#8217;t be done on GAE. Our Oppia will talk to that api to perform those special parts.</p>
+
+<p>I have implemented a minimal version of the tar mission on AppEngine. Oppia didn&#8217;t have a widget for file upload, so I made one. But it&#8217;s more of a fire reading widget because technically we are uploading the file but not storing it in the datastore. The current version of mission can be seen <a href="http://oh-oppia-test.appspot.com/">here</a>.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[GSoC Update: August 14 2013]]></title>
