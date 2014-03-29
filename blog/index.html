@@ -1,0 +1,660 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>tarashish dot com</title>
+  <meta name="author" content="Tarashish Mishra">
+
+  
+  <meta name="description" content="Django has a SECRET_KEY settings among many others. This SECRET_KEY is really important for security purposes as it is used for cryptographic signing &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://sunu.github.com/blog/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="http://feeds.feedburner.com/tarashish_mishra" rel="alternate" title="tarashish dot com" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-16076632-3']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">tarashish dot com</a></h1>
+  
+    <h2>< Insert something witty here. ></h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="main-navigation">
+  <li><a href="/">About</a></li>
+  <li><a href="/blog">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="https://github.com/sunu">Code</a></li>
+</ul>
+
+<ul class="subscription" data-subscription="rss">
+  <li><a href="http://feeds.feedburner.com/tarashish_mishra" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:sunu.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/03/29/protect-your-secret/">Protect Your Secrets!</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-03-29T17:52:00+05:30" pubdate data-updated="true">Mar 29<span>th</span>, 2014</time>
+        
+         | <a href="/blog/2014/03/29/protect-your-secret/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Django has a SECRET_KEY settings among many others. This SECRET_KEY is really important for security purposes as it is used for cryptographic signing functionality in Django (<a href="https://docs.djangoproject.com/en/dev/topics/signing/">More</a> about cryptographic signing). We are expected to keep the value secret. Running Django with a known SECRET_KEY defeats many of Django’s security protections, and can lead to privilege escalation and remote code execution vulnerabilities.</p>
+
+<p>So putting the SECRET_KEY setting of Django in version control and putting the code out on a public repository on Github or Bitbucket is not really a good idea and should be avoided. Same can be said for other secret keys like API keys for different services, OAuth tokens, passwords for your database. They are all supposed to be, you know, &#8220;secret&#8221;!</p>
+
+<p><img src="http://i.imgur.com/G0qc8Lr.gif" alt="Secret" /></p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2014/03/29/protect-your-secret/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/09/02/gsoc-update-september-2-2013/">GSoC Update: September 2 2013</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-09-02T19:19:00+05:30" pubdate data-updated="true">Sep 2<span>nd</span>, 2013</time>
+        
+         | <a href="/blog/2013/09/02/gsoc-update-september-2-2013/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>There have been major changes in the plan in my project since the last update. We have decided to host the explorations on Google AppEngine for now. And we&#8217;ll have a OpenHatch api for mission specific stuff that can&#8217;t be done on GAE. Our Oppia will talk to that api to perform those special parts.</p>
+
+<p>I have implemented a minimal version of the tar mission on AppEngine. Oppia didn&#8217;t have a widget for file upload, so I made one. But it&#8217;s more of a fire reading widget because technically we are uploading the file but not storing it in the datastore. The current version of mission can be seen <a href="http://oh-oppia-test.appspot.com/">here</a>.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/08/13/gsoc-update-august-14-2013/">GSoC Update: August 14 2013</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-08-13T23:58:00+05:30" pubdate data-updated="true">Aug 13<span>th</span>, 2013</time>
+        
+         | <a href="/blog/2013/08/13/gsoc-update-august-14-2013/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Last week we decided to use Oppia&#8217;s existing skin for now in the Openhatch missions. Also each step of a mission will be a separate exploration. So we need a wrapper around Oppia which will allow us to manage the prerequisites and codependency of steps in a mission.</p>
+
+<p>I have pushed the code I worked on to Oppia&#8217;s main repository. Last week I worked on routing configurations which will allow us to use uri_for in place of raw addresses in the templates. Other than that I am mostly done with adding an automated test suite for non-GAE platforms.</p>
+
+<p>I plan to replace all the raw addresses in the templates with uri_for next week. After that I have to work on the wrapper that will manage the codependency of steps in a mission.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/08/04/gsoc-update-august-4-2013/">GSoC Update: August 4 2013</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-08-04T03:33:00+05:30" pubdate data-updated="true">Aug 4<span>th</span>, 2013</time>
+        
+         | <a href="/blog/2013/08/04/gsoc-update-august-4-2013/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Welcome to another GSoC update. This is the first after midterm. So I am officially in the second half of GSoC now. And the results of mid-term evaluation are out already. I have passed. Many thanks to Asheesh, my mentor and all the nice people from Openhatch, PSF and Google.</p>
+
+<p>So now let&#8217;s talk about what I have accomplished since the last update. I have mostly worked on getting my code into Oppia repository. So I have merged and changed the code structure for that. Also we have a new method to switch models on different platforms now. We decided to drop the previous approach as it was not very reliable. Also we have devised a plan to solve the routing problem. I work one that in the next couple of days.</p>
+
+<p>That&#8217;s it for now.</p>
+
+<p>Ciao.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/07/24/gsoc-update-july-24-2013/">GSoC Update: July 24 2013</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-07-24T19:27:00+05:30" pubdate data-updated="true">Jul 24<span>th</span>, 2013</time>
+        
+         | <a href="/blog/2013/07/24/gsoc-update-july-24-2013/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>After working on the django models for Oppia we finally have a running heroku app at <a href="http://oh-oppia.herokuapp.com">oh-oppia.herokuapp.com</a>. I have also worked on a way to combine the oppia WSGI app and Openhatch WSGI app using Werzeug&#8217;s <a href="http://werkzeug.pocoo.org/docs/middlewares/#werkzeug.wsgi.DispatcherMiddleware">DispatcherMiddleware</a>. I have also worked on the auth system, so that I can pull out the session from webapp2 request object and passing into django middlewares to get the authenticated user out of it.</p>
+
+<p>The next thing I will be working on is the routing, which is currently broken after combining both WSGI apps. Also I&#8217;ll be trying to push all my changes to Oppia mainline.</p>
+
+<p>That&#8217;s all for now.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/07/11/gsoc-update-july-11-2013/">GSoC Update: July 11 2013</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-07-11T10:11:00+05:30" pubdate data-updated="true">Jul 11<span>th</span>, 2013</time>
+        
+         | <a href="/blog/2013/07/11/gsoc-update-july-11-2013/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Last week we made some significant changes to the way models are structured in Oppia. They are now divided into 3 files named models.py, services.py, domain.py. While models.py holds the platform dependent model code, the other 2 are completely independent of the platform. Hence we are now in a position to use GAE datastore models directly without using django-nonrel.</p>
+
+<p>Other than that, I mostly worked on merging changes from upstream and fixing the merged code. I have also implemented a to_dict method which represents a model as a dictionary. Statistics model is somewhat ported for now. It still has some failing tests.</p>
+
+<p>That&#8217;s it for now.</p>
+
+<p>Cheers.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/06/29/gsoc-update-june-29-2013/">GSoC Update: June 29 2013</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-06-29T22:39:00+05:30" pubdate data-updated="true">Jun 29<span>th</span>, 2013</time>
+        
+         | <a href="/blog/2013/06/29/gsoc-update-june-29-2013/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Last week I mostly worked on porting the models. Oppia uses LocalStructuredProperty available by GAE datastore a lot to store model instances locally inside other models. We are using a customized version of <a href="https://github.com/derek-schaefer/django-json-field/">django-json-field</a> to implement that in Django by overriding the methods which sets and gets the values from from the database inside JSONField. Basically we are converting the objects to a JSON string before storing in the database and then retrieving the object from that JSON string while fetching it again from the database.</p>
+
+<p>Next week, I&#8217;ll merge the upstream changes. Some changes in exploration and state model has been done to simplify things. Ancestor Queries have been removed. So I&#8217;ll try to implement those changes in the Django models. Also I will add some serialization code which is needed to represent models as nested dictionaries.</p>
+
+<p>That&#8217;s it for now.</p>
+
+<p>Cheers.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/06/15/gsoc-update-june-14-2013/">GSoC Update: June 16 2013</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-06-15T00:32:00+05:30" pubdate data-updated="true">Jun 15<span>th</span>, 2013</time>
+        
+         | <a href="/blog/2013/06/15/gsoc-update-june-14-2013/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>It&#8217;s 3rd week of GSoC already. So time for an short update.</p>
+
+<p>I have worked on a detailed plan of the summer with Sean. The plan is on an etherpad <a href="https://etherpad.mozilla.org/iegTQD1NMS">here</a>. And now I have started to work on the plan. The coding period begins on 17st June, but I have started early. Hopefully it will be helpful and will get me some more time to finish the project in time.</p>
+
+<p>The plan for now only contains the first part of the project i.e. porting Oppia to Django. After we finish this part, we&#8217;ll have a clear idea how to implement the missions for OpenHatch.</p>
+
+<p>That&#8217;s it for now.</p>
+
+<p>Cheers.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/06/01/yay-i-am-in/">Yay! I Am In</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-06-01T20:28:00+05:30" pubdate data-updated="true">Jun 1<span>st</span>, 2013</time>
+        
+         | <a href="/blog/2013/06/01/yay-i-am-in/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Bit of a late news, but yes, I&#8217;m accepted as a student for Google Summer of Code(GSoC) 2013. I&#8217;ll be working with OpenHatch this summer under Python Software Foundation(PSF)&#8217;s umbrella. More details on my accepted project proposal can be found on <a href="http://www.google-melange.com/gsoc/project/google/gsoc2013/sunu/19001">melange</a>.</p>
+
+<p>I also applied for and got accepted by MoinMoin, but we all discussed about it and decided that it will be better if I do GSoC with OpenHatch. I haven&#8217;t started working on the project yet as semesters are still going on. But I&#8217;m pretty excited and I&#8217;ll start with the project as soon as exams are over.</p>
+
+<p>I plan to blog about things I do during GSoC here, so that I can document my progress and difficulties. And also it&#8217;ll be a great read someday in the future.</p>
+
+<p>Cheers.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/04/27/porting-oppia-to-django/">Porting Oppia to Django</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-04-27T23:48:00+05:30" pubdate data-updated="true">Apr 27<span>th</span>, 2013</time>
+        
+         | <a href="/blog/2013/04/27/porting-oppia-to-django/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>For those who are wondering what oppia is,</p>
+
+<blockquote><p>Oppia is a web-based tool for creating interactive online activities that enable students to learn by doing. Oppia aims to capture and generalize the one-on-one &#8220;conversations&#8221; that a student has with a teacher, so that other students can benefit from them.</p></blockquote>
+
+
+<p>Currently, oppia is written using webapp2 and runs on Google App Engine only. The goal is to port it to django, so that it can run on more number of platforms and hopefully be used for training missions at <a href="http://openhatch.org">openhatch</a></p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2013/04/27/porting-oppia-to-django/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+      <a class="prev" href="/blog/page/2/">&larr; Older</a>
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    
+<section>
+<a class="twitter-timeline" href="https://twitter.com/tarashish" data-widget-id="449958079006650368">Tweets by @tarashish</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</section>
+
+<section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/03/29/protect-your-secret/">Protect your secrets!</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/09/02/gsoc-update-september-2-2013/">GSoC Update: September 2 2013</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/08/13/gsoc-update-august-14-2013/">GSoC Update: August 14 2013</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/08/04/gsoc-update-august-4-2013/">GSoC Update: August 4 2013</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/07/24/gsoc-update-july-24-2013/">GSoC Update: July 24 2013</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  
+  <a href="https://github.com/sunu">@sunu</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'sunu',
+            count: 10,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/4.0/80x15.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>. <br>
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a> Hosted by <a href="http://github.com">Github</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'tarashishcom';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
