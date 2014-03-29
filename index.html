@@ -83,7 +83,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2014/03/29/protect-your-secret/">Protect Your Secret!</a></h1>
+      <h1 class="entry-title"><a href="/blog/2014/03/29/protect-your-secret/">Protect Your Secrets!</a></h1>
     
     
       <p class="meta">
@@ -111,6 +111,8 @@
   <div class="entry-content"><p>Django has a SECRET_KEY settings among many others. This SECRET_KEY is really important for security purposes as it is used for cryptographic signing functionality in Django (<a href="https://docs.djangoproject.com/en/dev/topics/signing/">More</a> about cryptographic signing). We are expected to keep the value secret. Running Django with a known SECRET_KEY defeats many of Django’s security protections, and can lead to privilege escalation and remote code execution vulnerabilities.</p>
 
 <p>So putting the SECRET_KEY setting of Django in version control and putting the code out on a public repository on Github or Bitbucket is not really a good idea and should be avoided. Same can be said for other secret keys like API keys for different services, OAuth tokens, passwords for your database. They are all supposed to be, you know, &#8220;secret&#8221;!</p>
+
+<p><img src="http://i.imgur.com/G0qc8Lr.gif" alt="Secret" /></p>
 
 </div>
   
@@ -532,7 +534,7 @@
   <ul id="recent_posts">
     
       <li class="post">
-        <a href="/blog/2014/03/29/protect-your-secret/">Protect your secret!</a>
+        <a href="/blog/2014/03/29/protect-your-secret/">Protect your secrets!</a>
       </li>
     
       <li class="post">

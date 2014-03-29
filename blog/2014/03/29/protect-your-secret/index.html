@@ -5,7 +5,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Protect your secret! - tarashish dot com</title>
+  <title>Protect your secrets! - tarashish dot com</title>
   <meta name="author" content="Tarashish Mishra">
 
   
@@ -80,7 +80,7 @@
   
   <header>
     
-      <h1 class="entry-title">Protect Your Secret!</h1>
+      <h1 class="entry-title">Protect Your Secrets!</h1>
     
     
       <p class="meta">
@@ -109,6 +109,8 @@
 
 <p>So putting the SECRET_KEY setting of Django in version control and putting the code out on a public repository on Github or Bitbucket is not really a good idea and should be avoided. Same can be said for other secret keys like API keys for different services, OAuth tokens, passwords for your database. They are all supposed to be, you know, &#8220;secret&#8221;!</p>
 
+<p><img src="http://i.imgur.com/G0qc8Lr.gif" alt="Secret" /></p>
+
 <!--more-->
 
 
@@ -116,10 +118,16 @@
 
 <h2>Environment variables to the rescue</h2>
 
-<p>Environment variables are the answer to our problem. Using environment variables to store our secret keys gives us a ton of benefits.
-- We can now put all our settings files in version control without hesitation.
-- No need to edit source files on production.
-- No risk of accidentally committing secret keys.</p>
+<p>Environment variables are the answer to our problem. Using environment variables to store our secret keys gives us a ton of benefits.</p>
+
+<ul>
+<li>We can now put all our settings files in version control without hesitation.</li>
+<li>No need to edit source files on production.</li>
+<li>No risk of accidentally committing secret keys.</li>
+</ul>
+
+
+<p><img src="http://i.imgur.com/EuEKhSr.gif" alt="Yay!" /></p>
 
 <h2>How to set environment variables</h2>
 
@@ -180,6 +188,12 @@ Here is the <a href="https://devcenter.heroku.com/articles/config-vars">document
 <time datetime="2014-03-29T17:52:00+05:30" pubdate data-updated="true">Mar 29<span>th</span>, 2014</time>
       
 
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/django/'>django</a>
+  
+</span>
+
 
     </p>
     
@@ -220,7 +234,7 @@ Here is the <a href="https://devcenter.heroku.com/articles/config-vars">document
   <ul id="recent_posts">
     
       <li class="post">
-        <a href="/blog/2014/03/29/protect-your-secret/">Protect your secret!</a>
+        <a href="/blog/2014/03/29/protect-your-secret/">Protect your secrets!</a>
       </li>
     
       <li class="post">

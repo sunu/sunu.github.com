@@ -4,7 +4,7 @@
   <title><![CDATA[tarashish dot com]]></title>
   <link href="http://sunu.github.com/atom.xml" rel="self"/>
   <link href="http://sunu.github.com/"/>
-  <updated>2014-03-29T19:20:00+05:30</updated>
+  <updated>2014-03-29T20:14:27+05:30</updated>
   <id>http://sunu.github.com/</id>
   <author>
     <name><![CDATA[Tarashish Mishra]]></name>
@@ -14,13 +14,15 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Protect your secret!]]></title>
+    <title type="html"><![CDATA[Protect your secrets!]]></title>
     <link href="http://sunu.github.com/blog/2014/03/29/protect-your-secret/"/>
     <updated>2014-03-29T17:52:00+05:30</updated>
     <id>http://sunu.github.com/blog/2014/03/29/protect-your-secret</id>
     <content type="html"><![CDATA[<p>Django has a SECRET_KEY settings among many others. This SECRET_KEY is really important for security purposes as it is used for cryptographic signing functionality in Django (<a href="https://docs.djangoproject.com/en/dev/topics/signing/">More</a> about cryptographic signing). We are expected to keep the value secret. Running Django with a known SECRET_KEY defeats many of Django’s security protections, and can lead to privilege escalation and remote code execution vulnerabilities.</p>
 
 <p>So putting the SECRET_KEY setting of Django in version control and putting the code out on a public repository on Github or Bitbucket is not really a good idea and should be avoided. Same can be said for other secret keys like API keys for different services, OAuth tokens, passwords for your database. They are all supposed to be, you know, &#8220;secret&#8221;!</p>
+
+<p><img src="http://i.imgur.com/G0qc8Lr.gif" alt="Secret" /></p>
 
 <!--more-->
 
@@ -29,10 +31,16 @@
 
 <h2>Environment variables to the rescue</h2>
 
-<p>Environment variables are the answer to our problem. Using environment variables to store our secret keys gives us a ton of benefits.
-- We can now put all our settings files in version control without hesitation.
-- No need to edit source files on production.
-- No risk of accidentally committing secret keys.</p>
+<p>Environment variables are the answer to our problem. Using environment variables to store our secret keys gives us a ton of benefits.</p>
+
+<ul>
+<li>We can now put all our settings files in version control without hesitation.</li>
+<li>No need to edit source files on production.</li>
+<li>No risk of accidentally committing secret keys.</li>
+</ul>
+
+
+<p><img src="http://i.imgur.com/EuEKhSr.gif" alt="Yay!" /></p>
 
 <h2>How to set environment variables</h2>
 

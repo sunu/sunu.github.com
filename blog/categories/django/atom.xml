@@ -4,7 +4,7 @@
   <title><![CDATA[Category: django | tarashish dot com]]></title>
   <link href="http://sunu.github.com/blog/categories/django/atom.xml" rel="self"/>
   <link href="http://sunu.github.com/"/>
-  <updated>2014-03-29T19:20:00+05:30</updated>
+  <updated>2014-03-29T20:14:27+05:30</updated>
   <id>http://sunu.github.com/</id>
   <author>
     <name><![CDATA[Tarashish Mishra]]></name>
@@ -12,6 +12,60 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Protect your secrets!]]></title>
+    <link href="http://sunu.github.com/blog/2014/03/29/protect-your-secret/"/>
+    <updated>2014-03-29T17:52:00+05:30</updated>
+    <id>http://sunu.github.com/blog/2014/03/29/protect-your-secret</id>
+    <content type="html"><![CDATA[<p>Django has a SECRET_KEY settings among many others. This SECRET_KEY is really important for security purposes as it is used for cryptographic signing functionality in Django (<a href="https://docs.djangoproject.com/en/dev/topics/signing/">More</a> about cryptographic signing). We are expected to keep the value secret. Running Django with a known SECRET_KEY defeats many of Django’s security protections, and can lead to privilege escalation and remote code execution vulnerabilities.</p>
+
+<p>So putting the SECRET_KEY setting of Django in version control and putting the code out on a public repository on Github or Bitbucket is not really a good idea and should be avoided. Same can be said for other secret keys like API keys for different services, OAuth tokens, passwords for your database. They are all supposed to be, you know, "secret"!</p>
+
+<p><img src="http://i.imgur.com/G0qc8Lr.gif" alt="Secret" /></p>
+
+<!--more-->
+
+
+<p>As a solution to this problem, most people edit this configurations on the production machine. Unfortunately, it is not a good idea. Editing source files on production is often troublesome. Also, while editing these keys in your development setup, you may just commit and push them accidentally to the public repository. So this practice is somewhat troublesome and dangerous.</p>
+
+<h2>Environment variables to the rescue</h2>
+
+<p>Environment variables are the answer to our problem. Using environment variables to store our secret keys gives us a ton of benefits.</p>
+
+<ul>
+<li>We can now put all our settings files in version control without hesitation.</li>
+<li>No need to edit source files on production.</li>
+<li>No risk of accidentally committing secret keys.</li>
+</ul>
+
+
+<p><img src="http://i.imgur.com/EuEKhSr.gif" alt="Yay!" /></p>
+
+<h2>How to set environment variables</h2>
+
+<p>Environment variables can be set easily using bash commands. For example:
+<code>bash
+$ export MY_SECRET_KEY=SuP3r-S3Kr31-K3y
+</code>
+We can put this line at the end of our <code>.bashrc</code> or <code>.bash_profile</code> files. Another way to do this for individual projects is to put this line at the end of <code>bin/activate</code> script of the virtualenv.</p>
+
+<p>Most platform-as-a-service platforms also provide ways to set environment variables easily. For example, on Heroku you can set environment variables like this.
+<code>bash
+$ cd myapp
+$ heroku config:set SECRET_KEY=mySuP3rS3cr31K3yRul3s
+</code>
+Here is the <a href="https://devcenter.heroku.com/articles/config-vars">documentation</a> from Heroku.</p>
+
+<p>These environment variables can be easily accessed in the settings file to set the secret key by doing something like:
+<code>python
+import os
+SOME_SECRET_KEY = os.environ["SOME_SECRET_KEY"]
+</code></p>
+
+<p>And that's the way to do it.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Porting Oppia to django]]></title>
