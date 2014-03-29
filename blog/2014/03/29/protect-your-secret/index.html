@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Solving Antialiasing Bug in Chrome - tarashish dot com</title>
+  <title>Protect your secret! - tarashish dot com</title>
   <meta name="author" content="Tarashish Mishra">
 
   
-  <meta name="description" content="Yesterday while making a small cute sticky note chrome extension, I faced an antialiasing bug in chrome. The bug nearly drove me out of my mind :) So &hellip;">
+  <meta name="description" content="Django has a SECRET_KEY settings among many others. This SECRET_KEY is really important for security purposes as it is used for cryptographic signing &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://sunu.github.com/blog/2012/09/12/solving-antialiasing-bug-in-chrome/">
+  <link rel="canonical" href="http://sunu.github.com/blog/2014/03/29/protect-your-secret/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -77,7 +77,7 @@
   
   <header>
     
-      <h1 class="entry-title">Solving Antialiasing Bug in Chrome</h1>
+      <h1 class="entry-title">Protect Your Secret!</h1>
     
     
       <p class="meta">
@@ -93,7 +93,7 @@
   
 
 
-<time datetime="2012-09-12T18:27:00+05:30" pubdate data-updated="true">Sep 12<span>th</span>, 2012</time>
+<time datetime="2014-03-29T17:52:00+05:30" pubdate data-updated="true">Mar 29<span>th</span>, 2014</time>
         
          | <a href="#disqus_thread">Comments</a>
         
@@ -102,30 +102,56 @@
   </header>
 
 
-<div class="entry-content"><p>Yesterday while making a small cute sticky note chrome extension, I faced an antialiasing bug in chrome. The bug nearly drove me out of my mind :)</p>
+<div class="entry-content"><p>Django has a SECRET_KEY settings among many others. This SECRET_KEY is really important for security purposes as it is used for cryptographic signing functionality in Django (<a href="https://docs.djangoproject.com/en/dev/topics/signing/">More</a> about cryptographic signing). We are expected to keep the value secret. Running Django with a known SECRET_KEY defeats many of Django’s security protections, and can lead to privilege escalation and remote code execution vulnerabilities.</p>
 
-<p>So to save some headaches in future, I am writing down the possible solution here, so that me or anyone else who faces this issue in future will hopefully find this post and the solution will hopefully work. Another thing I&#8217;m hopeful about is that the future release, chrome will kick this issue out for good. :D</p>
-
-<p>So first up, here&#8217;s a snapshot of the issue.
-<img src="/images/bug.png" alt="chrome bug" /></p>
+<p>So putting the SECRET_KEY setting of Django in version control and putting the code out on a public repository on Github or Bitbucket is not really a good idea and should be avoided. Same can be said for other secret keys like API keys for different services, OAuth tokens, passwords for your database. They are all supposed to be, you know, &#8220;secret&#8221;!</p>
 
 <!--more-->
 
 
-<p></p>
+<p>As a solution to this problem, most people edit this configurations on the production machine. Unfortunately, it is not a good idea. Editing source files on production is often troublesome. Also, while editing these keys in your development setup, you may just commit and push them accidentally to the public repository. So this practice is somewhat troublesome and dangerous.</p>
 
-<p>As you can see there are weird horizontal traces all over the place while I try to drag a draggable div which uses jquery UI.</p>
+<h2>Environment variables to the rescue</h2>
 
-<p>Now the solution that worked for me. Drum roll please.</p>
+<p>Environment variables are the answer to our problem. Using environment variables to store our secret keys gives us a ton of benefits.
+- We can now put all our settings files in version control without hesitation.
+- No need to edit source files on production.
+- No risk of accidentally committing secret keys.</p>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='css'><span class='line'><span class="nt">outline</span><span class="o">:</span> <span class="nt">1px</span> <span class="nt">solid</span> <span class="nt">transparent</span><span class="o">;</span>
+<h2>How to set environment variables</h2>
+
+<p>Environment variables can be set easily using bash commands. For example:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span><span class="nb">export </span><span class="nv">MY_SECRET_KEY</span><span class="o">=</span>SuP3r-S3Kr31-K3y
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>That&#8217;s it.</p>
+<p>
+We can put this line at the end of our <code>.bashrc</code> or <code>.bash_profile</code> files. Another way to do this for individual projects is to put this line at the end of <code>bin/activate</code> script of the virtualenv.</p>
 
-<p>If it does not solve your issue, then your issue may be different than mine. So good luck for your solution hunt. A hint: google and stackoverflow.com are your best bait for a solution. They helped me with my solution too :)</p>
+<p>Most platform-as-a-service platforms also provide ways to set environment variables easily. For example, on Heroku you can set environment variables like this.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span><span class="nb">cd </span>myapp
+</span><span class='line'><span class="nv">$ </span>heroku config:set <span class="nv">SECRET_KEY</span><span class="o">=</span>mySuP3rS3cr31K3yRul3s
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>
+Here is the <a href="https://devcenter.heroku.com/articles/config-vars">documentation</a> from Heroku.</p>
+
+<p>These environment variables can be easily accessed in the settings file to set the secret key by doing something like:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="kn">import</span> <span class="nn">os</span>
+</span><span class='line'><span class="n">SOME_SECRET_KEY</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s">&quot;SOME_SECRET_KEY&quot;</span><span class="p">]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>And that&#8217;s the way to do it.</p>
 </div>
 
 
@@ -148,21 +174,15 @@
   
 
 
-<time datetime="2012-09-12T18:27:00+05:30" pubdate data-updated="true">Sep 12<span>th</span>, 2012</time>
+<time datetime="2014-03-29T17:52:00+05:30" pubdate data-updated="true">Mar 29<span>th</span>, 2014</time>
       
-
-<span class="categories">
-  
-    <a class='category' href='/blog/categories/web-development/'>web development</a>
-  
-</span>
 
 
     </p>
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://sunu.github.com/blog/2012/09/12/solving-antialiasing-bug-in-chrome/" data-via="tarashish" data-counturl="http://sunu.github.com/blog/2012/09/12/solving-antialiasing-bug-in-chrome/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://sunu.github.com/blog/2014/03/29/protect-your-secret/" data-via="tarashish" data-counturl="http://sunu.github.com/blog/2014/03/29/protect-your-secret/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -175,10 +195,8 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2012/08/21/installing-sublime-text-2-on-ubuntu-12-dot-04/" title="Previous Post: Installing Sublime Text 2 on Ubuntu 12.04">&laquo; Installing Sublime Text 2 on Ubuntu 12.04</a>
+        <a class="basic-alignment left" href="/blog/2013/09/02/gsoc-update-september-2-2013/" title="Previous Post: GSoC Update: September 2 2013">&laquo; GSoC Update: September 2 2013</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2012/09/30/first-step-into-the-open-source-world/" title="Next Post: First step into the Open Source world">First step into the Open Source world &raquo;</a>
       
     </p>
   </footer>
@@ -299,8 +317,8 @@
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://sunu.github.com/blog/2012/09/12/solving-antialiasing-bug-in-chrome/';
-        var disqus_url = 'http://sunu.github.com/blog/2012/09/12/solving-antialiasing-bug-in-chrome/';
+        var disqus_identifier = 'http://sunu.github.com/blog/2014/03/29/protect-your-secret/';
+        var disqus_url = 'http://sunu.github.com/blog/2014/03/29/protect-your-secret/';
         var disqus_script = 'embed.js';
       
     (function () {

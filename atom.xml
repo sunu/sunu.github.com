@@ -4,7 +4,7 @@
   <title><![CDATA[tarashish dot com]]></title>
   <link href="http://sunu.github.com/atom.xml" rel="self"/>
   <link href="http://sunu.github.com/"/>
-  <updated>2013-09-02T19:30:55+05:30</updated>
+  <updated>2014-03-29T19:02:51+05:30</updated>
   <id>http://sunu.github.com/</id>
   <author>
     <name><![CDATA[Tarashish Mishra]]></name>
@@ -12,6 +12,64 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Protect your secret!]]></title>
+    <link href="http://sunu.github.com/blog/2014/03/29/protect-your-secret/"/>
+    <updated>2014-03-29T17:52:00+05:30</updated>
+    <id>http://sunu.github.com/blog/2014/03/29/protect-your-secret</id>
+    <content type="html"><![CDATA[<p>Django has a SECRET_KEY settings among many others. This SECRET_KEY is really important for security purposes as it is used for cryptographic signing functionality in Django (<a href="https://docs.djangoproject.com/en/dev/topics/signing/">More</a> about cryptographic signing). We are expected to keep the value secret. Running Django with a known SECRET_KEY defeats many of Django’s security protections, and can lead to privilege escalation and remote code execution vulnerabilities.</p>
+
+<p>So putting the SECRET_KEY setting of Django in version control and putting the code out on a public repository on Github or Bitbucket is not really a good idea and should be avoided. Same can be said for other secret keys like API keys for different services, OAuth tokens, passwords for your database. They are all supposed to be, you know, &#8220;secret&#8221;!</p>
+
+<!--more-->
+
+
+<p>As a solution to this problem, most people edit this configurations on the production machine. Unfortunately, it is not a good idea. Editing source files on production is often troublesome. Also, while editing these keys in your development setup, you may just commit and push them accidentally to the public repository. So this practice is somewhat troublesome and dangerous.</p>
+
+<h2>Environment variables to the rescue</h2>
+
+<p>Environment variables are the answer to our problem. Using environment variables to store our secret keys gives us a ton of benefits.
+- We can now put all our settings files in version control without hesitation.
+- No need to edit source files on production.
+- No risk of accidentally committing secret keys.</p>
+
+<h2>How to set environment variables</h2>
+
+<p>Environment variables can be set easily using bash commands. For example:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span><span class="nb">export </span><span class="nv">MY_SECRET_KEY</span><span class="o">=</span>SuP3r-S3Kr31-K3y
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>
+We can put this line at the end of our <code>.bashrc</code> or <code>.bash_profile</code> files. Another way to do this for individual projects is to put this line at the end of <code>bin/activate</code> script of the virtualenv.</p>
+
+<p>Most platform-as-a-service platforms also provide ways to set environment variables easily. For example, on Heroku you can set environment variables like this.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span><span class="nb">cd </span>myapp
+</span><span class='line'><span class="nv">$ </span>heroku config:set <span class="nv">SECRET_KEY</span><span class="o">=</span>mySuP3rS3cr31K3yRul3s
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>
+Here is the <a href="https://devcenter.heroku.com/articles/config-vars">documentation</a> from Heroku.</p>
+
+<p>These environment variables can be easily accessed in the settings file to set the secret key by doing something like:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="kn">import</span> <span class="nn">os</span>
+</span><span class='line'><span class="n">SOME_SECRET_KEY</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s">&quot;SOME_SECRET_KEY&quot;</span><span class="p">]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>And that&#8217;s the way to do it.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[GSoC Update: September 2 2013]]></title>
