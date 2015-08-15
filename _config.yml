@@ -1,0 +1,23 @@
+name: sunu's weblog
+description: On programming and stuff.
+meta_description: "Weblog of Tarashish Mishra; On programming and stuff."
+
+markdown: redcarpet
+highlighter: pygments
+logo: false
+paginate: 15
+permalink: /:title
+baseurl: /
+domain_name: 'http://sunu.in'
+google_analytics: 'UA-XXXXXXXX-X'
+
+# Details for the RSS feed generator
+url:            'sunu.in'
+author:         'Tarashish Mishra'
+
+tag_page_layout: tag_page
+tag_page_dir: tag
+tag_permalink_style: pretty
+
+tag_feed_layout: tag_feed
+tag_feed_dir: feed
