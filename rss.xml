@@ -8,7 +8,15 @@
     <title>sunu's weblog</title>
     <link>sunu.in</link>
     <description>On programming and stuff.</description>
-    <pubDate>Sat, 20 Jun 2015 14:09:04 +0000</pubDate>
+    <pubDate>Tue, 28 Jul 2015 20:17:30 +0000</pubDate>
+    <item>
+      <title>HTTPS - Under the hood.</title>
+      <link>sunu.in/summer-of-code-update-3</link>
+      <description>&lt;p&gt;Time for a short GSoC update.&lt;/p&gt;
+</description>
+      <pubDate>Tue, 28 Jul 2015 20:17:30 +0000</pubDate>
+      <dc:date>2015-07-28T20:17:30+00:00</dc:date>
+    </item>
     <item>
       <title>I'm porting stuff to Python 3. And I'm loving it.</title>
       <link>sunu.in/im-porting-stuff-to-python-3-and-im-loving-it</link>
@@ -66,6 +74,6 @@ Then we use something like &lt;a href=&quot;http://gruntjs.com/&quot;&gt;Grunt&l
       <pubDate>Sat, 29 Mar 2014 17:52:00 +0000</pubDate>
       <dc:date>2014-03-29T17:52:00+00:00</dc:date>
     </item>
-    <dc:date>2015-06-20T14:09:04+00:00</dc:date>
+    <dc:date>2015-07-28T20:17:30+00:00</dc:date>
   </channel>
 </rss>

@@ -5,9 +5,26 @@
     <description>On programming and stuff.</description>
     <link>sunu.in//</link>
     <atom:link href="sunu.in//feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 15 Aug 2015 19:37:14 +0000</pubDate>
-    <lastBuildDate>Sat, 15 Aug 2015 19:37:14 +0000</lastBuildDate>
+    <pubDate>Sat, 15 Aug 2015 19:50:23 +0000</pubDate>
+    <lastBuildDate>Sat, 15 Aug 2015 19:50:23 +0000</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
+    
+      <item>
+        <title>HTTPS - Under the hood.</title>
+        <description>&lt;p&gt;Time for a short GSoC update.&lt;/p&gt;
+
+&lt;p&gt;I have a &lt;a href=&quot;https://github.com/scrapinghub/splash/pull/251&quot;&gt;PR&lt;/a&gt; open that makes all the tests in &lt;a href=&quot;https://github.com/scrapinghub/splash/tree/master/splash/tests&quot;&gt;Splash codebase&lt;/a&gt; pass on Python 3. It&amp;#39;s up for review now.&lt;/p&gt;
+
+&lt;p&gt;Meanwhile twisted.web.proxy is &lt;a href=&quot;https://twistedmatrix.com/trac/ticket/7939&quot;&gt;now available on Python 3&lt;/a&gt; and I&amp;#39;m working on fixing a &lt;a href=&quot;https://twistedmatrix.com/trac/ticket/7981&quot;&gt;related bug&lt;/a&gt;.&lt;/p&gt;
+</description>
+        <pubDate>Tue, 28 Jul 2015 20:17:30 +0000</pubDate>
+        <link>sunu.in//summer-of-code-update-3</link>
+        <guid isPermaLink="true">sunu.in//summer-of-code-update-3</guid>
+        
+        <category>gsoc</category>
+        
+        
+      </item>
     
       <item>
         <title>I&#39;m porting stuff to Python 3. And I&#39;m loving it.</title>
