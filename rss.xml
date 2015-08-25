@@ -8,7 +8,15 @@
     <title>sunu's weblog</title>
     <link>sunu.in</link>
     <description>On programming and stuff.</description>
-    <pubDate>Tue, 28 Jul 2015 20:17:30 +0000</pubDate>
+    <pubDate>Wed, 29 Jul 2015 00:59:30 +0000</pubDate>
+    <item>
+      <title>And now the summer has ended.</title>
+      <link>sunu.in/and-now-the-summer-has-ended</link>
+      <description>&lt;p&gt;So the end is here. 24th August was the &amp;quot;hard pencil down&amp;quot; date of GSoC 2015. And with that GSoC has come to an end.&lt;/p&gt;
+</description>
+      <pubDate>Wed, 29 Jul 2015 00:59:30 +0000</pubDate>
+      <dc:date>2015-07-29T00:59:30+00:00</dc:date>
+    </item>
     <item>
       <title>Summer of Code Update</title>
       <link>sunu.in/summer-of-code-update-3</link>
@@ -74,6 +82,6 @@ Then we use something like &lt;a href=&quot;http://gruntjs.com/&quot;&gt;Grunt&l
       <pubDate>Sat, 29 Mar 2014 17:52:00 +0000</pubDate>
       <dc:date>2014-03-29T17:52:00+00:00</dc:date>
     </item>
-    <dc:date>2015-07-28T20:17:30+00:00</dc:date>
+    <dc:date>2015-07-29T00:59:30+00:00</dc:date>
   </channel>
 </rss>
