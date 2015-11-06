@@ -167,31 +167,31 @@
 
     <footer class="site-footer clearfix">
       <section class="copyright">
-        <a href="/">sunu's weblog</a> &copy; 
+        <a href="/">sunu's weblog</a> &copy;
                &bull; All rights reserved.
       </section>
-      <section class="poweredby">Made with Jekyll using 
+      <section class="poweredby">Made with Jekyll using
         <a href="http://github.com/rosario/kasper">Kasper theme</a>
       </section>
     </footer>
-    
+
     <script type="text/javascript" src="/assets/js/jquery-1.11.1.min.js"></script>
     <script type="text/javascript" src="/assets/js/jquery.fitvids.js"></script>
     <script type="text/javascript" src="/assets/js/index.js"></script>
 
-    <!-- Google Analytics Tracking code -->
+    <!-- Piwik Tracking code -->
     <script type="text/javascript">
-
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-XXXXXXXX-X']);
-      _gaq.push(['_trackPageview']);
-
+      var _paq = _paq || [];
+      _paq.push(['trackPageView']);
+      _paq.push(['enableLinkTracking']);
       (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        _paq.push(['setTrackerUrl',  'https://api.sunu.sandcats.io']);
+        _paq.push(['setSiteId', 1]);
+        _paq.push(['setApiToken', 'jbLglWvSXwo-8gr_HCcOAyxv-GyDlGUr-Mi1c1uiRL9']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+        g.type='text/javascript'; g.async=true; g.defer=true; g.src='https://n3n9vtcbjflppk641wgj.sunu.sandcats.io/embed.js'; s.parentNode.insertBefore(g,s);
       })();
-
-    </script>   
+    </script>
+    <!-- End Piwik Code -->
 </body>
 </html>

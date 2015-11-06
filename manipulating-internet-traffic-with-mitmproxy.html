@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <title>sunu's weblog - On programming and stuff.</title>
+    <meta name="description" content="Weblog of Tarashish Mishra; On programming and stuff." />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="MobileOptimized" content="320" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" />
+    <!-- Customisation  -->
+    <link rel="stylesheet" type="text/css" href="/assets/css/main.css" />
+
+</head>
+<body class="home-template">
+
+    <header class="main-header post-head no-cover">
+    <nav class="main-nav  clearfix">
+        <a class="back-button icon-arrow-left" href="/">Home</a>
+        <a class="subscribe-button icon-feed" href="/rss.xml">Subscribe</a>
+    </nav>
+</header>
+
+<main class="content" role="main">
+
+    <article class="post">
+
+        <header class="post-header">
+            <h1 class="post-title">Manipulating http traffic with mitmproxy.</h1>
+            <section class="post-meta">
+                <time class="post-date" datetime="2015-03-06">06 Mar 2015</time>
+                
+                    on <a href="/tag/programming/" rel="tag">programming</a>, <a href="/tag/python/" rel="tag">python</a>
+                
+            </section>
+        </header>
+
+<!--         <header class="post-header">
+            <a id="blog-logo" href="sunu.in">
+                
+                    <span class="blog-title">sunu's weblog</span>
+                
+            </a>
+        </header> -->
+
+        <!-- <span class="post-meta">
+            <time datetime="2015-03-06">06 Mar 2015</time>
+            
+        </span> -->
+
+        <!-- <h1 class="post-title">Manipulating http traffic with mitmproxy.</h1> -->
+
+        <section class="post-content">
+            <p><a href="https://github.com/mitmproxy/mitmproxy">Mitmproxy</a> is a nifty little tool that lets us intercept and manipulate http (and https) traffic on the fly. It&#39;s a man-in-the-middle proxy with both a commandline interface and a web interface to inspect, record and manipulate the http traffic. I have been playing with it this evening and I&#39;ll try to share whatever I have found out till now.</p>
+
+<p>So let&#39;s install mitmproxy and have some fun. Installing mitmproxy was straight forward:</p>
+<div class="highlight"><pre><code class="language-" data-lang="">$ pip install mitmproxy
+</code></pre></div>
+<p>Now we have to generate the dummy ssl certificates by running <code>mitmproxy</code> for the first time. The generated certificates should be in <code>~/.mitmproxy</code>.</p>
+
+<p>Now we have to add the certificate to our browser. <a href="http://mitmproxy.org/doc/certinstall/firefox.html">Here is the official guide</a> for Firefox. Also install <a href="https://addons.mozilla.org/en-us/firefox/addon/toggle-proxy-51740/">this add-on</a> for quick proxy switching in the future. Use 0.0.0.0:8080 as your proxy address and port and we are all set.</p>
+
+<p>If we run <code>mitmproxy</code> now and try to visit <code>google.com</code> in our browser we can see the request being logged in the console. Here&#39;s what mine looks like.
+<img src="http://i.imgur.com/BjPRXKv.png" alt="">
+We can alaso use <code>mitmdump</code> to record the requests and responses to a file and later replay them using <code>mitmproxy</code>.</p>
+
+<p>Now the coolest thing (that I know of) is that <code>mitmproxy</code> lets you manipulate traffic on the fly by executing inline scripts. Some examples of inline scripts are included in the repo. Let&#39;s execute <a href="https://github.com/mitmproxy/mitmproxy/blob/master/examples/upsidedownternet.py">this</a> example which rotates all png images by 180°. We can use this script by running:</p>
+<div class="highlight"><pre><code class="language-" data-lang="">$ mitmproxy --script /path/to/upsidedownternet.py
+</code></pre></div>
+<p>Inspired by this script I wrote a script to replace all images with the picture of a cute kitten. (Yes, I&#39;m helping the kitten army take over the Internet ;))</p>
+
+<p>Here&#39;s a screenshot of my Twitter timeline with the script running.
+<img src="http://i.imgur.com/bCR52sM.png" alt=""></p>
+
+<p>Here&#39;s the source of my script.</p>
+<div class="highlight"><pre><code class="language-python" data-lang="python">
+<span class="c"># cat_apocalypse.py</span>
+
+<span class="kn">import</span> <span class="nn">cStringIO</span>
+<span class="kn">from</span> <span class="nn">libmproxy.protocol.http</span> <span class="kn">import</span> <span class="n">decoded</span>
+
+
+<span class="k">def</span> <span class="nf">response</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">flow</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">flow</span><span class="o">.</span><span class="n">response</span><span class="o">.</span><span class="n">headers</span><span class="o">.</span><span class="n">get_first</span><span class="p">(</span><span class="s">"content-type"</span><span class="p">,</span> <span class="s">""</span><span class="p">)</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s">"image"</span><span class="p">):</span>
+    <span class="k">with</span> <span class="n">decoded</span><span class="p">(</span><span class="n">flow</span><span class="o">.</span><span class="n">response</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">img</span> <span class="o">=</span> <span class="n">cStringIO</span><span class="o">.</span><span class="n">StringIO</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s">'kitty.png'</span><span class="p">,</span> <span class="s">'rb'</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+            <span class="n">flow</span><span class="o">.</span><span class="n">response</span><span class="o">.</span><span class="n">content</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">getvalue</span><span class="p">()</span>
+            <span class="n">flow</span><span class="o">.</span><span class="n">response</span><span class="o">.</span><span class="n">headers</span><span class="p">[</span><span class="s">"content-type"</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s">"image/png"</span><span class="p">]</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="k">pass</span>
+</code></pre></div>
+<p>Now running <code>mitmproxy --script cat_apocalypse.py</code> fills our http traffic with pictures of our cute little friend.</p>
+
+<hr>
+
+<h3>Thanks for reading.</h3>
+
+<p>Thanks for taking time to read this post. Hope you found it interesting. Do check out mitmproxy. I&#39;ll also write a post on fiddling with mobile app traffic with mitmproxy soon. Please check it out if you liked this post.</p>
+
+<h3>Links</h3>
+
+<ul>
+<li><a href="https://github.com/mitmproxy/mitmproxy">Mitmproxy on Github</a></li>
+<li><a href="http://mitmproxy.org/">Mitmproxy homepage</a></li>
+<li><a href="http://mitmproxy.org/doc/index.html">MItmproxy documentation</a></li>
+</ul>
+
+        </section>
+
+        
+
+        <footer class="post-footer">
+            <!-- If we want to display author's name and bio -->
+            
+                <figure class="author-image">
+                    <a class="img" href="/" style="background-image: url(/assets/images/profile.jpeg)">
+                    <span class="hidden">Tarashish Mishra's Picture</span></a>
+                </figure>
+                <section class="author">
+                    <!-- Author Name -->
+                    <h4> Tarashish Mishra </h4>
+                    <!-- Author Bio -->
+                    <p>
+                        Hi, I'm sunu.
+                        I'm a programmer. I like Python, travelling and animated cat/dog pictures. This blog is about my adventures and experience with code, travel and life. Contact me via <a href="mailto:sunu@sunu.in">mail</a>, <a href="https://twitter.com/tarashish">Twitter</a> or <a href="https://github.com/sunu">Github</a>.
+                    </p>
+                </section>
+            
+
+            <!-- Share links section -->
+            <section class="share">
+    <h4>Share this post</h4>
+    <a class="icon-twitter" href="http://twitter.com/share?text=Manipulating http traffic with mitmproxy.&amp;url=http://sunu.in/manipulating-internet-traffic-with-mitmproxy"
+        onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+        <span class="hidden">Twitter</span>
+    </a>
+    <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://sunu.in/manipulating-internet-traffic-with-mitmproxy"
+        onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+        <span class="hidden">Facebook</span>
+    </a>
+    <a class="icon-google-plus" href="https://plus.google.com/share?url=http://sunu.in/manipulating-internet-traffic-with-mitmproxy"
+       onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+        <span class="hidden">Google+</span>
+    </a>
+</section>
+
+
+            <!-- Disqus comments -->
+            
+
+        </footer>
+
+    </article>
+
+</main>
+
+    <footer class="site-footer clearfix">
+      <section class="copyright">
+        <a href="/">sunu's weblog</a> &copy;
+               &bull; All rights reserved.
+      </section>
+      <section class="poweredby">Made with Jekyll using
+        <a href="http://github.com/rosario/kasper">Kasper theme</a>
+      </section>
+    </footer>
+
+    <script type="text/javascript" src="/assets/js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="/assets/js/index.js"></script>
+
+    <!-- Piwik Tracking code -->
+    <script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['trackPageView']);
+      _paq.push(['enableLinkTracking']);
+      (function() {
+        _paq.push(['setTrackerUrl',  'https://api.sunu.sandcats.io']);
+        _paq.push(['setSiteId', 1]);
+        _paq.push(['setApiToken', 'jbLglWvSXwo-8gr_HCcOAyxv-GyDlGUr-Mi1c1uiRL9']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+        g.type='text/javascript'; g.async=true; g.defer=true; g.src='https://n3n9vtcbjflppk641wgj.sunu.sandcats.io/embed.js'; s.parentNode.insertBefore(g,s);
+      })();
+    </script>
+    <!-- End Piwik Code -->
+</body>
+</html>
