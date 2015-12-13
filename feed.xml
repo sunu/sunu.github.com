@@ -1,30 +1,119 @@
----
-layout: null
----
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>{{ site.title | xml_escape }}</title>
-    <description>{{ site.description | xml_escape }}</description>
-    <link>{{ site.url }}{{ site.baseurl }}/</link>
-    <atom:link href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}" rel="self" type="application/rss+xml"/>
-    <pubDate>{{ site.time | date_to_rfc822 }}</pubDate>
-    <lastBuildDate>{{ site.time | date_to_rfc822 }}</lastBuildDate>
-    <generator>Jekyll v{{ jekyll.version }}</generator>
-    {% for post in site.posts limit:10 %}
-      <item>
-        <title>{{ post.title | xml_escape }}</title>
-        <description>{{ post.content | xml_escape }}</description>
-        <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
-        <link>{{ post.url | prepend: site.baseurl | prepend: site.url }}</link>
-        <guid isPermaLink="true">{{ post.url | prepend: site.baseurl | prepend: site.url }}</guid>
-        {% for tag in post.tags %}
-        <category>{{ tag | xml_escape }}</category>
-        {% endfor %}
-        {% for cat in post.categories %}
-        <category>{{ cat | xml_escape }}</category>
-        {% endfor %}
-      </item>
-    {% endfor %}
-  </channel>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <channel>
+        <title>sunu&#39;s weblog</title>
+        <description>On programming and stuff.</description>
+        <link>sunu.in</link>
+        <atom:link href="sunu.in/feed.xml" rel="self" type="application/rss+xml" />
+        
+            <item>
+                <title>And now the summer has ended.</title>
+                
+                
+                    <description>&lt;p&gt;So the end is here. 24th August was the &amp;quot;hard pencil down&amp;quot; date of GSoC 2015. And with that GSoC has come to an end.&lt;/p&gt;
+</description>
+                
+                <pubDate>Wed, 29 Jul 2015 00:59:30 +0000</pubDate>
+                <link>sunu.in/and-now-the-summer-has-ended</link>
+                <guid isPermaLink="true">sunu.in/and-now-the-summer-has-ended</guid>
+            </item>
+        
+            <item>
+                <title>Summer of Code Update</title>
+                
+                
+                    <description>&lt;p&gt;Time for a short GSoC update.&lt;/p&gt;
+</description>
+                
+                <pubDate>Tue, 28 Jul 2015 20:17:30 +0000</pubDate>
+                <link>sunu.in/summer-of-code-update-3</link>
+                <guid isPermaLink="true">sunu.in/summer-of-code-update-3</guid>
+            </item>
+        
+            <item>
+                <title>I&#39;m porting stuff to Python 3. And I&#39;m loving it.</title>
+                
+                
+                    <description>&lt;p&gt;GSoC update time! In case you didn&amp;#39;t read my previous post, I&amp;#39;m &lt;a href=&quot;http://sunu.in/on-summer-of-code/&quot;&gt;participating in GSoC&lt;/a&gt; and porting &lt;a href=&quot;https://github.com/scrapinghub/splash&quot;&gt;Splash&lt;/a&gt; to Python 3.&lt;/p&gt;
+</description>
+                
+                <pubDate>Sat, 20 Jun 2015 14:09:04 +0000</pubDate>
+                <link>sunu.in/im-porting-stuff-to-python-3-and-im-loving-it</link>
+                <guid isPermaLink="true">sunu.in/im-porting-stuff-to-python-3-and-im-loving-it</guid>
+            </item>
+        
+            <item>
+                <title>On Summer of Code</title>
+                
+                
+                    <description>&lt;p&gt;Bit of a late news, but yes, I am participating in &lt;a href=&quot;https://www.google-melange.com/gsoc/homepage/google/gsoc2015&quot;&gt;Google Summer of Code 2015&lt;/a&gt; under &lt;a href=&quot;https://www.python.org/psf/&quot;&gt;Python Software Foundation&lt;/a&gt;. I am working on &lt;a href=&quot;https://github.com/scrapinghub/splash&quot;&gt;Splash&lt;/a&gt; developed by &lt;a href=&quot;http://scrapinghub.com/&quot;&gt;Scrapinghub&lt;/a&gt;.&lt;/p&gt;
+</description>
+                
+                <pubDate>Tue, 02 Jun 2015 11:52:44 +0000</pubDate>
+                <link>sunu.in/on-summer-of-code</link>
+                <guid isPermaLink="true">sunu.in/on-summer-of-code</guid>
+            </item>
+        
+            <item>
+                <title>Manipulating http traffic with mitmproxy.</title>
+                
+                
+                    <description>&lt;p&gt;&lt;a href=&quot;https://github.com/mitmproxy/mitmproxy&quot;&gt;Mitmproxy&lt;/a&gt; is a nifty little tool that lets us intercept and manipulate http (and https) traffic on the fly. It&amp;#39;s a man-in-the-middle proxy with both a commandline interface and a web interface to inspect, record and manipulate the http traffic. I have been playing with it this evening and I&amp;#39;ll try to share whatever I have found out till now.&lt;/p&gt;
+</description>
+                
+                <pubDate>Fri, 06 Mar 2015 13:34:00 +0000</pubDate>
+                <link>sunu.in/manipulating-internet-traffic-with-mitmproxy</link>
+                <guid isPermaLink="true">sunu.in/manipulating-internet-traffic-with-mitmproxy</guid>
+            </item>
+        
+            <item>
+                <title>HTTPS - Under the hood.</title>
+                
+                
+                    <description>&lt;p&gt;While browsing the web we often see a padlock symbol and the letters &lt;code&gt;https&lt;/code&gt; before the web address. When we click on the padlock, the browser assures us that our connection to the website is secure and gives us some info about who runs the website and stuff like that.&lt;/p&gt;
+</description>
+                
+                <pubDate>Mon, 22 Dec 2014 16:09:30 +0000</pubDate>
+                <link>sunu.in/https-under-the-hood</link>
+                <guid isPermaLink="true">sunu.in/https-under-the-hood</guid>
+            </item>
+        
+            <item>
+                <title>The curious case of mutable default arguments in Python</title>
+                
+                
+                    <description>&lt;p&gt;Python&amp;#39;s handing of default arguments trips up most Pythonistas at some point in their journey. Sometimes it makes people pull out their hair in frustration because they can&amp;#39;t figure out what&amp;#39;s wrong.&lt;/p&gt;
+</description>
+                
+                <pubDate>Tue, 25 Nov 2014 09:12:00 +0000</pubDate>
+                <link>sunu.in/the-curious-case-of-mutable-default-arguments-in-python</link>
+                <guid isPermaLink="true">sunu.in/the-curious-case-of-mutable-default-arguments-in-python</guid>
+            </item>
+        
+            <item>
+                <title>Using Bower with Flask.</title>
+                
+                
+                    <description>&lt;p&gt;&lt;a href=&quot;http://bower.io/&quot;&gt;Bower&lt;/a&gt; is a package manager that fetches and installs all kinds of static resources and tools. So it is very useful for managing the static resources for our Flask project. We just put our requirements in a file called &lt;code&gt;bower.json&lt;/code&gt; and Bower fetches all those requirements for us and puts them in a directory called &lt;code&gt;bower_components&lt;/code&gt;.
+Then we use something like &lt;a href=&quot;http://gruntjs.com/&quot;&gt;Grunt&lt;/a&gt; to move the static resources to their final location.&lt;/p&gt;
+</description>
+                
+                <pubDate>Sat, 15 Nov 2014 09:12:00 +0000</pubDate>
+                <link>sunu.in/using-bower-with-flask</link>
+                <guid isPermaLink="true">sunu.in/using-bower-with-flask</guid>
+            </item>
+        
+            <item>
+                <title>Protect your secrets!</title>
+                
+                
+                    <description>&lt;p&gt;Django has a SECRET_KEY settings among many others. This SECRET_KEY is really important for security purposes as it is used for cryptographic signing functionality in Django (&lt;a href=&quot;https://docs.djangoproject.com/en/dev/topics/signing/&quot;&gt;More&lt;/a&gt; about cryptographic signing). We are expected to keep the value secret. Running Django with a known SECRET_KEY defeats many of Django’s security protections, and can lead to privilege escalation and remote code execution vulnerabilities.&lt;/p&gt;
+</description>
+                
+                <pubDate>Sat, 29 Mar 2014 17:52:00 +0000</pubDate>
+                <link>sunu.in/protect-your-secret</link>
+                <guid isPermaLink="true">sunu.in/protect-your-secret</guid>
+            </item>
+        
+    </channel>
 </rss>
