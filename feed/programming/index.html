@@ -3,16 +3,45 @@
  <title>Your Title - programming</title>
  <link href="http://sunu.in/feed/programming/" rel="self"/>
  <link href="http://sunu.in/tag/programming.html"/>
- <updated>2015-12-13T14:08:21+00:00</updated>
+ <updated>2015-12-13T19:31:06+05:30</updated>
  <id>http://sunu.in/tag/programming.html</id>
  <author>
    <name>Author Here</name>
  </author>
  
  <entry>
+   <title>SSL/TLS certificates in minutes with Let's Encrypt and Caddy</title>
+   <link href="http://sunu.in/lets-encrypt"/>
+   <updated>2015-12-13T17:52:00+05:30</updated>
+   <id>http://sunu.in/lets-encrypt</id>
+   <content type="html">&lt;p&gt;&lt;a href=&quot;https://letsencrypt.org/&quot;&gt;Let&amp;#39;s Encrypt&lt;/a&gt; has entered public beta for a while now. So I decided to play with it today and get a certificate. With &lt;a href=&quot;https://caddyserver.com&quot;&gt;Caddy server&lt;/a&gt;, I was able to set up a web page with a free SSL/TLS certificate issued by Let&amp;#39;s Encrypt within minutes. This stuff is surely amazing!&lt;/p&gt;
+
+&lt;p&gt;Let&amp;#39;s walk through the steps.&lt;/p&gt;
+
+&lt;p&gt;First I installed Caddy on the server and pointed my domain to the server. Standard stuff.&lt;/p&gt;
+
+&lt;p&gt;Then I create a Caddyfile. My Caddyfile looks like this&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;test.sunu.in {
+    gzip
+    tls sunu0000@gmail.com
+    root /srv/www/test.sunu.in
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;code&gt;test.sunu.in&lt;/code&gt; is the domain I want to server and there&amp;#39;s of course my email and the website root.&lt;/p&gt;
+
+&lt;p&gt;Next I put a index.html file in the website root and start Caddy server by pointing it to the config file&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;caddy --conf /srv/www/Caddyfile --agree --email sunu0000@gmail.com
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;And voila! My SSL/TLS enabled website is being served at &lt;a href=&quot;https://test.sunu.in&quot;&gt;test.sunu.in&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;I really love the work people are doing on Let&amp;#39;s Encrypt so far. Self signed certificates were a pain in the ass; it&amp;#39;s great to have free automated SSL/TLS certificates. Warm hugs to all the people putting in the hard work to make it possible!&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
    <title>I'm porting stuff to Python 3. And I'm loving it.</title>
    <link href="http://sunu.in/im-porting-stuff-to-python-3-and-im-loving-it"/>
-   <updated>2015-06-20T14:09:04+00:00</updated>
+   <updated>2015-06-20T14:09:04+05:30</updated>
    <id>http://sunu.in/im-porting-stuff-to-python-3-and-im-loving-it</id>
    <content type="html">&lt;p&gt;GSoC update time! In case you didn&amp;#39;t read my previous post, I&amp;#39;m &lt;a href=&quot;http://sunu.in/on-summer-of-code/&quot;&gt;participating in GSoC&lt;/a&gt; and porting &lt;a href=&quot;https://github.com/scrapinghub/splash&quot;&gt;Splash&lt;/a&gt; to Python 3.&lt;/p&gt;
 
@@ -33,7 +62,7 @@
  <entry>
    <title>On Summer of Code</title>
    <link href="http://sunu.in/on-summer-of-code"/>
-   <updated>2015-06-02T11:52:44+00:00</updated>
+   <updated>2015-06-02T11:52:44+05:30</updated>
    <id>http://sunu.in/on-summer-of-code</id>
    <content type="html">&lt;p&gt;Bit of a late news, but yes, I am participating in &lt;a href=&quot;https://www.google-melange.com/gsoc/homepage/google/gsoc2015&quot;&gt;Google Summer of Code 2015&lt;/a&gt; under &lt;a href=&quot;https://www.python.org/psf/&quot;&gt;Python Software Foundation&lt;/a&gt;. I am working on &lt;a href=&quot;https://github.com/scrapinghub/splash&quot;&gt;Splash&lt;/a&gt; developed by &lt;a href=&quot;http://scrapinghub.com/&quot;&gt;Scrapinghub&lt;/a&gt;.&lt;/p&gt;
 
@@ -52,7 +81,7 @@ Ciao.&lt;/p&gt;
  <entry>
    <title>Manipulating http traffic with mitmproxy.</title>
    <link href="http://sunu.in/manipulating-internet-traffic-with-mitmproxy"/>
-   <updated>2015-03-06T13:34:00+00:00</updated>
+   <updated>2015-03-06T13:34:00+05:30</updated>
    <id>http://sunu.in/manipulating-internet-traffic-with-mitmproxy</id>
    <content type="html">&lt;p&gt;&lt;a href=&quot;https://github.com/mitmproxy/mitmproxy&quot;&gt;Mitmproxy&lt;/a&gt; is a nifty little tool that lets us intercept and manipulate http (and https) traffic on the fly. It&amp;#39;s a man-in-the-middle proxy with both a commandline interface and a web interface to inspect, record and manipulate the http traffic. I have been playing with it this evening and I&amp;#39;ll try to share whatever I have found out till now.&lt;/p&gt;
 
@@ -114,7 +143,7 @@ We can alaso use &lt;code&gt;mitmdump&lt;/code&gt; to record the requests and re
  <entry>
    <title>HTTPS - Under the hood.</title>
    <link href="http://sunu.in/https-under-the-hood"/>
-   <updated>2014-12-22T16:09:30+00:00</updated>
+   <updated>2014-12-22T16:09:30+05:30</updated>
    <id>http://sunu.in/https-under-the-hood</id>
    <content type="html">&lt;p&gt;While browsing the web we often see a padlock symbol and the letters &lt;code&gt;https&lt;/code&gt; before the web address. When we click on the padlock, the browser assures us that our connection to the website is secure and gives us some info about who runs the website and stuff like that.&lt;/p&gt;
 
@@ -181,7 +210,7 @@ If the server wants to send something to our browser it encrypts it with the key
  <entry>
    <title>Using Bower with Flask.</title>
    <link href="http://sunu.in/using-bower-with-flask"/>
-   <updated>2014-11-15T09:12:00+00:00</updated>
+   <updated>2014-11-15T09:12:00+05:30</updated>
    <id>http://sunu.in/using-bower-with-flask</id>
    <content type="html">&lt;p&gt;&lt;a href=&quot;http://bower.io/&quot;&gt;Bower&lt;/a&gt; is a package manager that fetches and installs all kinds of static resources and tools. So it is very useful for managing the static resources for our Flask project. We just put our requirements in a file called &lt;code&gt;bower.json&lt;/code&gt; and Bower fetches all those requirements for us and puts them in a directory called &lt;code&gt;bower_components&lt;/code&gt;.
 Then we use something like &lt;a href=&quot;http://gruntjs.com/&quot;&gt;Grunt&lt;/a&gt; to move the static resources to their final location.&lt;/p&gt;
@@ -214,7 +243,7 @@ Then we use something like &lt;a href=&quot;http://gruntjs.com/&quot;&gt;Grunt&l
  <entry>
    <title>Protect your secrets!</title>
    <link href="http://sunu.in/protect-your-secret"/>
-   <updated>2014-03-29T17:52:00+00:00</updated>
+   <updated>2014-03-29T17:52:00+05:30</updated>
    <id>http://sunu.in/protect-your-secret</id>
    <content type="html">&lt;p&gt;Django has a SECRET_KEY settings among many others. This SECRET_KEY is really important for security purposes as it is used for cryptographic signing functionality in Django (&lt;a href=&quot;https://docs.djangoproject.com/en/dev/topics/signing/&quot;&gt;More&lt;/a&gt; about cryptographic signing). We are expected to keep the value secret. Running Django with a known SECRET_KEY defeats many of Django’s security protections, and can lead to privilege escalation and remote code execution vulnerabilities.&lt;/p&gt;
 
