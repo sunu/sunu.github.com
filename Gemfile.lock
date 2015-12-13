@@ -34,7 +34,7 @@ GEM
     ruby-nuggets (1.0.0)
       nuggets (= 1.0.0)
     safe_yaml (1.0.4)
-    sass (3.4.19)
+    sass (3.4.20)
 
 PLATFORMS
   ruby
