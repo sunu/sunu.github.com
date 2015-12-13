@@ -10,6 +10,9 @@ fi
 jekyll build
 rm -rf ../blog
 git clone https://${GH_TOKEN}@github.com/sunu/sunu.github.com.git ../blog
+pushd ../blog
+git rm -rf *
+popd
 cp -r _site/* ../blog
 cd ../blog
 git config user.email "sunu0000@gmail.com"
