@@ -3,7 +3,7 @@ GEM
   specs:
     colorator (0.1)
     ffi (1.9.10)
-    jekyll (3.0.1)
+    jekyll (3.0.0)
       colorator (~> 0.1)
       jekyll-sass-converter (~> 1.0)
       jekyll-watch (~> 1.1)
@@ -40,7 +40,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  jekyll
-  jekyll-paginate
-  jekyll-tagging
-  redcarpet
+  jekyll (= 3.0.0)
+  jekyll-paginate (= 1.1.0)
+  jekyll-tagging (= 1.0.1)
+  redcarpet (= 3.3.3)
