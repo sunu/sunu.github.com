@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>sunu's weblog</title><link href="/" rel="alternate"></link><link href="/atom.xml" rel="self"></link><id>/</id><updated>2015-12-13T17:52:00+05:30</updated><entry><title>"SSL/TLS certificates in minutes with Let's Encrypt and Caddy"</title><link href="/ssltls-certificates-in-minutes-with-lets-encrypt-and-caddy/" rel="alternate"></link><updated>2015-12-13T17:52:00+05:30</updated><author><name>Tarashish Mishra</name></author><id>tag:,2015-12-13:ssltls-certificates-in-minutes-with-lets-encrypt-and-caddy/</id><summary type="html">&lt;p&gt;&lt;a href="https://letsencrypt.org/"&gt;Let's Encrypt&lt;/a&gt; has entered public beta for a while now. So I decided to play with it today and get a certificate. With &lt;a href="https://caddyserver.com"&gt;Caddy server&lt;/a&gt;, I was able to set up a web page with a free SSL/TLS certificate issued by Let's Encrypt within minutes. This stuff is surely amazing!&lt;/p&gt;
+&lt;p&gt;Let's walk through the steps.&lt;/p&gt;
+&lt;p&gt;First I installed Caddy on the server and pointed my domain to the server. Standard stuff.&lt;/p&gt;
+&lt;p&gt;Then I create a Caddyfile. My Caddyfile looks like this&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;test.sunu.in {
+    gzip
+    tls sunu0000@gmail.com
+    root /srv/www/test.sunu.in
+}
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;code&gt;test.sunu.in&lt;/code&gt; is the domain I want to server and there's of course my email and the website root.&lt;/p&gt;
+&lt;p&gt;Next I put a index.html file in the website root and start Caddy server by pointing it to the config file&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;caddy --conf /srv/www/Caddyfile --agree --email sunu0000@gmail.com
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;And voila! My SSL/TLS enabled website is being served at &lt;a href="https://test.sunu.in"&gt;test.sunu.in&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;I really love the work people are doing on Let's Encrypt so far. Self signed certificates were a pain in the ass; it's great to have free automated SSL/TLS certificates. Warm hugs to all the people putting in the hard work to make it possible!&lt;/p&gt;</summary><category term="letsencrypt"></category><category term="https"></category><category term="caddy"></category></entry><entry><title>And now the summer has ended.</title><link href="/and-now-the-summer-has-ended/" rel="alternate"></link><updated>2015-07-29T00:59:30+05:30</updated><author><name>Tarashish Mishra</name></author><id>tag:,2015-07-29:and-now-the-summer-has-ended/</id><summary type="html">&lt;p&gt;So the end is here. 24th August was the "hard pencil down" date of GSoC 2015. And with that GSoC has come to an end.&lt;/p&gt;
+&lt;p&gt;In the end, we have come fairly close to the goals we set in the beginning. Splash now has a branch which runs on Qt5. My &lt;a href="https://github.com/scrapinghub/splash/pull/251"&gt;pull request&lt;/a&gt; for Python 3 support, updated installation documentation and updated Docker images is waiting for a final review. Unfortunately, we've encountered a &lt;a href="https://bugreports.qt.io/browse/QTBUG-47654"&gt;bug in QtWebkit&lt;/a&gt; that is blocking us from merging the Qt5 branch into master for now.&lt;/p&gt;
+&lt;p&gt;But all in all this has been a wonderful experience. I have learned a lot this summer; at least I think I know a lot more about asynchronous programming and debugging now, than I knew before the summer. I have contributed to Twisted, which I have &lt;a href="http://irclogs.jackgrigg.com/irc.freenode.net/openhatch/2014-04-27#i_3338742"&gt;tried doing and failed&lt;/a&gt; in the past.&lt;/p&gt;
+&lt;p&gt;Next step will be to keep things tidy until the Qt bug is fixed. Also, I plan to port some more Twisted packages (like twisted.conch.telnet) that we use in Splash. There are several issues open that talk about easily extending Splash's functionalities through a library of Lua scripts using &lt;a href="http://splash.readthedocs.org/en/latest/scripting-tutorial.html#custom-lua-modules"&gt;custom Lua module support&lt;/a&gt;. This is something I'm interested in working on.&lt;/p&gt;
+&lt;p&gt;On the other hand, the end of GSoC means I am no longer working full time on anything. So I have actively started looking for interesting career opportunities. Do let me know if you have something in mind.&lt;/p&gt;
+&lt;p&gt;Thanks for reading.&lt;/p&gt;</summary><category term="python"></category><category term="gsoc"></category></entry><entry><title>Summer of Code Update #3</title><link href="/summer-of-code-update-3/" rel="alternate"></link><updated>2015-07-28T20:17:30+05:30</updated><author><name>Tarashish Mishra</name></author><id>tag:,2015-07-28:summer-of-code-update-3/</id><summary type="html">&lt;p&gt;Time for a short GSoC update.&lt;/p&gt;
+&lt;p&gt;I have a &lt;a href="https://github.com/scrapinghub/splash/pull/251"&gt;PR&lt;/a&gt; open that makes all the tests in &lt;a href="https://github.com/scrapinghub/splash/tree/master/splash/tests"&gt;Splash codebase&lt;/a&gt; pass on Python 3. It's up for review now.&lt;/p&gt;
+&lt;p&gt;Meanwhile twisted.web.proxy is &lt;a href="https://twistedmatrix.com/trac/ticket/7939"&gt;now available on Python 3&lt;/a&gt; and I'm working on fixing a &lt;a href="https://twistedmatrix.com/trac/ticket/7981"&gt;related bug&lt;/a&gt;.&lt;/p&gt;</summary><category term="python"></category><category term="gsoc"></category></entry><entry><title>I'm porting stuff to Python 3. And I'm loving it.</title><link href="/im-porting-stuff-to-python-3-and-im-loving-it/" rel="alternate"></link><updated>2015-06-20T14:09:04+05:30</updated><author><name>Tarashish Mishra</name></author><id>tag:,2015-06-20:im-porting-stuff-to-python-3-and-im-loving-it/</id><summary type="html">&lt;p&gt;GSoC update time! In case you didn't read my previous post, I'm &lt;a href="http://sunu.in/on-summer-of-code/"&gt;participating in GSoC&lt;/a&gt; and porting &lt;a href="https://github.com/scrapinghub/splash"&gt;Splash&lt;/a&gt; to Python 3.&lt;/p&gt;
+&lt;p&gt;Quick update on what has been done so far. The pull request to add support for Qt5 and PyQt5 has been merged into the &lt;a href="https://github.com/scrapinghub/splash/tree/qt5"&gt;qt5 branch&lt;/a&gt;. The plan is to merge it into &lt;code&gt;master&lt;/code&gt; after Python 3 porting and some other cleanup(fixing the docs, Vagrantfile etc) is done.&lt;/p&gt;
+&lt;p&gt;So now on to Python 3 porting.&lt;/p&gt;
+&lt;p&gt;The main road block in porting Splash to Python 3 is that some dependencies don't (fully) support Python 3 yet. The major one at that is &lt;a href="https://twistedmatrix.com/trac/"&gt;Twisted&lt;/a&gt;. But the good thing is the most used parts of Twisted already support Python 3 and the developers behind Twisted are actively working on porting more and more modules. Also Twisted has a fairly well laid out &lt;a href="https://twistedmatrix.com/trac/wiki/Plan/Python3"&gt;guide for Python 3 porting&lt;/a&gt; and the community is really responsive with feedback and reviews. Thanks to that I have ported a module already and working on porting &lt;code&gt;twisted.web.proxy&lt;/code&gt; for now.&lt;/p&gt;
+&lt;p&gt;Among other dependencies, &lt;a href="https://github.com/sunu/qt5reactor"&gt;my fork of qt5reactor&lt;/a&gt; is Python 3 compatible. And &lt;a href="https://github.com/axiak/pyre2/"&gt;pyre2&lt;/a&gt;, a faster drop-in replacement of the &lt;code&gt;re&lt;/code&gt; module from standard library, is now Python 3 compatible after &lt;a href="https://github.com/axiak/pyre2/pull/31"&gt;my PR&lt;/a&gt; was merged.&lt;/p&gt;
+&lt;p&gt;For now, I'm porting the Splash code base one test at a time. Splash has a good test coverage and lots of tests. So that's working in my favor. That and &lt;a href="https://docs.python.org/2/library/pdb.html"&gt;pdb&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;That's all I have to share for now. Thanks for reading.&lt;/p&gt;</summary><category term="python"></category><category term="gsoc"></category></entry><entry><title>On Summer of Code</title><link href="/on-summer-of-code/" rel="alternate"></link><updated>2015-06-02T11:52:44+05:30</updated><author><name>Tarashish Mishra</name></author><id>tag:,2015-06-02:on-summer-of-code/</id><summary type="html">&lt;p&gt;Bit of a late news, but yes, I am participating in &lt;a href="https://www.google-melange.com/gsoc/homepage/google/gsoc2015"&gt;Google Summer of Code 2015&lt;/a&gt; under &lt;a href="https://www.python.org/psf/"&gt;Python Software Foundation&lt;/a&gt;. I am working on &lt;a href="https://github.com/scrapinghub/splash"&gt;Splash&lt;/a&gt; developed by &lt;a href="http://scrapinghub.com/"&gt;Scrapinghub&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Splash is a lightweight, scriptable web browser with an HTTP API written on top of Qt and Twisted. Currently it supports Python 2.7+ only and runs on Qt4/PyQt4. My goal is to add Python 3 support and make Splash use Qt5/PyQT5.&lt;/p&gt;
+&lt;p&gt;So far the first week of the development phase has passed. And Splash is almost ready to run on Qt5/PyQt5. We are using &lt;a href="https://github.com/sunu/qt5reactor"&gt;qt5reactor&lt;/a&gt; for integrating Twisted and Qt5 eventloop. It is pulled out of the &lt;a href="https://github.com/nehbit/aether-public/blob/master/qt5reactor.py"&gt;Aether&lt;/a&gt; project. So far the transition from Qt4/PyQt4 to Qt5/PyQt5 has been rather seemless.&lt;/p&gt;
+&lt;p&gt;I'll work on completeing the Qt5/PyQt5 transition and porting some tests to Python3 next week.&lt;/p&gt;
+&lt;p&gt;That's all I have to share for now. Thanks for reading.
+Here's to a fruitful summer.
+Ciao.&lt;/p&gt;</summary><category term="python"></category><category term="gsoc"></category></entry><entry><title>Manipulating http traffic with mitmproxy.</title><link href="/manipulating-http-traffic-with-mitmproxy/" rel="alternate"></link><updated>2015-03-06T13:34:00+05:30</updated><author><name>Tarashish Mishra</name></author><id>tag:,2015-03-06:manipulating-http-traffic-with-mitmproxy/</id><summary type="html">&lt;p&gt;&lt;a href="https://github.com/mitmproxy/mitmproxy"&gt;Mitmproxy&lt;/a&gt; is a nifty little tool that lets us intercept and manipulate http (and https) traffic on the fly. It's a man-in-the-middle proxy with both a commandline interface and a web interface to inspect, record and manipulate the http traffic. I have been playing with it this evening and I'll try to share whatever I have found out till now.&lt;/p&gt;
+&lt;p&gt;So let's install mitmproxy and have some fun. Installing mitmproxy was straight forward:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ pip install mitmproxy
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Now we have to generate the dummy ssl certificates by running &lt;code&gt;mitmproxy&lt;/code&gt; for the first time. The generated certificates should be in &lt;code&gt;~/.mitmproxy&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Now we have to add the certificate to our browser. &lt;a href="http://mitmproxy.org/doc/certinstall/firefox.html"&gt;Here is the official guide&lt;/a&gt; for Firefox. Also install &lt;a href="https://addons.mozilla.org/en-us/firefox/addon/toggle-proxy-51740/"&gt;this add-on&lt;/a&gt; for quick proxy switching in the future. Use 0.0.0.0:8080 as your proxy address and port and we are all set.&lt;/p&gt;
+&lt;p&gt;If we run &lt;code&gt;mitmproxy&lt;/code&gt; now and try to visit &lt;code&gt;google.com&lt;/code&gt; in our browser we can see the request being logged in the console. Here's what mine looks like.
+&lt;img alt="" src="http://i.imgur.com/BjPRXKv.png" /&gt;
+We can alaso use &lt;code&gt;mitmdump&lt;/code&gt; to record the requests and responses to a file and later replay them using &lt;code&gt;mitmproxy&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Now the coolest thing (that I know of) is that &lt;code&gt;mitmproxy&lt;/code&gt; lets you manipulate traffic on the fly by executing inline scripts. Some examples of inline scripts are included in the repo. Let's execute &lt;a href="https://github.com/mitmproxy/mitmproxy/blob/master/examples/upsidedownternet.py"&gt;this&lt;/a&gt; example which rotates all png images by 180°. We can use this script by running:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ mitmproxy --script /path/to/upsidedownternet.py
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Inspired by this script I wrote a script to replace all images with the picture of a cute kitten. (Yes, I'm helping the kitten army take over the Internet ;))&lt;/p&gt;
+&lt;p&gt;Here's a screenshot of my Twitter timeline with the script running.
+&lt;img alt="" src="http://i.imgur.com/bCR52sM.png" /&gt;&lt;/p&gt;
+&lt;p&gt;Here's the source of my script.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# cat_apocalypse.py&lt;/span&gt;
+
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;cStringIO&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;libmproxy.protocol.http&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;decoded&lt;/span&gt;
+
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;response&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;context&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;flow&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;flow&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;response&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;headers&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get_first&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;content-type&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;startswith&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;image&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;with&lt;/span&gt; &lt;span class="n"&gt;decoded&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;flow&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;response&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="k"&gt;try&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+            &lt;span class="n"&gt;img&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;cStringIO&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;StringIO&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;kitty.png&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;rb&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;read&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;
+            &lt;span class="n"&gt;flow&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;response&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;content&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;img&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;getvalue&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+            &lt;span class="n"&gt;flow&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;response&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;headers&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;content-type&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;image/png&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+        &lt;span class="k"&gt;except&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+            &lt;span class="k"&gt;pass&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Now running &lt;code&gt;mitmproxy --script cat_apocalypse.py&lt;/code&gt; fills our http traffic with pictures of our cute little friend.&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h3&gt;Thanks for reading.&lt;/h3&gt;
+&lt;p&gt;Thanks for taking time to read this post. Hope you found it interesting. Do check out mitmproxy. I'll also write a post on fiddling with mobile app traffic with mitmproxy soon. Please check it out if you liked this post.&lt;/p&gt;
+&lt;h3&gt;Links&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/mitmproxy/mitmproxy"&gt;Mitmproxy on Github&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://mitmproxy.org/"&gt;Mitmproxy homepage&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://mitmproxy.org/doc/index.html"&gt;MItmproxy documentation&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</summary><category term="python"></category><category term="mitmproxy"></category></entry><entry><title>HTTPS - Under the hood.</title><link href="/https-under-the-hood/" rel="alternate"></link><updated>2014-12-22T16:09:30+05:30</updated><author><name>Tarashish Mishra</name></author><id>tag:,2014-12-22:https-under-the-hood/</id><summary type="html">&lt;p&gt;While browsing the web we often see a padlock symbol and the letters &lt;code&gt;https&lt;/code&gt; before the web address. When we click on the padlock, the browser assures us that our connection to the website is secure and gives us some info about who runs the website and stuff like that.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="padlock info" src="http://i.imgur.com/JMgIyNt.png" /&gt;&lt;/p&gt;
+&lt;p&gt;This secure connection is achieved by &lt;code&gt;HTTPS&lt;/code&gt;. HTTPS makes it possible for us to transmit our passwords, back account details securely across the Internet without making it accessible to people like &lt;a href="http://en.wikipedia.org/wiki/Alice_and_Bob#Cast_of_characters"&gt;the infamous Eve&lt;/a&gt;. But &lt;code&gt;HTTPS&lt;/code&gt; does not guarantee 100% security. Things still can &lt;a href="http://en.wikipedia.org/wiki/Transport_Layer_Security#Attacks_against_TLS.2FSSL"&gt;go wrong&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;What is HTTPS?&lt;/h2&gt;
+&lt;p&gt;HTTPS stands for &lt;em&gt;Hypertext Transfer Protocol Secure&lt;/em&gt;. Basically it's plain old HTTP secured by a layer of &lt;a href="http://en.wikipedia.org/wiki/Transport_Layer_Security"&gt;SSL/TLS&lt;/a&gt; encryption on top. The server and client still speak HTTP to each other; the only difference is the requests and responses are encrypted and decrypted in turn to make this communication secure.&lt;/p&gt;
+&lt;p&gt;In  order to make the communication secure, the SSL layer does 2 things for us&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;It verifies that we are talking directly to the server that we think we are talking to.&lt;/li&gt;
+&lt;li&gt;It makes sure that only the server can read what we send and only we can read what it sends back.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;How does a HTTPS connection work?&lt;/h2&gt;
+&lt;p&gt;Let's take a look at a overview of how a HTTP connection is established. Suppose we want to connect to &lt;code&gt;https://example.com&lt;/code&gt; over a secure connection. Here is the entire process that takes place with a few simplifications.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Our browser sends a request to &lt;code&gt;https://example.com&lt;/code&gt; (just &lt;code&gt;example.com&lt;/code&gt; from now on).&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;example.com&lt;/code&gt; sends us a &lt;code&gt;certificate&lt;/code&gt;. This certificate contains the public key of &lt;code&gt;example.com&lt;/code&gt;'s server. It also provides some evidence that this public key actually belongs to &lt;code&gt;example.com&lt;/code&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Our browser then verifies this certificate. The certificate is &lt;a href="http://en.wikipedia.org/wiki/Digital_signature"&gt;digitally signed&lt;/a&gt; by a &lt;a href="http://en.wikipedia.org/wiki/Certificate_authority"&gt;certificate authority&lt;/a&gt; (CA). The browser checks that it trusts the CA (browsers come with a built-in list of trusted ones) and that the certificate was properly signed.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;After successful verification, our browser chooses a new random symmetric key (say K) to use for its connection to &lt;code&gt;example.com&lt;/code&gt;. It encrypts the key with &lt;code&gt;example.com&lt;/code&gt;'s public key that it got from the certificate.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;A symmetric key is a key used in a symmetric algorithm for message encryption and decryption. Unlike asymmetric algorithms which require public/private key pair for encryption/decryption, symmetric algorithms require only a single key for both encryption and decryption.
+5.  &lt;code&gt;example.com&lt;/code&gt; decrypts the key using its private key. Now both our browser and the &lt;code&gt;example.com&lt;/code&gt; server know the key K, but no one else does.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Now when our browser sends something to &lt;code&gt;example.com&lt;/code&gt;, it encrypts it with the key K. The server decrypts the message with the key K.
+If the server wants to send something to our browser it encrypts it with the key K and the browser decrypts with the key K on receipt. This goes on until we disconnect from the server.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;The important thing to note here is your connection is secure as long as&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The private key of the server is actually private.&lt;/li&gt;
+&lt;li&gt;Trust can not be faked.&lt;/li&gt;
+&lt;li&gt;Your secret key is known to you and the server only.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;HTTPS can no longer protect you if any of these conditions is left unsatisfied. One interesting example of such a case will be the &lt;a href="http://www.wired.com/2013/10/lavabit_unsealed/"&gt;Lavabit-FBI situation&lt;/a&gt;, where a US court forced the webmail provider company to hand over its SSL private keys to the FBI. Once the private keys are compromised HTTPS is no longer secure.&lt;/p&gt;
+&lt;p&gt;So all in all, HTTPS is gives us a secure, private way to talk to others over the web, but it can't always be fully trusted. We can rely on it for some level of privacy, but still have to be vigilant.&lt;/p&gt;
+&lt;h3&gt;Thanks for reading&lt;/h3&gt;
+&lt;p&gt;Thanks for taking time to read this post. Hope you found it interesting. If you have some comments feel free to tweet at &lt;a href="https://twitter.com/tarashish"&gt;@tarashish&lt;/a&gt; or shoot me a &lt;a href="mailto:tarashish.mishra@gmail.com"&gt;mail&lt;/a&gt;.&lt;/p&gt;
+&lt;h3&gt;Links&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://blog.hartleybrody.com/https-certificates/"&gt;How HTTPS secures connections&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://medium.com/@vrypan/explaining-public-key-cryptography-to-non-geeks-f0994b3c2d5"&gt;Public-key cryptography explained without jargons&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://en.wikipedia.org/wiki/Public_key_certificate"&gt;How digital certificates work&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</summary><category term="https"></category></entry><entry><title>The curious case of mutable default arguments in Python</title><link href="/the-curious-case-of-mutable-default-arguments-in-python/" rel="alternate"></link><updated>2014-11-25T09:12:00+05:30</updated><author><name>Tarashish Mishra</name></author><id>tag:,2014-11-25:the-curious-case-of-mutable-default-arguments-in-python/</id><summary type="html">&lt;p&gt;Python's handing of default arguments trips up most Pythonistas at some point in their journey. Sometimes it makes people pull out their hair in frustration because they can't figure out what's wrong.&lt;/p&gt;
+&lt;p&gt;Consider the following example.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    def foo(bar=[]):
+        bar.append(1)
+        return bar
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;One would expect the function &lt;code&gt;foo&lt;/code&gt; to return the list &lt;code&gt;[1]&lt;/code&gt; every time it is called. And the result will take them by total surprise.&lt;/p&gt;
+&lt;p&gt;Let's try calling the function multiple times.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    &amp;gt;&amp;gt;&amp;gt; foo()
+    [1]
+    &amp;gt;&amp;gt;&amp;gt; foo()
+    [1, 1]
+    &amp;gt;&amp;gt;&amp;gt; foo()
+    [1, 1, 1]
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;That's certainly not what we expected the function &lt;code&gt;foo&lt;/code&gt; to return. Turns out the list gets bigger and bigger each time we call the function.&lt;/p&gt;
+&lt;p&gt;Let's take a deeper look. We'll use the built-in funtion &lt;code&gt;id&lt;/code&gt; which returns the unique identity of an object. For example:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    &amp;gt;&amp;gt;&amp;gt; a = 12
+    &amp;gt;&amp;gt;&amp;gt; b = 12
+    &amp;gt;&amp;gt;&amp;gt; id(a)
+    13979728
+    &amp;gt;&amp;gt;&amp;gt; id(b)
+    13979728
+    &amp;gt;&amp;gt;&amp;gt; id(a) == id(b)
+    True
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Here id of a and b are same since they refer to the same object, the integer 12. Similarly&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    &amp;gt;&amp;gt;&amp;gt; a = foo()
+    &amp;gt;&amp;gt;&amp;gt; a
+    [1]
+    &amp;gt;&amp;gt;&amp;gt; b = foo()
+    &amp;gt;&amp;gt;&amp;gt; b
+    [1, 1]
+    &amp;gt;&amp;gt;&amp;gt; id(a) == id(b)
+    True
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This explains why our issue. The function keeps using the same list everytime it's called. Which means we are appending 1 to the same list everytime we call the function. That's why the list keeps getting bigger.&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h3&gt;Why does this happen?&lt;/h3&gt;
+&lt;p&gt;The reason default arguments work this way is that fuctions are first class objects in Python. And they are treated like other first class objects, not as just some piece of code.&lt;/p&gt;
+&lt;p&gt;Function definition is an executable statement in Python. The default arguments are initialized only once (during the execution of the funtion definition). No more initialization is done for subsequent function executions.&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h3&gt;What's the solution?&lt;/h3&gt;
+&lt;p&gt;The solution to the above example is to use &lt;code&gt;None&lt;/code&gt; as the default argument.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    def foo(bar=None):
+        if bar is None:
+            bar = []
+        # Do your stuff here.
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr /&gt;
+&lt;h3&gt;Thanks for reading&lt;/h3&gt;
+&lt;p&gt;Thanks for taking time to read this post. Hope you found it interesting. There are some cool things you can do by taking advantage of mutable default arguments. Go through the &lt;a href="#links"&gt;links section&lt;/a&gt; if you want to learn more.&lt;/p&gt;
+&lt;h3&gt;Links&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://docs.python-guide.org/en/latest/writing/gotchas/"&gt;Common gotchas in Python&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://effbot.org/zone/default-values.htm"&gt;Must-read article about default arguments by Effbot&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://stackoverflow.com/questions/1132941/least-astonishment-in-python-the-mutable-default-argument"&gt;Question on StackOverflow&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</summary><category term="python"></category></entry><entry><title>Using Bower with Flask.</title><link href="/using-bower-with-flask/" rel="alternate"></link><updated>2014-11-15T09:12:00+05:30</updated><author><name>Tarashish Mishra</name></author><id>tag:,2014-11-15:using-bower-with-flask/</id><summary type="html">&lt;p&gt;&lt;a href="http://bower.io/"&gt;Bower&lt;/a&gt; is a package manager that fetches and installs all kinds of static resources and tools. So it is very useful for managing the static resources for our Flask project. We just put our requirements in a file called &lt;code&gt;bower.json&lt;/code&gt; and Bower fetches all those requirements for us and puts them in a directory called &lt;code&gt;bower_components&lt;/code&gt;.
+Then we use something like &lt;a href="http://gruntjs.com/"&gt;Grunt&lt;/a&gt; to move the static resources to their final location.&lt;/p&gt;
+&lt;p&gt;But wouldn't it be nice if we could just use them directly with Flask. Well, turns out that we can easily do that.&lt;/p&gt;
+&lt;p&gt;First let's create a file called &lt;code&gt;.bowerrc&lt;/code&gt; in the root directory. This is the configuration file for Bower. Let's put the following configuration in it.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;{
+    &amp;quot;directory&amp;quot; : &amp;quot;static/bower_components&amp;quot;
+}
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Now Bower will put everything in the static/bower_components directory and Flask will know how to serve those resources properly.&lt;/p&gt;
+&lt;p&gt;Let's try installing Jquery.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;bower install jquery
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Jquery will be fetched and stored at &lt;code&gt;static/bower_components/jquery&lt;/code&gt;. Now we can use Jquery in the template as&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;script&lt;/span&gt; &lt;span class="na"&gt;src=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;/static/bower_components/jquery/dist/jquery.min.js&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Also doing &lt;code&gt;bower init&lt;/code&gt; will store all the installed dependencies in the &lt;code&gt;bower.json&lt;/code&gt; file.&lt;/p&gt;
+&lt;p&gt;Now we can manage our static resources with ease.&lt;/p&gt;
+&lt;h3&gt;Thanks for reading&lt;/h3&gt;
+&lt;p&gt;Thanks for taking the time to read this post, I hope you found it interesting.&lt;/p&gt;</summary><category term="flask"></category><category term="python"></category></entry><entry><title>"Protect your secrets!"</title><link href="/protect-your-secrets/" rel="alternate"></link><updated>2014-03-29T17:52:00+05:30</updated><author><name>Tarashish Mishra</name></author><id>tag:,2014-03-29:protect-your-secrets/</id><summary type="html">&lt;p&gt;Django has a SECRET_KEY settings among many others. This SECRET_KEY is really important for security purposes as it is used for cryptographic signing functionality in Django (&lt;a href="https://docs.djangoproject.com/en/dev/topics/signing/"&gt;More&lt;/a&gt; about cryptographic signing). We are expected to keep the value secret. Running Django with a known SECRET_KEY defeats many of Django’s security protections, and can lead to privilege escalation and remote code execution vulnerabilities.&lt;/p&gt;
+&lt;p&gt;So putting the SECRET_KEY setting of Django in version control and putting the code out on a public repository on Github or Bitbucket is not really a good idea and should be avoided. Same can be said for other secret keys like API keys for different services, OAuth tokens, passwords for your database. They are all supposed to be, you know, "secret"!&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Secret" src="http://i.imgur.com/G0qc8Lr.gif" /&gt;&lt;/p&gt;
+&lt;p&gt;As a solution to this problem, most people edit this configurations on the production machine. Unfortunately, it is not a good idea. Editing source files on production is often troublesome. Also, while editing these keys in your development setup, you may just commit and push them accidentally to the public repository. So this practice is somewhat troublesome and dangerous.&lt;/p&gt;
+&lt;h2&gt;Environment variables to the rescue&lt;/h2&gt;
+&lt;p&gt;Environment variables are the answer to our problem. Using environment variables to store our secret keys gives us a ton of benefits.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;We can now put all our settings files in version control without hesitation.&lt;/li&gt;
+&lt;li&gt;No need to edit source files on production.&lt;/li&gt;
+&lt;li&gt;No risk of accidentally committing secret keys.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img alt="Yay!" src="http://i.imgur.com/EuEKhSr.gif" /&gt;&lt;/p&gt;
+&lt;h2&gt;How to set environment variables&lt;/h2&gt;
+&lt;p&gt;Environment variables can be set easily using bash commands. For example:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ &lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;MY_SECRET_KEY&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;SuP3r-S3Kr31-K3y
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;We can put this line at the end of our &lt;code&gt;.bashrc&lt;/code&gt; or &lt;code&gt;.bash_profile&lt;/code&gt; files. Another way to do this for individual projects is to put this line at the end of &lt;code&gt;bin/activate&lt;/code&gt; script of the virtualenv.&lt;/p&gt;
+&lt;p&gt;Most platform-as-a-service platforms also provide ways to set environment variables easily. For example, on Heroku you can set environment variables like this.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ &lt;span class="nb"&gt;cd&lt;/span&gt; myapp
+$ heroku config:set &lt;span class="nv"&gt;SECRET_KEY&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;mySuP3rS3cr31K3yRul3s
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Here is the &lt;a href="https://devcenter.heroku.com/articles/config-vars"&gt;documentation&lt;/a&gt; from Heroku.&lt;/p&gt;
+&lt;p&gt;These environment variables can be easily accessed in the settings file to set the secret key by doing something like:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;os&lt;/span&gt;
+&lt;span class="n"&gt;SOME_SECRET_KEY&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;environ&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;SOME_SECRET_KEY&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;And that's the way to do it.&lt;/p&gt;</summary><category term="django"></category><category term="python"></category></entry></feed>

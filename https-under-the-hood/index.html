@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+    <title>HTTPS - Under the hood. - sunu's weblog</title>
+    <meta name="description" content="">
+    <meta name="author" content="Tarashish Mishra">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+    <script src="/theme/html5.js"></script>
+    <![endif]-->
+
+    <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="sunu's weblog Atom Feed" />
+
+    <!-- Le styles -->
+    <link href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/css/bootstrap.no-icons.min.css" rel="stylesheet">
+    <link href="/theme/local.css" rel="stylesheet">
+    <link href="/theme/pygments.css" rel="stylesheet">
+    <link href="/theme/font-awesome.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Gudea:400,400italic|Alegreya+SC' rel='stylesheet' type='text/css'>
+
+</head>
+
+<body>
+<header class="blog-header">
+  <div class="container">
+    <div class="row-fluid">
+      <div class="span9">
+	<a href="/" class="brand">sunu's weblog</a>
+      </div>
+
+      <div class="span3" id="blog-nav">
+	<ul class="nav nav-pills pull-right">
+	    <li  class="active" >
+	      <a href="/category/on-code.html ">on code</a>
+	</ul>
+      </div>
+    </div> <!-- End of fluid row-->
+  </div>   <!-- End of Container-->
+</header>
+
+<div class="container">
+    <div class="content">
+    <div class="row-fluid">
+
+        <div class="span10">
+    <div class='article'>
+      <div class="row-fluid">
+           <div class="content-title span9">
+             <h1>HTTPS - Under the hood.</h1>
+           </div>
+      </div>
+    <div class="row-fluid">
+      <div class="span2">
+<p>Mon 22 December 2014 </p>
+
+<p style="text-align: left;">
+Filed under <a href="/category/on-code.html">on code</a>
+</p>
+<p style="text-align: left;">
+ 
+    Tags <a href="/tag/https.html">https</a> </p>
+<p>
+</p>
+      </div>
+      
+      <div class="span8">
+	<p>While browsing the web we often see a padlock symbol and the letters <code>https</code> before the web address. When we click on the padlock, the browser assures us that our connection to the website is secure and gives us some info about who runs the website and stuff like that.</p>
+<p><img alt="padlock info" src="http://i.imgur.com/JMgIyNt.png" /></p>
+<p>This secure connection is achieved by <code>HTTPS</code>. HTTPS makes it possible for us to transmit our passwords, back account details securely across the Internet without making it accessible to people like <a href="http://en.wikipedia.org/wiki/Alice_and_Bob#Cast_of_characters">the infamous Eve</a>. But <code>HTTPS</code> does not guarantee 100% security. Things still can <a href="http://en.wikipedia.org/wiki/Transport_Layer_Security#Attacks_against_TLS.2FSSL">go wrong</a>.</p>
+<h2>What is HTTPS?</h2>
+<p>HTTPS stands for <em>Hypertext Transfer Protocol Secure</em>. Basically it's plain old HTTP secured by a layer of <a href="http://en.wikipedia.org/wiki/Transport_Layer_Security">SSL/TLS</a> encryption on top. The server and client still speak HTTP to each other; the only difference is the requests and responses are encrypted and decrypted in turn to make this communication secure.</p>
+<p>In  order to make the communication secure, the SSL layer does 2 things for us</p>
+<ul>
+<li>It verifies that we are talking directly to the server that we think we are talking to.</li>
+<li>It makes sure that only the server can read what we send and only we can read what it sends back.</li>
+</ul>
+<h2>How does a HTTPS connection work?</h2>
+<p>Let's take a look at a overview of how a HTTP connection is established. Suppose we want to connect to <code>https://example.com</code> over a secure connection. Here is the entire process that takes place with a few simplifications.</p>
+<ol>
+<li>
+<p>Our browser sends a request to <code>https://example.com</code> (just <code>example.com</code> from now on).</p>
+</li>
+<li>
+<p><code>example.com</code> sends us a <code>certificate</code>. This certificate contains the public key of <code>example.com</code>'s server. It also provides some evidence that this public key actually belongs to <code>example.com</code>.</p>
+</li>
+<li>
+<p>Our browser then verifies this certificate. The certificate is <a href="http://en.wikipedia.org/wiki/Digital_signature">digitally signed</a> by a <a href="http://en.wikipedia.org/wiki/Certificate_authority">certificate authority</a> (CA). The browser checks that it trusts the CA (browsers come with a built-in list of trusted ones) and that the certificate was properly signed.</p>
+</li>
+<li>
+<p>After successful verification, our browser chooses a new random symmetric key (say K) to use for its connection to <code>example.com</code>. It encrypts the key with <code>example.com</code>'s public key that it got from the certificate.</p>
+</li>
+</ol>
+<p>A symmetric key is a key used in a symmetric algorithm for message encryption and decryption. Unlike asymmetric algorithms which require public/private key pair for encryption/decryption, symmetric algorithms require only a single key for both encryption and decryption.
+5.  <code>example.com</code> decrypts the key using its private key. Now both our browser and the <code>example.com</code> server know the key K, but no one else does.</p>
+<ol>
+<li>Now when our browser sends something to <code>example.com</code>, it encrypts it with the key K. The server decrypts the message with the key K.
+If the server wants to send something to our browser it encrypts it with the key K and the browser decrypts with the key K on receipt. This goes on until we disconnect from the server.</li>
+</ol>
+<p>The important thing to note here is your connection is secure as long as</p>
+<ul>
+<li>The private key of the server is actually private.</li>
+<li>Trust can not be faked.</li>
+<li>Your secret key is known to you and the server only.</li>
+</ul>
+<p>HTTPS can no longer protect you if any of these conditions is left unsatisfied. One interesting example of such a case will be the <a href="http://www.wired.com/2013/10/lavabit_unsealed/">Lavabit-FBI situation</a>, where a US court forced the webmail provider company to hand over its SSL private keys to the FBI. Once the private keys are compromised HTTPS is no longer secure.</p>
+<p>So all in all, HTTPS is gives us a secure, private way to talk to others over the web, but it can't always be fully trusted. We can rely on it for some level of privacy, but still have to be vigilant.</p>
+<h3>Thanks for reading</h3>
+<p>Thanks for taking time to read this post. Hope you found it interesting. If you have some comments feel free to tweet at <a href="https://twitter.com/tarashish">@tarashish</a> or shoot me a <a href="mailto:tarashish.mishra@gmail.com">mail</a>.</p>
+<h3>Links</h3>
+<ul>
+<li><a href="http://blog.hartleybrody.com/https-certificates/">How HTTPS secures connections</a></li>
+<li><a href="https://medium.com/@vrypan/explaining-public-key-cryptography-to-non-geeks-f0994b3c2d5">Public-key cryptography explained without jargons</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Public_key_certificate">How digital certificates work</a></li>
+</ul>
+	<hr />
+      </div>
+    </div>
+    <div class="span10">
+      <h3>Comments</h3>
+    
+    </div>  
+    </div>
+        </div>
+
+
+    </div>     </div> </div>
+
+<!--footer-->
+<div class="container">
+  <div class="well" style="background-color: #E9EFF6">
+    <div id="blog-footer">
+      <div class="row-fluid">
+	<div class="social span2" align="center" id="socialist">
+	  <ul class="nav nav-list">
+	    <li class="nav-header">
+	      Social
+	    </li>
+	    <li><a href="#"><i class="icon-You can add links in your config file" style="color: #1f334b"></i>You can add links in your config file</a></li>
+	    <li><a href="#"><i class="icon-Another social link" style="color: #1f334b"></i>Another social link</a></li>
+
+	  </ul>
+	</div>
+        <div class="links span2" align="center">
+          <ul class="nav nav-list">
+            <li class="nav-header">
+              Links
+            </li>
+
+            <li><a href="http://getpelican.com/">Pelican</a></li>
+            <li><a href="http://python.org/">Python.org</a></li>
+            <li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+            <li><a href="#">You can modify those links in your config file</a></li>
+          </ul>
+        </div>
+	<div class="site-nav span2" align="center">
+          <ul class="nav nav-list" id="site-links">
+            <li class="nav-header">
+              Site
+            </li>
+            <li><a href=""><i class="icon-home" style="color: #1f334b">
+                </i>Home</a></li>
+            <li><a href="/archives.html"><i class="icon-list" style="color: #1f334b">
+                </i>Archives</a></li>
+	    <li><a href="/tags.html"><i class="icon-tags" style="color: #1f334b">
+                </i>Tags</a></li>
+
+	    <li> <a href="/atom.xml" rel="alternate">
+                <i class="icon-rss" style="color: #1f334b"></i>
+                Atom Feed</a></li>
+	  </ul>
+
+        </div>
+
+      </div> <!--end of fluid row-->
+    </div> <!--end of blog-footer-->
+    <hr />
+    <p align="center"><a href="">sunu's weblog</a>
+      &copy; Tarashish Mishra
+    Powered by <a href="https://github.com/getpelican/pelican">Pelican</a> and
+        <a href="https://twitter.github.com/bootstrap">Twitter Bootstrap</a>.
+        Icons by <a href="https://fortawesome.github.com/Font-Awesome">Font Awesome</a> and
+        <a href="https://gregoryloucas.github.com/Font-Awesome-More">Font Awesome More</a></p>
+
+  </div> <!--end of well -->
+</div> <!--end of container -->
+
+<!--/footer-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script src="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.min.js"></script>
+
+
+
+</body>
+</html>

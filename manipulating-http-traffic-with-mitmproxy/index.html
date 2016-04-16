@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+    <title>Manipulating http traffic with mitmproxy. - sunu's weblog</title>
+    <meta name="description" content="">
+    <meta name="author" content="Tarashish Mishra">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+    <script src="/theme/html5.js"></script>
+    <![endif]-->
+
+    <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="sunu's weblog Atom Feed" />
+
+    <!-- Le styles -->
+    <link href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/css/bootstrap.no-icons.min.css" rel="stylesheet">
+    <link href="/theme/local.css" rel="stylesheet">
+    <link href="/theme/pygments.css" rel="stylesheet">
+    <link href="/theme/font-awesome.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Gudea:400,400italic|Alegreya+SC' rel='stylesheet' type='text/css'>
+
+</head>
+
+<body>
+<header class="blog-header">
+  <div class="container">
+    <div class="row-fluid">
+      <div class="span9">
+	<a href="/" class="brand">sunu's weblog</a>
+      </div>
+
+      <div class="span3" id="blog-nav">
+	<ul class="nav nav-pills pull-right">
+	    <li  class="active" >
+	      <a href="/category/on-code.html ">on code</a>
+	</ul>
+      </div>
+    </div> <!-- End of fluid row-->
+  </div>   <!-- End of Container-->
+</header>
+
+<div class="container">
+    <div class="content">
+    <div class="row-fluid">
+
+        <div class="span10">
+    <div class='article'>
+      <div class="row-fluid">
+           <div class="content-title span9">
+             <h1>Manipulating http traffic with mitmproxy.</h1>
+           </div>
+      </div>
+    <div class="row-fluid">
+      <div class="span2">
+<p>Fri 06 March 2015 </p>
+
+<p style="text-align: left;">
+Filed under <a href="/category/on-code.html">on code</a>
+</p>
+<p style="text-align: left;">
+ 
+    Tags <a href="/tag/python.html">python</a> <a href="/tag/mitmproxy.html">mitmproxy</a> </p>
+<p>
+</p>
+      </div>
+      
+      <div class="span8">
+	<p><a href="https://github.com/mitmproxy/mitmproxy">Mitmproxy</a> is a nifty little tool that lets us intercept and manipulate http (and https) traffic on the fly. It's a man-in-the-middle proxy with both a commandline interface and a web interface to inspect, record and manipulate the http traffic. I have been playing with it this evening and I'll try to share whatever I have found out till now.</p>
+<p>So let's install mitmproxy and have some fun. Installing mitmproxy was straight forward:</p>
+<div class="highlight"><pre><span></span>$ pip install mitmproxy
+</pre></div>
+
+
+<p>Now we have to generate the dummy ssl certificates by running <code>mitmproxy</code> for the first time. The generated certificates should be in <code>~/.mitmproxy</code>.</p>
+<p>Now we have to add the certificate to our browser. <a href="http://mitmproxy.org/doc/certinstall/firefox.html">Here is the official guide</a> for Firefox. Also install <a href="https://addons.mozilla.org/en-us/firefox/addon/toggle-proxy-51740/">this add-on</a> for quick proxy switching in the future. Use 0.0.0.0:8080 as your proxy address and port and we are all set.</p>
+<p>If we run <code>mitmproxy</code> now and try to visit <code>google.com</code> in our browser we can see the request being logged in the console. Here's what mine looks like.
+<img alt="" src="http://i.imgur.com/BjPRXKv.png" />
+We can alaso use <code>mitmdump</code> to record the requests and responses to a file and later replay them using <code>mitmproxy</code>.</p>
+<p>Now the coolest thing (that I know of) is that <code>mitmproxy</code> lets you manipulate traffic on the fly by executing inline scripts. Some examples of inline scripts are included in the repo. Let's execute <a href="https://github.com/mitmproxy/mitmproxy/blob/master/examples/upsidedownternet.py">this</a> example which rotates all png images by 180°. We can use this script by running:</p>
+<div class="highlight"><pre><span></span>$ mitmproxy --script /path/to/upsidedownternet.py
+</pre></div>
+
+
+<p>Inspired by this script I wrote a script to replace all images with the picture of a cute kitten. (Yes, I'm helping the kitten army take over the Internet ;))</p>
+<p>Here's a screenshot of my Twitter timeline with the script running.
+<img alt="" src="http://i.imgur.com/bCR52sM.png" /></p>
+<p>Here's the source of my script.</p>
+<div class="highlight"><pre><span></span><span class="c1"># cat_apocalypse.py</span>
+
+<span class="kn">import</span> <span class="nn">cStringIO</span>
+<span class="kn">from</span> <span class="nn">libmproxy.protocol.http</span> <span class="kn">import</span> <span class="n">decoded</span>
+
+
+<span class="k">def</span> <span class="nf">response</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">flow</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">flow</span><span class="o">.</span><span class="n">response</span><span class="o">.</span><span class="n">headers</span><span class="o">.</span><span class="n">get_first</span><span class="p">(</span><span class="s2">&quot;content-type&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;image&quot;</span><span class="p">):</span>
+    <span class="k">with</span> <span class="n">decoded</span><span class="p">(</span><span class="n">flow</span><span class="o">.</span><span class="n">response</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">img</span> <span class="o">=</span> <span class="n">cStringIO</span><span class="o">.</span><span class="n">StringIO</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s1">&#39;kitty.png&#39;</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+            <span class="n">flow</span><span class="o">.</span><span class="n">response</span><span class="o">.</span><span class="n">content</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">getvalue</span><span class="p">()</span>
+            <span class="n">flow</span><span class="o">.</span><span class="n">response</span><span class="o">.</span><span class="n">headers</span><span class="p">[</span><span class="s2">&quot;content-type&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;image/png&quot;</span><span class="p">]</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="k">pass</span>
+</pre></div>
+
+
+<p>Now running <code>mitmproxy --script cat_apocalypse.py</code> fills our http traffic with pictures of our cute little friend.</p>
+<hr />
+<h3>Thanks for reading.</h3>
+<p>Thanks for taking time to read this post. Hope you found it interesting. Do check out mitmproxy. I'll also write a post on fiddling with mobile app traffic with mitmproxy soon. Please check it out if you liked this post.</p>
+<h3>Links</h3>
+<ul>
+<li><a href="https://github.com/mitmproxy/mitmproxy">Mitmproxy on Github</a></li>
+<li><a href="http://mitmproxy.org/">Mitmproxy homepage</a></li>
+<li><a href="http://mitmproxy.org/doc/index.html">MItmproxy documentation</a></li>
+</ul>
+	<hr />
+      </div>
+    </div>
+    <div class="span10">
+      <h3>Comments</h3>
+    
+    </div>  
+    </div>
+        </div>
+
+
+    </div>     </div> </div>
+
+<!--footer-->
+<div class="container">
+  <div class="well" style="background-color: #E9EFF6">
+    <div id="blog-footer">
+      <div class="row-fluid">
+	<div class="social span2" align="center" id="socialist">
+	  <ul class="nav nav-list">
+	    <li class="nav-header">
+	      Social
+	    </li>
+	    <li><a href="#"><i class="icon-You can add links in your config file" style="color: #1f334b"></i>You can add links in your config file</a></li>
+	    <li><a href="#"><i class="icon-Another social link" style="color: #1f334b"></i>Another social link</a></li>
+
+	  </ul>
+	</div>
+        <div class="links span2" align="center">
+          <ul class="nav nav-list">
+            <li class="nav-header">
+              Links
+            </li>
+
+            <li><a href="http://getpelican.com/">Pelican</a></li>
+            <li><a href="http://python.org/">Python.org</a></li>
+            <li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+            <li><a href="#">You can modify those links in your config file</a></li>
+          </ul>
+        </div>
+	<div class="site-nav span2" align="center">
+          <ul class="nav nav-list" id="site-links">
+            <li class="nav-header">
+              Site
+            </li>
+            <li><a href=""><i class="icon-home" style="color: #1f334b">
+                </i>Home</a></li>
+            <li><a href="/archives.html"><i class="icon-list" style="color: #1f334b">
+                </i>Archives</a></li>
+	    <li><a href="/tags.html"><i class="icon-tags" style="color: #1f334b">
+                </i>Tags</a></li>
+
+	    <li> <a href="/atom.xml" rel="alternate">
+                <i class="icon-rss" style="color: #1f334b"></i>
+                Atom Feed</a></li>
+	  </ul>
+
+        </div>
+
+      </div> <!--end of fluid row-->
+    </div> <!--end of blog-footer-->
+    <hr />
+    <p align="center"><a href="">sunu's weblog</a>
+      &copy; Tarashish Mishra
+    Powered by <a href="https://github.com/getpelican/pelican">Pelican</a> and
+        <a href="https://twitter.github.com/bootstrap">Twitter Bootstrap</a>.
+        Icons by <a href="https://fortawesome.github.com/Font-Awesome">Font Awesome</a> and
+        <a href="https://gregoryloucas.github.com/Font-Awesome-More">Font Awesome More</a></p>
+
+  </div> <!--end of well -->
+</div> <!--end of container -->
+
+<!--/footer-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script src="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.min.js"></script>
+
+
+
+</body>
+</html>

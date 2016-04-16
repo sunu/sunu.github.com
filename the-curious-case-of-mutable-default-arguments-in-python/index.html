@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+    <title>The curious case of mutable default arguments in Python - sunu's weblog</title>
+    <meta name="description" content="">
+    <meta name="author" content="Tarashish Mishra">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+    <script src="/theme/html5.js"></script>
+    <![endif]-->
+
+    <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="sunu's weblog Atom Feed" />
+
+    <!-- Le styles -->
+    <link href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/css/bootstrap.no-icons.min.css" rel="stylesheet">
+    <link href="/theme/local.css" rel="stylesheet">
+    <link href="/theme/pygments.css" rel="stylesheet">
+    <link href="/theme/font-awesome.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Gudea:400,400italic|Alegreya+SC' rel='stylesheet' type='text/css'>
+
+</head>
+
+<body>
+<header class="blog-header">
+  <div class="container">
+    <div class="row-fluid">
+      <div class="span9">
+	<a href="/" class="brand">sunu's weblog</a>
+      </div>
+
+      <div class="span3" id="blog-nav">
+	<ul class="nav nav-pills pull-right">
+	    <li  class="active" >
+	      <a href="/category/on-code.html ">on code</a>
+	</ul>
+      </div>
+    </div> <!-- End of fluid row-->
+  </div>   <!-- End of Container-->
+</header>
+
+<div class="container">
+    <div class="content">
+    <div class="row-fluid">
+
+        <div class="span10">
+    <div class='article'>
+      <div class="row-fluid">
+           <div class="content-title span9">
+             <h1>The curious case of mutable default arguments in Python</h1>
+           </div>
+      </div>
+    <div class="row-fluid">
+      <div class="span2">
+<p>Tue 25 November 2014 </p>
+
+<p style="text-align: left;">
+Filed under <a href="/category/on-code.html">on code</a>
+</p>
+<p style="text-align: left;">
+ 
+    Tags <a href="/tag/python.html">python</a> </p>
+<p>
+</p>
+      </div>
+      
+      <div class="span8">
+	<p>Python's handing of default arguments trips up most Pythonistas at some point in their journey. Sometimes it makes people pull out their hair in frustration because they can't figure out what's wrong.</p>
+<p>Consider the following example.</p>
+<div class="highlight"><pre><span></span>    def foo(bar=[]):
+        bar.append(1)
+        return bar
+</pre></div>
+
+
+<p>One would expect the function <code>foo</code> to return the list <code>[1]</code> every time it is called. And the result will take them by total surprise.</p>
+<p>Let's try calling the function multiple times.</p>
+<div class="highlight"><pre><span></span>    &gt;&gt;&gt; foo()
+    [1]
+    &gt;&gt;&gt; foo()
+    [1, 1]
+    &gt;&gt;&gt; foo()
+    [1, 1, 1]
+</pre></div>
+
+
+<p>That's certainly not what we expected the function <code>foo</code> to return. Turns out the list gets bigger and bigger each time we call the function.</p>
+<p>Let's take a deeper look. We'll use the built-in funtion <code>id</code> which returns the unique identity of an object. For example:</p>
+<div class="highlight"><pre><span></span>    &gt;&gt;&gt; a = 12
+    &gt;&gt;&gt; b = 12
+    &gt;&gt;&gt; id(a)
+    13979728
+    &gt;&gt;&gt; id(b)
+    13979728
+    &gt;&gt;&gt; id(a) == id(b)
+    True
+</pre></div>
+
+
+<p>Here id of a and b are same since they refer to the same object, the integer 12. Similarly</p>
+<div class="highlight"><pre><span></span>    &gt;&gt;&gt; a = foo()
+    &gt;&gt;&gt; a
+    [1]
+    &gt;&gt;&gt; b = foo()
+    &gt;&gt;&gt; b
+    [1, 1]
+    &gt;&gt;&gt; id(a) == id(b)
+    True
+</pre></div>
+
+
+<p>This explains why our issue. The function keeps using the same list everytime it's called. Which means we are appending 1 to the same list everytime we call the function. That's why the list keeps getting bigger.</p>
+<hr />
+<h3>Why does this happen?</h3>
+<p>The reason default arguments work this way is that fuctions are first class objects in Python. And they are treated like other first class objects, not as just some piece of code.</p>
+<p>Function definition is an executable statement in Python. The default arguments are initialized only once (during the execution of the funtion definition). No more initialization is done for subsequent function executions.</p>
+<hr />
+<h3>What's the solution?</h3>
+<p>The solution to the above example is to use <code>None</code> as the default argument.</p>
+<div class="highlight"><pre><span></span>    def foo(bar=None):
+        if bar is None:
+            bar = []
+        # Do your stuff here.
+</pre></div>
+
+
+<hr />
+<h3>Thanks for reading</h3>
+<p>Thanks for taking time to read this post. Hope you found it interesting. There are some cool things you can do by taking advantage of mutable default arguments. Go through the <a href="#links">links section</a> if you want to learn more.</p>
+<h3>Links</h3>
+<ul>
+<li><a href="http://docs.python-guide.org/en/latest/writing/gotchas/">Common gotchas in Python</a></li>
+<li><a href="http://effbot.org/zone/default-values.htm">Must-read article about default arguments by Effbot</a></li>
+<li><a href="http://stackoverflow.com/questions/1132941/least-astonishment-in-python-the-mutable-default-argument">Question on StackOverflow</a></li>
+</ul>
+	<hr />
+      </div>
+    </div>
+    <div class="span10">
+      <h3>Comments</h3>
+    
+    </div>  
+    </div>
+        </div>
+
+
+    </div>     </div> </div>
+
+<!--footer-->
+<div class="container">
+  <div class="well" style="background-color: #E9EFF6">
+    <div id="blog-footer">
+      <div class="row-fluid">
+	<div class="social span2" align="center" id="socialist">
+	  <ul class="nav nav-list">
+	    <li class="nav-header">
+	      Social
+	    </li>
+	    <li><a href="#"><i class="icon-You can add links in your config file" style="color: #1f334b"></i>You can add links in your config file</a></li>
+	    <li><a href="#"><i class="icon-Another social link" style="color: #1f334b"></i>Another social link</a></li>
+
+	  </ul>
+	</div>
+        <div class="links span2" align="center">
+          <ul class="nav nav-list">
+            <li class="nav-header">
+              Links
+            </li>
+
+            <li><a href="http://getpelican.com/">Pelican</a></li>
+            <li><a href="http://python.org/">Python.org</a></li>
+            <li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+            <li><a href="#">You can modify those links in your config file</a></li>
+          </ul>
+        </div>
+	<div class="site-nav span2" align="center">
+          <ul class="nav nav-list" id="site-links">
+            <li class="nav-header">
+              Site
+            </li>
+            <li><a href=""><i class="icon-home" style="color: #1f334b">
+                </i>Home</a></li>
+            <li><a href="/archives.html"><i class="icon-list" style="color: #1f334b">
+                </i>Archives</a></li>
+	    <li><a href="/tags.html"><i class="icon-tags" style="color: #1f334b">
+                </i>Tags</a></li>
+
+	    <li> <a href="/atom.xml" rel="alternate">
+                <i class="icon-rss" style="color: #1f334b"></i>
+                Atom Feed</a></li>
+	  </ul>
+
+        </div>
+
+      </div> <!--end of fluid row-->
+    </div> <!--end of blog-footer-->
+    <hr />
+    <p align="center"><a href="">sunu's weblog</a>
+      &copy; Tarashish Mishra
+    Powered by <a href="https://github.com/getpelican/pelican">Pelican</a> and
+        <a href="https://twitter.github.com/bootstrap">Twitter Bootstrap</a>.
+        Icons by <a href="https://fortawesome.github.com/Font-Awesome">Font Awesome</a> and
+        <a href="https://gregoryloucas.github.com/Font-Awesome-More">Font Awesome More</a></p>
+
+  </div> <!--end of well -->
+</div> <!--end of container -->
+
+<!--/footer-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script src="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.min.js"></script>
+
+
+
+</body>
+</html>
