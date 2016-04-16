@@ -1,0 +1,13 @@
+language: python
+python:
+- "2.7"
+install: "pip install -r requirements.txt"
+script: "bash ./deploy.sh"
+branches:
+  only:
+  - source
+rvm:
+- 2.1.2
+env:
+  global:
+    secure: K5j5BcUULtNM4YlrpiKqrmBKGNpa6J0rJtj28aymP4qSfUkKpUAiZMiOsdltD5tPzsH5DS71PoNAgfWczH4i6RcSuGBYJWEYR0YzotQUSEDF49/NjT7iQb/OSmxron6KLMSK7YLKSgnySq3qKWGyvLRF1VUrUgw/6pNbtLftSs8=
