@@ -15,6 +15,7 @@ pushd ../blog
 git rm -rf *
 popd
 cp -r output/* ../blog
+cp CNAME ../blog
 cd ../blog
 git config user.email "sunu0000@gmail.com"
 git config user.name "Auto Deploy"
