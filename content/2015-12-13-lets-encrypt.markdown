@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "SSL/TLS certificates in minutes with Let's Encrypt and Caddy"
+title: SSL/TLS certificates in minutes with Let's Encrypt and Caddy
 date: 2015-12-13 17:52
 tags: letsencrypt, https, caddy
 category: on code
