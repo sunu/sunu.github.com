@@ -41,7 +41,7 @@ ARTICLE_SAVE_AS = '{slug}/index.html'
 PAGE_URL = '{slug}/'
 PAGE_SAVE_AS = '{slug}/index.html'
 
-THEME = "medius"
+THEME = "medius-theme"
 
 FEED_ATOM = 'atom.xml'
 
