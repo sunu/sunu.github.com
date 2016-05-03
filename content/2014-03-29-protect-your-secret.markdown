@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Protect your secrets!"
+title: Protect your secrets!
 date: 2014-03-29 17:52
 tags: django, python
 category: on code

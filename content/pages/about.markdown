@@ -3,7 +3,7 @@ layout: page
 title: about
 ---
 
-##### People know me as "sunu" on the web and elsewhere.
+##### Hi! I'm Tarashish. People know me as "sunu" on the web and elsewhere.
 
 I code; mostly in [Python](https://www.python.org/), have a degree in Computer Science from a [local college](http://cet.edu.in/) in my hometown - [Bhubaneswar](http://en.wikipedia.org/wiki/Bhubaneswar), India.
 
@@ -16,7 +16,6 @@ I'm also a casual gamer, cricket and soccer fan and [Friends](http://www.imdb.co
 - [Github](https://github.com/sunu)
 - [Twitter](https://twitter.com/tarashish)
 - [Blog](https://sunu.in/)
-- [Old Blog](https://tarashish.com/)
 
 
 #####Contact:

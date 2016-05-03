@@ -41,6 +41,20 @@ ARTICLE_SAVE_AS = '{slug}/index.html'
 PAGE_URL = '{slug}/'
 PAGE_SAVE_AS = '{slug}/index.html'
 
-THEME = "built-text-fork"
+THEME = "medius"
 
 FEED_ATOM = 'atom.xml'
+
+MEDIUS_AUTHORS = {
+    'Tarashish Mishra': {
+        'description': """
+            Professional code whisperer. Taming wild computers for a living.
+        """,
+        'cover': 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Milky_Way_Arch.jpg/1920px-Milky_Way_Arch.jpg',
+        'image': 'http://2.gravatar.com/avatar/b7c7c168cd76bbae514d1c97f55b8fee',
+        'links': (('github', 'https://github.com/sunu'),
+                  ('twitter-square', 'https://twitter.com/tarashish')),
+    }
+}
+
+DISQUS_SITENAME = 'sunuin'
