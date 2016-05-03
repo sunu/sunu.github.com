@@ -1,331 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-    <meta charset="utf-8">
-    <title>sunu's weblog <small>on code</small></title>
-    <meta name="description" content="">
-    <meta name="author" content="Tarashish Mishra">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
-    <!--[if lt IE 9]>
-    <script src="/theme/html5.js"></script>
-    <![endif]-->
-
-    <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="sunu's weblog Atom Feed" />
-
-    <!-- Le styles -->
-    <link href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/css/bootstrap.no-icons.min.css" rel="stylesheet">
-    <link href="/theme/local.css" rel="stylesheet">
-    <link href="/theme/pygments.css" rel="stylesheet">
-    <link href="/theme/font-awesome.css" rel="stylesheet">
-    <link href='https://fonts.googleapis.com/css?family=Gudea:400,400italic|Alegreya+SC' rel='stylesheet' type='text/css'>
-
+        <title>sunu's weblog</title>
+        <meta charset="utf-8" />
+        <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="sunu's weblog Atom Feed" />
 </head>
 
-<body>
-<header class="blog-header">
-  <div class="container">
-    <div class="row-fluid">
-      <div class="span9">
-	<a href="/" class="brand">sunu's weblog</a>
-      </div>
-
-      <div class="span3" id="blog-nav">
-	<ul class="nav nav-pills pull-right">
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">sunu's weblog <strong></strong></a></h1>
+        </header><!-- /#banner -->
+        <nav id="menu"><ul>
             <li><a href="/about/">about</a></li>
-	    <li  class="active" >
-	      <a href="/category/on-code.html ">on code</a>
-	</ul>
-      </div>
-    </div> <!-- End of fluid row-->
-  </div>   <!-- End of Container-->
-</header>
+        </ul></nav><!-- /#menu -->
+<section id="content">
+<h2>Articles in the on code category</h2>
 
-<div class="container">
-    <div class="content">
-    <div class="row-fluid">
-
-        <div class="span10">
-        
-
-        
-
-    <div class='row-fluid''>
-        <div class="article-title span9">
-            <a href="/ssltls-certificates-in-minutes-with-lets-encrypt-and-caddy/"><h1>SSL/TLS certificates in minutes with Let's Encrypt and Caddy</h1></a>
-        </div>
-    </div>
-    <div class="row-fluid">
-      <div class="span2">
-<p>Sun 13 December 2015 </p>
-
-<p style="text-align: left;">
-Filed under <a href="/category/on-code.html">on code</a>
-</p>
-<p style="text-align: left;">
- 
-    Tags <a href="/tag/letsencrypt.html">letsencrypt</a> <a href="/tag/https.html">https</a> <a href="/tag/caddy.html">caddy</a> </p>
-<p>
-</p>
-      </div>
-      <div class="article-content span8">
-	<p><a href="https://letsencrypt.org/">Let's Encrypt</a> has entered public beta for a while now. So I decided to play with it today and get a certificate. With <a href="https://caddyserver.com">Caddy server</a>, I was able to set up a web page with a free SSL/TLS certificate issued by Let's Encrypt within minutes. This stuff is surely amazing!</p>
-<p>Let's walk through the steps.</p>
-<p>First I installed Caddy on the server and pointed my domain to the server. Standard stuff.</p>
-<p>Then I create a Caddyfile. My Caddyfile looks like this</p>
-<div class="highlight"><pre><span></span>test.sunu.in {
-    gzip
-    tls sunu0000@gmail.com
-    root /srv/www/test.sunu.in
-}
-</pre></div>
-
-
-<p><code>test.sunu.in</code> is the domain I want to server and there's of course my email and the website root.</p>
-<p>Next I put a index.html file in the website root and start Caddy server by pointing it to the config file</p>
-<div class="highlight"><pre><span></span>caddy --conf /srv/www/Caddyfile --agree --email sunu0000@gmail.com
-</pre></div>
-
-
-<p>And voila! My SSL/TLS enabled website is being served at <a href="https://test.sunu.in">test.sunu.in</a>.</p>
-<p>I really love the work people are doing on Let's Encrypt so far. Self signed certificates were a pain in the ass; it's great to have free automated SSL/TLS certificates. Warm hugs to all the people putting in the hard work to make it possible!</p> 
-	<a class="btn btn-mini xsmall" href="/ssltls-certificates-in-minutes-with-lets-encrypt-and-caddy/">
-          <i class="icon-comment"></i> Comment </a>
-	<hr />
-      </div>
-      
-    </div>
-    
-
- 
-        
-
-
-
-    <div class='row-fluid'>
-      <div class='article-title span9'> 
-        <a href="/and-now-the-summer-has-ended/"><h1>And now the summer has ended.</h1></a>
-      </div>
-    </div>
-    <div class="row-fluid">
-      <div class="span2">
-<p>Wed 29 July 2015 </p>
-
-<p style="text-align: left;">
-Filed under <a href="/category/on-code.html">on code</a>
-</p>
-<p style="text-align: left;">
- 
-    Tags <a href="/tag/python.html">python</a> <a href="/tag/gsoc.html">gsoc</a> </p>
-<p>
-</p>
-      </div>
-      <div class="summary span8">
-	<p>So the end is here. 24th August was the "hard pencil down" date of GSoC 2015. And with that GSoC has come to an end.</p>
-<p>In the end, we have come fairly close to the goals we set in the beginning. Splash now has a branch which runs on Qt5 ...</p> 
-	<a class="btn btn-mini xsmall" href="/and-now-the-summer-has-ended/">
-          <i class="icon-plus-sign"></i> Read More </a>
-	<hr />
-      </div>
-      
-    </div>
-      
-
- 
-        
-
-
-
-    <div class='row-fluid'>
-      <div class='article-title span9'> 
-        <a href="/summer-of-code-update-3/"><h1>Summer of Code Update #3</h1></a>
-      </div>
-    </div>
-    <div class="row-fluid">
-      <div class="span2">
-<p>Tue 28 July 2015 </p>
-
-<p style="text-align: left;">
-Filed under <a href="/category/on-code.html">on code</a>
-</p>
-<p style="text-align: left;">
- 
-    Tags <a href="/tag/python.html">python</a> <a href="/tag/gsoc.html">gsoc</a> </p>
-<p>
-</p>
-      </div>
-      <div class="summary span8">
-	<p>Time for a short GSoC update.</p>
+<ol id="post-list">
+        <li><article class="hentry">
+                <header> <h2 class="entry-title"><a href="/ssltls-certificates-in-minutes-with-lets-encrypt-and-caddy/" rel="bookmark" title="Permalink to SSL/TLS certificates in minutes with Let's Encrypt and Caddy">SSL/TLS certificates in minutes with Let's Encrypt and Caddy</a></h2> </header>
+                <footer class="post-info">
+                    <abbr class="published" title="2015-12-13T17:52:00+05:30"> Sun 13 December 2015 </abbr>
+                    <address class="vcard author">By
+                        <a class="url fn" href="/author/tarashish-mishra.html">Tarashish Mishra</a>
+                    </address>
+                </footer><!-- /.post-info -->
+                <div class="entry-content"> <p><a href="https://letsencrypt.org/">Let's Encrypt</a> has entered public beta for a while now. So I decided to play with it today and get a certificate. With <a href="https://caddyserver.com">Caddy server</a>, I was able to set up a web page with a free SSL/TLS certificate issued by Let's Encrypt within minutes. This stuff ...</p> </div><!-- /.entry-content -->
+        </article></li>
+        <li><article class="hentry">
+                <header> <h2 class="entry-title"><a href="/and-now-the-summer-has-ended/" rel="bookmark" title="Permalink to And now the summer has ended.">And now the summer has ended.</a></h2> </header>
+                <footer class="post-info">
+                    <abbr class="published" title="2015-07-29T00:59:30+05:30"> Wed 29 July 2015 </abbr>
+                    <address class="vcard author">By
+                        <a class="url fn" href="/author/tarashish-mishra.html">Tarashish Mishra</a>
+                    </address>
+                </footer><!-- /.post-info -->
+                <div class="entry-content"> <p>So the end is here. 24th August was the "hard pencil down" date of GSoC 2015. And with that GSoC has come to an end.</p>
+<p>In the end, we have come fairly close to the goals we set in the beginning. Splash now has a branch which runs on Qt5 ...</p> </div><!-- /.entry-content -->
+        </article></li>
+        <li><article class="hentry">
+                <header> <h2 class="entry-title"><a href="/summer-of-code-update-3/" rel="bookmark" title="Permalink to Summer of Code Update #3">Summer of Code Update #3</a></h2> </header>
+                <footer class="post-info">
+                    <abbr class="published" title="2015-07-28T20:17:30+05:30"> Tue 28 July 2015 </abbr>
+                    <address class="vcard author">By
+                        <a class="url fn" href="/author/tarashish-mishra.html">Tarashish Mishra</a>
+                    </address>
+                </footer><!-- /.post-info -->
+                <div class="entry-content"> <p>Time for a short GSoC update.</p>
 <p>I have a <a href="https://github.com/scrapinghub/splash/pull/251">PR</a> open that makes all the tests in <a href="https://github.com/scrapinghub/splash/tree/master/splash/tests">Splash codebase</a> pass on Python 3. It's up for review now.</p>
-<p>Meanwhile twisted.web.proxy is <a href="https://twistedmatrix.com/trac/ticket/7939">now available on Python 3</a> and I'm working on fixing a <a href="https://twistedmatrix.com/trac/ticket/7981">related bug</a>.</p> 
-	<a class="btn btn-mini xsmall" href="/summer-of-code-update-3/">
-          <i class="icon-plus-sign"></i> Read More </a>
-	<hr />
-      </div>
-      
-    </div>
-      
-
- 
-        
-
-
-
-    <div class='row-fluid'>
-      <div class='article-title span9'> 
-        <a href="/im-porting-stuff-to-python-3-and-im-loving-it/"><h1>I'm porting stuff to Python 3. And I'm loving it.</h1></a>
-      </div>
-    </div>
-    <div class="row-fluid">
-      <div class="span2">
-<p>Sat 20 June 2015 </p>
-
-<p style="text-align: left;">
-Filed under <a href="/category/on-code.html">on code</a>
-</p>
-<p style="text-align: left;">
- 
-    Tags <a href="/tag/python.html">python</a> <a href="/tag/gsoc.html">gsoc</a> </p>
-<p>
-</p>
-      </div>
-      <div class="summary span8">
-	<p>GSoC update time! In case you didn't read my previous post, I'm <a href="http://sunu.in/on-summer-of-code/">participating in GSoC</a> and porting <a href="https://github.com/scrapinghub/splash">Splash</a> to Python 3.</p>
-<p>Quick update on what has been done so far. The pull request to add support for Qt5 and PyQt5 has been merged into the <a href="https://github.com/scrapinghub/splash/tree/qt5">qt5 branch</a>. The ...</p> 
-	<a class="btn btn-mini xsmall" href="/im-porting-stuff-to-python-3-and-im-loving-it/">
-          <i class="icon-plus-sign"></i> Read More </a>
-	<hr />
-      </div>
-      
-    </div>
-      
-
- 
-        
-
-
-
-    <div class='row-fluid'>
-      <div class='article-title span9'> 
-        <a href="/on-summer-of-code/"><h1>On Summer of Code</h1></a>
-      </div>
-    </div>
-    <div class="row-fluid">
-      <div class="span2">
-<p>Tue 02 June 2015 </p>
-
-<p style="text-align: left;">
-Filed under <a href="/category/on-code.html">on code</a>
-</p>
-<p style="text-align: left;">
- 
-    Tags <a href="/tag/python.html">python</a> <a href="/tag/gsoc.html">gsoc</a> </p>
-<p>
-</p>
-      </div>
-      <div class="summary span8">
-	<p>Bit of a late news, but yes, I am participating in <a href="https://www.google-melange.com/gsoc/homepage/google/gsoc2015">Google Summer of Code 2015</a> under <a href="https://www.python.org/psf/">Python Software Foundation</a>. I am working on <a href="https://github.com/scrapinghub/splash">Splash</a> developed by <a href="http://scrapinghub.com/">Scrapinghub</a>.</p>
-<p>Splash is a lightweight, scriptable web browser with an HTTP API written on top of Qt and Twisted. Currently it supports Python ...</p> 
-	<a class="btn btn-mini xsmall" href="/on-summer-of-code/">
-          <i class="icon-plus-sign"></i> Read More </a>
-	<hr />
-      </div>
-      
-    </div>
-      
-
- 
-        
-
-
-
-    <div class='row-fluid'>
-      <div class='article-title span9'> 
-        <a href="/manipulating-http-traffic-with-mitmproxy/"><h1>Manipulating http traffic with mitmproxy.</h1></a>
-      </div>
-    </div>
-    <div class="row-fluid">
-      <div class="span2">
-<p>Fri 06 March 2015 </p>
-
-<p style="text-align: left;">
-Filed under <a href="/category/on-code.html">on code</a>
-</p>
-<p style="text-align: left;">
- 
-    Tags <a href="/tag/python.html">python</a> <a href="/tag/mitmproxy.html">mitmproxy</a> </p>
-<p>
-</p>
-      </div>
-      <div class="summary span8">
-	<p><a href="https://github.com/mitmproxy/mitmproxy">Mitmproxy</a> is a nifty little tool that lets us intercept and manipulate http (and https) traffic on the fly. It's a man-in-the-middle proxy with both a commandline interface and a web interface to inspect, record and manipulate the http traffic. I have been playing with it this evening and ...</p> 
-	<a class="btn btn-mini xsmall" href="/manipulating-http-traffic-with-mitmproxy/">
-          <i class="icon-plus-sign"></i> Read More </a>
-	<hr />
-      </div>
-      
-    </div>
-      
-
- 
-        
-
-
-
-    <div class='row-fluid'>
-      <div class='article-title span9'> 
-        <a href="/https-under-the-hood/"><h1>HTTPS - Under the hood.</h1></a>
-      </div>
-    </div>
-    <div class="row-fluid">
-      <div class="span2">
-<p>Mon 22 December 2014 </p>
-
-<p style="text-align: left;">
-Filed under <a href="/category/on-code.html">on code</a>
-</p>
-<p style="text-align: left;">
- 
-    Tags <a href="/tag/https.html">https</a> </p>
-<p>
-</p>
-      </div>
-      <div class="summary span8">
-	<p>While browsing the web we often see a padlock symbol and the letters <code>https</code> before the web address. When we click on the padlock, the browser assures us that our connection to the website is secure and gives us some info about who runs the website and stuff like that ...</p> 
-	<a class="btn btn-mini xsmall" href="/https-under-the-hood/">
-          <i class="icon-plus-sign"></i> Read More </a>
-	<hr />
-      </div>
-      
-    </div>
-      
-
- 
-        
-
-
-
-    <div class='row-fluid'>
-      <div class='article-title span9'> 
-        <a href="/the-curious-case-of-mutable-default-arguments-in-python/"><h1>The curious case of mutable default arguments in Python</h1></a>
-      </div>
-    </div>
-    <div class="row-fluid">
-      <div class="span2">
-<p>Tue 25 November 2014 </p>
-
-<p style="text-align: left;">
-Filed under <a href="/category/on-code.html">on code</a>
-</p>
-<p style="text-align: left;">
- 
-    Tags <a href="/tag/python.html">python</a> </p>
-<p>
-</p>
-      </div>
-      <div class="summary span8">
-	<p>Python's handing of default arguments trips up most Pythonistas at some point in their journey. Sometimes it makes people pull out their hair in frustration because they can't figure out what's wrong.</p>
+<p>Meanwhile twisted.web.proxy is <a href="https://twistedmatrix.com/trac/ticket/7939">now available on Python 3</a> and I'm working on fixing a <a href="https://twistedmatrix.com/trac/ticket/7981">related bug</a>.</p> </div><!-- /.entry-content -->
+        </article></li>
+        <li><article class="hentry">
+                <header> <h2 class="entry-title"><a href="/im-porting-stuff-to-python-3-and-im-loving-it/" rel="bookmark" title="Permalink to I'm porting stuff to Python 3. And I'm loving it.">I'm porting stuff to Python 3. And I'm loving it.</a></h2> </header>
+                <footer class="post-info">
+                    <abbr class="published" title="2015-06-20T14:09:04+05:30"> Sat 20 June 2015 </abbr>
+                    <address class="vcard author">By
+                        <a class="url fn" href="/author/tarashish-mishra.html">Tarashish Mishra</a>
+                    </address>
+                </footer><!-- /.post-info -->
+                <div class="entry-content"> <p>GSoC update time! In case you didn't read my previous post, I'm <a href="http://sunu.in/on-summer-of-code/">participating in GSoC</a> and porting <a href="https://github.com/scrapinghub/splash">Splash</a> to Python 3.</p>
+<p>Quick update on what has been done so far. The pull request to add support for Qt5 and PyQt5 has been merged into the <a href="https://github.com/scrapinghub/splash/tree/qt5">qt5 branch</a>. The ...</p> </div><!-- /.entry-content -->
+        </article></li>
+        <li><article class="hentry">
+                <header> <h2 class="entry-title"><a href="/on-summer-of-code/" rel="bookmark" title="Permalink to On Summer of Code">On Summer of Code</a></h2> </header>
+                <footer class="post-info">
+                    <abbr class="published" title="2015-06-02T11:52:44+05:30"> Tue 02 June 2015 </abbr>
+                    <address class="vcard author">By
+                        <a class="url fn" href="/author/tarashish-mishra.html">Tarashish Mishra</a>
+                    </address>
+                </footer><!-- /.post-info -->
+                <div class="entry-content"> <p>Bit of a late news, but yes, I am participating in <a href="https://www.google-melange.com/gsoc/homepage/google/gsoc2015">Google Summer of Code 2015</a> under <a href="https://www.python.org/psf/">Python Software Foundation</a>. I am working on <a href="https://github.com/scrapinghub/splash">Splash</a> developed by <a href="http://scrapinghub.com/">Scrapinghub</a>.</p>
+<p>Splash is a lightweight, scriptable web browser with an HTTP API written on top of Qt and Twisted. Currently it supports Python ...</p> </div><!-- /.entry-content -->
+        </article></li>
+        <li><article class="hentry">
+                <header> <h2 class="entry-title"><a href="/manipulating-http-traffic-with-mitmproxy/" rel="bookmark" title="Permalink to Manipulating http traffic with mitmproxy.">Manipulating http traffic with mitmproxy.</a></h2> </header>
+                <footer class="post-info">
+                    <abbr class="published" title="2015-03-06T13:34:00+05:30"> Fri 06 March 2015 </abbr>
+                    <address class="vcard author">By
+                        <a class="url fn" href="/author/tarashish-mishra.html">Tarashish Mishra</a>
+                    </address>
+                </footer><!-- /.post-info -->
+                <div class="entry-content"> <p><a href="https://github.com/mitmproxy/mitmproxy">Mitmproxy</a> is a nifty little tool that lets us intercept and manipulate http (and https) traffic on the fly. It's a man-in-the-middle proxy with both a commandline interface and a web interface to inspect, record and manipulate the http traffic. I have been playing with it this evening and ...</p> </div><!-- /.entry-content -->
+        </article></li>
+        <li><article class="hentry">
+                <header> <h2 class="entry-title"><a href="/https-under-the-hood/" rel="bookmark" title="Permalink to HTTPS - Under the hood.">HTTPS - Under the hood.</a></h2> </header>
+                <footer class="post-info">
+                    <abbr class="published" title="2014-12-22T16:09:30+05:30"> Mon 22 December 2014 </abbr>
+                    <address class="vcard author">By
+                        <a class="url fn" href="/author/tarashish-mishra.html">Tarashish Mishra</a>
+                    </address>
+                </footer><!-- /.post-info -->
+                <div class="entry-content"> <p>While browsing the web we often see a padlock symbol and the letters <code>https</code> before the web address. When we click on the padlock, the browser assures us that our connection to the website is secure and gives us some info about who runs the website and stuff like that ...</p> </div><!-- /.entry-content -->
+        </article></li>
+        <li><article class="hentry">
+                <header> <h2 class="entry-title"><a href="/the-curious-case-of-mutable-default-arguments-in-python/" rel="bookmark" title="Permalink to The curious case of mutable default arguments in Python">The curious case of mutable default arguments in Python</a></h2> </header>
+                <footer class="post-info">
+                    <abbr class="published" title="2014-11-25T09:12:00+05:30"> Tue 25 November 2014 </abbr>
+                    <address class="vcard author">By
+                        <a class="url fn" href="/author/tarashish-mishra.html">Tarashish Mishra</a>
+                    </address>
+                </footer><!-- /.post-info -->
+                <div class="entry-content"> <p>Python's handing of default arguments trips up most Pythonistas at some point in their journey. Sometimes it makes people pull out their hair in frustration because they can't figure out what's wrong.</p>
 <p>Consider the following example.</p>
 <div class="highlight"><pre><span></span>    def foo(bar=[]):
         bar.append(1)
@@ -333,140 +108,35 @@ Filed under <a href="/category/on-code.html">on code</a>
 </pre></div>
 
 
-<p>One would expect ...</p> 
-	<a class="btn btn-mini xsmall" href="/the-curious-case-of-mutable-default-arguments-in-python/">
-          <i class="icon-plus-sign"></i> Read More </a>
-	<hr />
-      </div>
-      
-    </div>
-      
-
- 
-        
-
-
-
-    <div class='row-fluid'>
-      <div class='article-title span9'> 
-        <a href="/using-bower-with-flask/"><h1>Using Bower with Flask.</h1></a>
-      </div>
-    </div>
-    <div class="row-fluid">
-      <div class="span2">
-<p>Sat 15 November 2014 </p>
-
-<p style="text-align: left;">
-Filed under <a href="/category/on-code.html">on code</a>
-</p>
-<p style="text-align: left;">
- 
-    Tags <a href="/tag/flask.html">flask</a> <a href="/tag/python.html">python</a> </p>
-<p>
-</p>
-      </div>
-      <div class="summary span8">
-	<p><a href="http://bower.io/">Bower</a> is a package manager that fetches and installs all kinds of static resources and tools. So it is very useful for managing the static resources for our Flask project. We just put our requirements in a file called <code>bower.json</code> and Bower fetches all those requirements for us and ...</p> 
-	<a class="btn btn-mini xsmall" href="/using-bower-with-flask/">
-          <i class="icon-plus-sign"></i> Read More </a>
-	<hr />
-      </div>
-      
-    </div>
-      
-
- 
-        
-
-
-
-    <div class='row-fluid'>
-      <div class='article-title span9'> 
-        <a href="/protect-your-secrets/"><h1>"Protect your secrets!"</h1></a>
-      </div>
-    </div>
-    <div class="row-fluid">
-      <div class="span2">
-<p>Sat 29 March 2014 </p>
-
-<p style="text-align: left;">
-Filed under <a href="/category/on-code.html">on code</a>
-</p>
-<p style="text-align: left;">
- 
-    Tags <a href="/tag/django.html">django</a> <a href="/tag/python.html">python</a> </p>
-<p>
-</p>
-      </div>
-      <div class="summary span8">
-	<p>Django has a SECRET_KEY settings among many others. This SECRET_KEY is really important for security purposes as it is used for cryptographic signing functionality in Django (<a href="https://docs.djangoproject.com/en/dev/topics/signing/">More</a> about cryptographic signing). We are expected to keep the value secret. Running Django with a known SECRET_KEY defeats many of Django’s security ...</p> 
-	<a class="btn btn-mini xsmall" href="/protect-your-secrets/">
-          <i class="icon-plus-sign"></i> Read More </a>
-	<hr />
-      </div>
-      
-    </div>
-      
-
- 
-  
-        </div>
-
-
-    </div>     </div> </div>
-
-<!--footer-->
-<div class="container">
-  <div class="well" style="background-color: #E9EFF6">
-    <div id="blog-footer">
-      <div class="row-fluid">
-	<div class="social span2" align="center" id="socialist">
-	  <ul class="nav nav-list">
-	    <li class="nav-header">
-	      Social
-	    </li>
-	    <li><a href="https://twitter.com/tarashish"><i class="icon-Twitter" style="color: #1f334b"></i>Twitter</a></li>
-	    <li><a href="https://github.com/sunu"><i class="icon-Github" style="color: #1f334b"></i>Github</a></li>
-
-	  </ul>
-	</div>
-	<div class="site-nav span2" align="center">
-          <ul class="nav nav-list" id="site-links">
-            <li class="nav-header">
-              Site
-            </li>
-            <li><a href=""><i class="icon-home" style="color: #1f334b">
-                </i>Home</a></li>
-            <li><a href="/archives.html"><i class="icon-list" style="color: #1f334b">
-                </i>Archives</a></li>
-	    <li><a href="/tags.html"><i class="icon-tags" style="color: #1f334b">
-                </i>Tags</a></li>
-
-	    <li> <a href="/atom.xml" rel="alternate">
-                <i class="icon-rss" style="color: #1f334b"></i>
-                Atom Feed</a></li>
-	  </ul>
-
-        </div>
-
-      </div> <!--end of fluid row-->
-    </div> <!--end of blog-footer-->
-    <hr />
-    <p align="center"><a href="">sunu's weblog</a>
-      &copy; Tarashish Mishra
-    Powered by <a href="https://github.com/getpelican/pelican">Pelican</a> and
-        <a href="https://twitter.github.com/bootstrap">Twitter Bootstrap</a>.
-        Icons by <a href="https://fortawesome.github.com/Font-Awesome">Font Awesome</a> and
-        <a href="https://gregoryloucas.github.com/Font-Awesome-More">Font Awesome More</a></p>
-
-  </div> <!--end of well -->
-</div> <!--end of container -->
-
-<!--/footer-->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-<script src="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.min.js"></script>
-
-
-
+<p>One would expect ...</p> </div><!-- /.entry-content -->
+        </article></li>
+        <li><article class="hentry">
+                <header> <h2 class="entry-title"><a href="/using-bower-with-flask/" rel="bookmark" title="Permalink to Using Bower with Flask.">Using Bower with Flask.</a></h2> </header>
+                <footer class="post-info">
+                    <abbr class="published" title="2014-11-15T09:12:00+05:30"> Sat 15 November 2014 </abbr>
+                    <address class="vcard author">By
+                        <a class="url fn" href="/author/tarashish-mishra.html">Tarashish Mishra</a>
+                    </address>
+                </footer><!-- /.post-info -->
+                <div class="entry-content"> <p><a href="http://bower.io/">Bower</a> is a package manager that fetches and installs all kinds of static resources and tools. So it is very useful for managing the static resources for our Flask project. We just put our requirements in a file called <code>bower.json</code> and Bower fetches all those requirements for us and ...</p> </div><!-- /.entry-content -->
+        </article></li>
+        <li><article class="hentry">
+                <header> <h2 class="entry-title"><a href="/protect-your-secrets/" rel="bookmark" title="Permalink to Protect your secrets!">Protect your secrets!</a></h2> </header>
+                <footer class="post-info">
+                    <abbr class="published" title="2014-03-29T17:52:00+05:30"> Sat 29 March 2014 </abbr>
+                    <address class="vcard author">By
+                        <a class="url fn" href="/author/tarashish-mishra.html">Tarashish Mishra</a>
+                    </address>
+                </footer><!-- /.post-info -->
+                <div class="entry-content"> <p>Django has a SECRET_KEY settings among many others. This SECRET_KEY is really important for security purposes as it is used for cryptographic signing functionality in Django (<a href="https://docs.djangoproject.com/en/dev/topics/signing/">More</a> about cryptographic signing). We are expected to keep the value secret. Running Django with a known SECRET_KEY defeats many of Django’s security ...</p> </div><!-- /.entry-content -->
+        </article></li>
+</ol><!-- /#posts-list -->
+</section><!-- /#content -->
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>,
+                which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+        </footer><!-- /#contentinfo -->
 </body>
 </html>

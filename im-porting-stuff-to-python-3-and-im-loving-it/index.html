@@ -1,145 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+          <title>sunu's weblog</title>
+        <meta charset="utf-8" />
+        <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="sunu's weblog Atom Feed" />
 
-    <meta charset="utf-8">
-    <title>I'm porting stuff to Python 3. And I'm loving it. - sunu's weblog</title>
-    <meta name="description" content="">
-    <meta name="author" content="Tarashish Mishra">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
-    <!--[if lt IE 9]>
-    <script src="/theme/html5.js"></script>
-    <![endif]-->
 
-    <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="sunu's weblog Atom Feed" />
 
-    <!-- Le styles -->
-    <link href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/css/bootstrap.no-icons.min.css" rel="stylesheet">
-    <link href="/theme/local.css" rel="stylesheet">
-    <link href="/theme/pygments.css" rel="stylesheet">
-    <link href="/theme/font-awesome.css" rel="stylesheet">
-    <link href='https://fonts.googleapis.com/css?family=Gudea:400,400italic|Alegreya+SC' rel='stylesheet' type='text/css'>
+    <meta name="tags" content="python" />
+    <meta name="tags" content="gsoc" />
 
 </head>
 
-<body>
-<header class="blog-header">
-  <div class="container">
-    <div class="row-fluid">
-      <div class="span9">
-	<a href="/" class="brand">sunu's weblog</a>
-      </div>
-
-      <div class="span3" id="blog-nav">
-	<ul class="nav nav-pills pull-right">
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">sunu's weblog <strong></strong></a></h1>
+        </header><!-- /#banner -->
+        <nav id="menu"><ul>
             <li><a href="/about/">about</a></li>
-	    <li  class="active" >
-	      <a href="/category/on-code.html ">on code</a>
-	</ul>
-      </div>
-    </div> <!-- End of fluid row-->
-  </div>   <!-- End of Container-->
-</header>
-
-<div class="container">
-    <div class="content">
-    <div class="row-fluid">
-
-        <div class="span10">
-    <div class='article'>
-      <div class="row-fluid">
-           <div class="content-title span9">
-             <h1>I'm porting stuff to Python 3. And I'm loving it.</h1>
-           </div>
-      </div>
-    <div class="row-fluid">
-      <div class="span2">
-<p>Sat 20 June 2015 </p>
-
-<p style="text-align: left;">
-Filed under <a href="/category/on-code.html">on code</a>
-</p>
-<p style="text-align: left;">
+        </ul></nav><!-- /#menu -->
+<section id="content" class="body">
+  <header>
+    <h2 class="entry-title">
+      <a href="/im-porting-stuff-to-python-3-and-im-loving-it/" rel="bookmark"
+         title="Permalink to I'm porting stuff to Python 3. And I'm loving it.">I'm porting stuff to Python 3. And I'm loving it.</a></h2>
  
-    Tags <a href="/tag/python.html">python</a> <a href="/tag/gsoc.html">gsoc</a> </p>
-<p>
-</p>
-      </div>
-      
-      <div class="span8">
-	<p>GSoC update time! In case you didn't read my previous post, I'm <a href="http://sunu.in/on-summer-of-code/">participating in GSoC</a> and porting <a href="https://github.com/scrapinghub/splash">Splash</a> to Python 3.</p>
+  </header>
+  <footer class="post-info">
+    <abbr class="published" title="2015-06-20T14:09:04+05:30">
+      Sat 20 June 2015
+    </abbr>
+    <address class="vcard author">
+      By           <a class="url fn" href="/author/tarashish-mishra.html">Tarashish Mishra</a>
+    </address>
+  </footer><!-- /.post-info -->
+  <div class="entry-content">
+    <p>GSoC update time! In case you didn't read my previous post, I'm <a href="http://sunu.in/on-summer-of-code/">participating in GSoC</a> and porting <a href="https://github.com/scrapinghub/splash">Splash</a> to Python 3.</p>
 <p>Quick update on what has been done so far. The pull request to add support for Qt5 and PyQt5 has been merged into the <a href="https://github.com/scrapinghub/splash/tree/qt5">qt5 branch</a>. The plan is to merge it into <code>master</code> after Python 3 porting and some other cleanup(fixing the docs, Vagrantfile etc) is done.</p>
 <p>So now on to Python 3 porting.</p>
 <p>The main road block in porting Splash to Python 3 is that some dependencies don't (fully) support Python 3 yet. The major one at that is <a href="https://twistedmatrix.com/trac/">Twisted</a>. But the good thing is the most used parts of Twisted already support Python 3 and the developers behind Twisted are actively working on porting more and more modules. Also Twisted has a fairly well laid out <a href="https://twistedmatrix.com/trac/wiki/Plan/Python3">guide for Python 3 porting</a> and the community is really responsive with feedback and reviews. Thanks to that I have ported a module already and working on porting <code>twisted.web.proxy</code> for now.</p>
 <p>Among other dependencies, <a href="https://github.com/sunu/qt5reactor">my fork of qt5reactor</a> is Python 3 compatible. And <a href="https://github.com/axiak/pyre2/">pyre2</a>, a faster drop-in replacement of the <code>re</code> module from standard library, is now Python 3 compatible after <a href="https://github.com/axiak/pyre2/pull/31">my PR</a> was merged.</p>
 <p>For now, I'm porting the Splash code base one test at a time. Splash has a good test coverage and lots of tests. So that's working in my favor. That and <a href="https://docs.python.org/2/library/pdb.html">pdb</a>.</p>
 <p>That's all I have to share for now. Thanks for reading.</p>
-	<hr />
-      </div>
-    </div>
-    <div class="span10">
-      <h3>Comments</h3>
-    
-    </div>  
-    </div>
-        </div>
-
-
-    </div>     </div> </div>
-
-<!--footer-->
-<div class="container">
-  <div class="well" style="background-color: #E9EFF6">
-    <div id="blog-footer">
-      <div class="row-fluid">
-	<div class="social span2" align="center" id="socialist">
-	  <ul class="nav nav-list">
-	    <li class="nav-header">
-	      Social
-	    </li>
-	    <li><a href="https://twitter.com/tarashish"><i class="icon-Twitter" style="color: #1f334b"></i>Twitter</a></li>
-	    <li><a href="https://github.com/sunu"><i class="icon-Github" style="color: #1f334b"></i>Github</a></li>
-
-	  </ul>
-	</div>
-	<div class="site-nav span2" align="center">
-          <ul class="nav nav-list" id="site-links">
-            <li class="nav-header">
-              Site
-            </li>
-            <li><a href=""><i class="icon-home" style="color: #1f334b">
-                </i>Home</a></li>
-            <li><a href="/archives.html"><i class="icon-list" style="color: #1f334b">
-                </i>Archives</a></li>
-	    <li><a href="/tags.html"><i class="icon-tags" style="color: #1f334b">
-                </i>Tags</a></li>
-
-	    <li> <a href="/atom.xml" rel="alternate">
-                <i class="icon-rss" style="color: #1f334b"></i>
-                Atom Feed</a></li>
-	  </ul>
-
-        </div>
-
-      </div> <!--end of fluid row-->
-    </div> <!--end of blog-footer-->
-    <hr />
-    <p align="center"><a href="">sunu's weblog</a>
-      &copy; Tarashish Mishra
-    Powered by <a href="https://github.com/getpelican/pelican">Pelican</a> and
-        <a href="https://twitter.github.com/bootstrap">Twitter Bootstrap</a>.
-        Icons by <a href="https://fortawesome.github.com/Font-Awesome">Font Awesome</a> and
-        <a href="https://gregoryloucas.github.com/Font-Awesome-More">Font Awesome More</a></p>
-
-  </div> <!--end of well -->
-</div> <!--end of container -->
-
-<!--/footer-->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-<script src="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.min.js"></script>
-
-
-
+  </div><!-- /.entry-content -->
+</section>
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>,
+                which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+        </footer><!-- /#contentinfo -->
 </body>
 </html>

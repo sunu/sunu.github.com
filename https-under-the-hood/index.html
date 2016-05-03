@@ -1,74 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+          <title>sunu's weblog</title>
+        <meta charset="utf-8" />
+        <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="sunu's weblog Atom Feed" />
 
-    <meta charset="utf-8">
-    <title>HTTPS - Under the hood. - sunu's weblog</title>
-    <meta name="description" content="">
-    <meta name="author" content="Tarashish Mishra">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
-    <!--[if lt IE 9]>
-    <script src="/theme/html5.js"></script>
-    <![endif]-->
 
-    <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="sunu's weblog Atom Feed" />
 
-    <!-- Le styles -->
-    <link href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/css/bootstrap.no-icons.min.css" rel="stylesheet">
-    <link href="/theme/local.css" rel="stylesheet">
-    <link href="/theme/pygments.css" rel="stylesheet">
-    <link href="/theme/font-awesome.css" rel="stylesheet">
-    <link href='https://fonts.googleapis.com/css?family=Gudea:400,400italic|Alegreya+SC' rel='stylesheet' type='text/css'>
+    <meta name="tags" content="https" />
 
 </head>
 
-<body>
-<header class="blog-header">
-  <div class="container">
-    <div class="row-fluid">
-      <div class="span9">
-	<a href="/" class="brand">sunu's weblog</a>
-      </div>
-
-      <div class="span3" id="blog-nav">
-	<ul class="nav nav-pills pull-right">
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">sunu's weblog <strong></strong></a></h1>
+        </header><!-- /#banner -->
+        <nav id="menu"><ul>
             <li><a href="/about/">about</a></li>
-	    <li  class="active" >
-	      <a href="/category/on-code.html ">on code</a>
-	</ul>
-      </div>
-    </div> <!-- End of fluid row-->
-  </div>   <!-- End of Container-->
-</header>
-
-<div class="container">
-    <div class="content">
-    <div class="row-fluid">
-
-        <div class="span10">
-    <div class='article'>
-      <div class="row-fluid">
-           <div class="content-title span9">
-             <h1>HTTPS - Under the hood.</h1>
-           </div>
-      </div>
-    <div class="row-fluid">
-      <div class="span2">
-<p>Mon 22 December 2014 </p>
-
-<p style="text-align: left;">
-Filed under <a href="/category/on-code.html">on code</a>
-</p>
-<p style="text-align: left;">
+        </ul></nav><!-- /#menu -->
+<section id="content" class="body">
+  <header>
+    <h2 class="entry-title">
+      <a href="/https-under-the-hood/" rel="bookmark"
+         title="Permalink to HTTPS - Under the hood.">HTTPS - Under the hood.</a></h2>
  
-    Tags <a href="/tag/https.html">https</a> </p>
-<p>
-</p>
-      </div>
-      
-      <div class="span8">
-	<p>While browsing the web we often see a padlock symbol and the letters <code>https</code> before the web address. When we click on the padlock, the browser assures us that our connection to the website is secure and gives us some info about who runs the website and stuff like that.</p>
+  </header>
+  <footer class="post-info">
+    <abbr class="published" title="2014-12-22T16:09:30+05:30">
+      Mon 22 December 2014
+    </abbr>
+    <address class="vcard author">
+      By           <a class="url fn" href="/author/tarashish-mishra.html">Tarashish Mishra</a>
+    </address>
+  </footer><!-- /.post-info -->
+  <div class="entry-content">
+    <p>While browsing the web we often see a padlock symbol and the letters <code>https</code> before the web address. When we click on the padlock, the browser assures us that our connection to the website is secure and gives us some info about who runs the website and stuff like that.</p>
 <p><img alt="padlock info" src="http://i.imgur.com/JMgIyNt.png" /></p>
 <p>This secure connection is achieved by <code>HTTPS</code>. HTTPS makes it possible for us to transmit our passwords, back account details securely across the Internet without making it accessible to people like <a href="http://en.wikipedia.org/wiki/Alice_and_Bob#Cast_of_characters">the infamous Eve</a>. But <code>HTTPS</code> does not guarantee 100% security. Things still can <a href="http://en.wikipedia.org/wiki/Transport_Layer_Security#Attacks_against_TLS.2FSSL">go wrong</a>.</p>
 <h2>What is HTTPS?</h2>
@@ -116,71 +82,13 @@ If the server wants to send something to our browser it encrypts it with the key
 <li><a href="https://medium.com/@vrypan/explaining-public-key-cryptography-to-non-geeks-f0994b3c2d5">Public-key cryptography explained without jargons</a></li>
 <li><a href="https://en.wikipedia.org/wiki/Public_key_certificate">How digital certificates work</a></li>
 </ul>
-	<hr />
-      </div>
-    </div>
-    <div class="span10">
-      <h3>Comments</h3>
-    
-    </div>  
-    </div>
-        </div>
-
-
-    </div>     </div> </div>
-
-<!--footer-->
-<div class="container">
-  <div class="well" style="background-color: #E9EFF6">
-    <div id="blog-footer">
-      <div class="row-fluid">
-	<div class="social span2" align="center" id="socialist">
-	  <ul class="nav nav-list">
-	    <li class="nav-header">
-	      Social
-	    </li>
-	    <li><a href="https://twitter.com/tarashish"><i class="icon-Twitter" style="color: #1f334b"></i>Twitter</a></li>
-	    <li><a href="https://github.com/sunu"><i class="icon-Github" style="color: #1f334b"></i>Github</a></li>
-
-	  </ul>
-	</div>
-	<div class="site-nav span2" align="center">
-          <ul class="nav nav-list" id="site-links">
-            <li class="nav-header">
-              Site
-            </li>
-            <li><a href=""><i class="icon-home" style="color: #1f334b">
-                </i>Home</a></li>
-            <li><a href="/archives.html"><i class="icon-list" style="color: #1f334b">
-                </i>Archives</a></li>
-	    <li><a href="/tags.html"><i class="icon-tags" style="color: #1f334b">
-                </i>Tags</a></li>
-
-	    <li> <a href="/atom.xml" rel="alternate">
-                <i class="icon-rss" style="color: #1f334b"></i>
-                Atom Feed</a></li>
-	  </ul>
-
-        </div>
-
-      </div> <!--end of fluid row-->
-    </div> <!--end of blog-footer-->
-    <hr />
-    <p align="center"><a href="">sunu's weblog</a>
-      &copy; Tarashish Mishra
-    Powered by <a href="https://github.com/getpelican/pelican">Pelican</a> and
-        <a href="https://twitter.github.com/bootstrap">Twitter Bootstrap</a>.
-        Icons by <a href="https://fortawesome.github.com/Font-Awesome">Font Awesome</a> and
-        <a href="https://gregoryloucas.github.com/Font-Awesome-More">Font Awesome More</a></p>
-
-  </div> <!--end of well -->
-</div> <!--end of container -->
-
-<!--/footer-->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-<script src="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.min.js"></script>
-
-
-
+  </div><!-- /.entry-content -->
+</section>
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>,
+                which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+        </footer><!-- /#contentinfo -->
 </body>
 </html>
