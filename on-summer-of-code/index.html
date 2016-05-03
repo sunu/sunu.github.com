@@ -1,54 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-          <title>sunu's weblog</title>
+        <title>On Summer of Code</title>
         <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" />
+        <link rel="stylesheet" href="/theme/css/main.css" />
         <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="sunu's weblog Atom Feed" />
-
-
-
-    <meta name="tags" content="python" />
-    <meta name="tags" content="gsoc" />
-
 </head>
+<body>
 
-<body id="index" class="home">
-        <header id="banner" class="body">
-                <h1><a href="/">sunu's weblog <strong></strong></a></h1>
-        </header><!-- /#banner -->
-        <nav id="menu"><ul>
-            <li><a href="/about/">about</a></li>
-        </ul></nav><!-- /#menu -->
-<section id="content" class="body">
-  <header>
-    <h2 class="entry-title">
-      <a href="/on-summer-of-code/" rel="bookmark"
-         title="Permalink to On Summer of Code">On Summer of Code</a></h2>
- 
-  </header>
-  <footer class="post-info">
-    <abbr class="published" title="2015-06-02T11:52:44+05:30">
-      Tue 02 June 2015
-    </abbr>
-    <address class="vcard author">
-      By           <a class="url fn" href="/author/tarashish-mishra.html">Tarashish Mishra</a>
-    </address>
-  </footer><!-- /.post-info -->
-  <div class="entry-content">
-    <p>Bit of a late news, but yes, I am participating in <a href="https://www.google-melange.com/gsoc/homepage/google/gsoc2015">Google Summer of Code 2015</a> under <a href="https://www.python.org/psf/">Python Software Foundation</a>. I am working on <a href="https://github.com/scrapinghub/splash">Splash</a> developed by <a href="http://scrapinghub.com/">Scrapinghub</a>.</p>
+    <div class="navwrap">
+        <div class="navigation pure-menu pure-menu-horizontal">
+            <a href="/" class="pure-menu-heading  pure-menu-link">sunu's weblog</a>
+            <ul class="pure-menu-list">
+                <li class="pure-menu-item"></li>
+
+                <li class="pure-menu-item"><a href="/about/" class="pure-menu-link">about</a></li>
+                <li class="pure-menu-item pure-menu-selected"><a href="/category/on-code.html" class="pure-menu-link">on code</a></li>
+            </ul>
+        </div>
+    </div>
+
+
+<div class="page-container">
+    <div class="entry-content">
+        <div class="post-meta pure-g">
+            <div class="pure-u-3-4 meta-data">
+                <a href="/category/on-code.html" class="category">on code</a><br />
+
+                <a class="author" href="/author/tarashish-mishra.html">Tarashish Mishra</a>
+                &mdash; <abbr title="2015-06-02T11:52:44+05:30">Tue 02 June 2015</abbr>
+            </div>
+        </div>
+    </div>
+
+    <div class="article-header-container">
+        <div class="background-image-container">
+
+            <div class="background-image-small">
+                <div class="title-container">
+                    <h1>On Summer of Code</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="entry-content">
+        <p>Bit of a late news, but yes, I am participating in <a href="https://www.google-melange.com/gsoc/homepage/google/gsoc2015">Google Summer of Code 2015</a> under <a href="https://www.python.org/psf/">Python Software Foundation</a>. I am working on <a href="https://github.com/scrapinghub/splash">Splash</a> developed by <a href="http://scrapinghub.com/">Scrapinghub</a>.</p>
 <p>Splash is a lightweight, scriptable web browser with an HTTP API written on top of Qt and Twisted. Currently it supports Python 2.7+ only and runs on Qt4/PyQt4. My goal is to add Python 3 support and make Splash use Qt5/PyQT5.</p>
 <p>So far the first week of the development phase has passed. And Splash is almost ready to run on Qt5/PyQt5. We are using <a href="https://github.com/sunu/qt5reactor">qt5reactor</a> for integrating Twisted and Qt5 eventloop. It is pulled out of the <a href="https://github.com/nehbit/aether-public/blob/master/qt5reactor.py">Aether</a> project. So far the transition from Qt4/PyQt4 to Qt5/PyQt5 has been rather seemless.</p>
 <p>I'll work on completeing the Qt5/PyQt5 transition and porting some tests to Python3 next week.</p>
 <p>That's all I have to share for now. Thanks for reading.
 Here's to a fruitful summer.
 Ciao.</p>
-  </div><!-- /.entry-content -->
-</section>
-        <footer id="contentinfo" class="body">
-                <address id="about" class="vcard body">
-                Proudly powered by <a href="http://getpelican.com/">Pelican</a>,
-                which takes great advantage of <a href="http://python.org">Python</a>.
-                </address><!-- /#about -->
-        </footer><!-- /#contentinfo -->
+    </div>
+
+    <footer>
+        <div class="tags">
+            <a href="/tag/python.html">python</a>
+            <a href="/tag/gsoc.html">gsoc</a>
+        </div>
+        <div class="pure-g post-footer">
+            <div class="pure-u-1 pure-u-md-1-2">
+                <div class="pure-g poster-info">
+                    <div class="pure-u">
+                        <a href="/author/tarashish-mishra.html"><img src="http://2.gravatar.com/avatar/b7c7c168cd76bbae514d1c97f55b8fee" alt=""></a>
+                    </div>
+                    <div class="pure-u-3-4">
+                        <h3 class="author-name"><a href="/author/tarashish-mishra.html">Tarashish Mishra</a></h3>
+                        <p class="author-description">
+                          
+            Professional code whisperer. Taming wild computers for a living.
+        
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+
+
+    </footer>
+
+    <div class="entry-content">
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            var disqus_shortname = 'sunuin';
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+    </div>
+
+</div>
+
+
+
+    <footer class="index-footer">
+
+        <a href="/" title="sunu's weblog">sunu's weblog</a>
+        <a href="/about/">about</a>
+        <a href="/category/on-code.html">on code</a>
+
+    </footer>
+
 </body>
 </html>

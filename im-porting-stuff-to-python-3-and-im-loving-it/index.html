@@ -1,54 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-          <title>sunu's weblog</title>
+        <title>I'm porting stuff to Python 3. And I'm loving it.</title>
         <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" />
+        <link rel="stylesheet" href="/theme/css/main.css" />
         <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="sunu's weblog Atom Feed" />
-
-
-
-    <meta name="tags" content="python" />
-    <meta name="tags" content="gsoc" />
-
 </head>
+<body>
 
-<body id="index" class="home">
-        <header id="banner" class="body">
-                <h1><a href="/">sunu's weblog <strong></strong></a></h1>
-        </header><!-- /#banner -->
-        <nav id="menu"><ul>
-            <li><a href="/about/">about</a></li>
-        </ul></nav><!-- /#menu -->
-<section id="content" class="body">
-  <header>
-    <h2 class="entry-title">
-      <a href="/im-porting-stuff-to-python-3-and-im-loving-it/" rel="bookmark"
-         title="Permalink to I'm porting stuff to Python 3. And I'm loving it.">I'm porting stuff to Python 3. And I'm loving it.</a></h2>
- 
-  </header>
-  <footer class="post-info">
-    <abbr class="published" title="2015-06-20T14:09:04+05:30">
-      Sat 20 June 2015
-    </abbr>
-    <address class="vcard author">
-      By           <a class="url fn" href="/author/tarashish-mishra.html">Tarashish Mishra</a>
-    </address>
-  </footer><!-- /.post-info -->
-  <div class="entry-content">
-    <p>GSoC update time! In case you didn't read my previous post, I'm <a href="http://sunu.in/on-summer-of-code/">participating in GSoC</a> and porting <a href="https://github.com/scrapinghub/splash">Splash</a> to Python 3.</p>
+    <div class="navwrap">
+        <div class="navigation pure-menu pure-menu-horizontal">
+            <a href="/" class="pure-menu-heading  pure-menu-link">sunu's weblog</a>
+            <ul class="pure-menu-list">
+                <li class="pure-menu-item"></li>
+
+                <li class="pure-menu-item"><a href="/about/" class="pure-menu-link">about</a></li>
+                <li class="pure-menu-item pure-menu-selected"><a href="/category/on-code.html" class="pure-menu-link">on code</a></li>
+            </ul>
+        </div>
+    </div>
+
+
+<div class="page-container">
+    <div class="entry-content">
+        <div class="post-meta pure-g">
+            <div class="pure-u-3-4 meta-data">
+                <a href="/category/on-code.html" class="category">on code</a><br />
+
+                <a class="author" href="/author/tarashish-mishra.html">Tarashish Mishra</a>
+                &mdash; <abbr title="2015-06-20T14:09:04+05:30">Sat 20 June 2015</abbr>
+            </div>
+        </div>
+    </div>
+
+    <div class="article-header-container">
+        <div class="background-image-container">
+
+            <div class="background-image-small">
+                <div class="title-container">
+                    <h1>I'm porting stuff to Python 3. And I'm loving it.</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="entry-content">
+        <p>GSoC update time! In case you didn't read my previous post, I'm <a href="http://sunu.in/on-summer-of-code/">participating in GSoC</a> and porting <a href="https://github.com/scrapinghub/splash">Splash</a> to Python 3.</p>
 <p>Quick update on what has been done so far. The pull request to add support for Qt5 and PyQt5 has been merged into the <a href="https://github.com/scrapinghub/splash/tree/qt5">qt5 branch</a>. The plan is to merge it into <code>master</code> after Python 3 porting and some other cleanup(fixing the docs, Vagrantfile etc) is done.</p>
 <p>So now on to Python 3 porting.</p>
 <p>The main road block in porting Splash to Python 3 is that some dependencies don't (fully) support Python 3 yet. The major one at that is <a href="https://twistedmatrix.com/trac/">Twisted</a>. But the good thing is the most used parts of Twisted already support Python 3 and the developers behind Twisted are actively working on porting more and more modules. Also Twisted has a fairly well laid out <a href="https://twistedmatrix.com/trac/wiki/Plan/Python3">guide for Python 3 porting</a> and the community is really responsive with feedback and reviews. Thanks to that I have ported a module already and working on porting <code>twisted.web.proxy</code> for now.</p>
 <p>Among other dependencies, <a href="https://github.com/sunu/qt5reactor">my fork of qt5reactor</a> is Python 3 compatible. And <a href="https://github.com/axiak/pyre2/">pyre2</a>, a faster drop-in replacement of the <code>re</code> module from standard library, is now Python 3 compatible after <a href="https://github.com/axiak/pyre2/pull/31">my PR</a> was merged.</p>
 <p>For now, I'm porting the Splash code base one test at a time. Splash has a good test coverage and lots of tests. So that's working in my favor. That and <a href="https://docs.python.org/2/library/pdb.html">pdb</a>.</p>
 <p>That's all I have to share for now. Thanks for reading.</p>
-  </div><!-- /.entry-content -->
-</section>
-        <footer id="contentinfo" class="body">
-                <address id="about" class="vcard body">
-                Proudly powered by <a href="http://getpelican.com/">Pelican</a>,
-                which takes great advantage of <a href="http://python.org">Python</a>.
-                </address><!-- /#about -->
-        </footer><!-- /#contentinfo -->
+    </div>
+
+    <footer>
+        <div class="tags">
+            <a href="/tag/python.html">python</a>
+            <a href="/tag/gsoc.html">gsoc</a>
+        </div>
+        <div class="pure-g post-footer">
+            <div class="pure-u-1 pure-u-md-1-2">
+                <div class="pure-g poster-info">
+                    <div class="pure-u">
+                        <a href="/author/tarashish-mishra.html"><img src="http://2.gravatar.com/avatar/b7c7c168cd76bbae514d1c97f55b8fee" alt=""></a>
+                    </div>
+                    <div class="pure-u-3-4">
+                        <h3 class="author-name"><a href="/author/tarashish-mishra.html">Tarashish Mishra</a></h3>
+                        <p class="author-description">
+                          
+            Professional code whisperer. Taming wild computers for a living.
+        
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+
+
+    </footer>
+
+    <div class="entry-content">
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            var disqus_shortname = 'sunuin';
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+    </div>
+
+</div>
+
+
+
+    <footer class="index-footer">
+
+        <a href="/" title="sunu's weblog">sunu's weblog</a>
+        <a href="/about/">about</a>
+        <a href="/category/on-code.html">on code</a>
+
+    </footer>
+
 </body>
 </html>
