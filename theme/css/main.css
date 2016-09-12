@@ -136,6 +136,8 @@ div.main-container {
       margin: 0; }
   div.main-container div.pagination {
     width: 580px; }
+  div.main-container div.intro {
+    text-align: left; }
 
 footer.index-footer {
   width: 100%;
