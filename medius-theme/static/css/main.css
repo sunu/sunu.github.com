@@ -23,6 +23,9 @@ html, button, input, select, textarea,
 a {
   color: #9b50ba; }
 
+td {
+  padding: 5px;}
+
 div.metabar-container {
   height: 65px;
   position: absolute;
@@ -50,7 +53,8 @@ div.post-content, div.entry-content {
   div.post-content h3, div.post-content h4, div.post-content h5, div.post-content h6, div.entry-content h3, div.entry-content h4, div.entry-content h5, div.entry-content h6 {
     font-weight: 300; }
   div.post-content a, div.entry-content a {
-    color: rgba(0, 0, 0, 0.8); }
+    color: #223;
+    font-weight: 500;}
   div.post-content img, div.entry-content img {
     max-width: 100%; }
   div.post-content hr, div.entry-content hr {
